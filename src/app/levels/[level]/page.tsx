@@ -12,10 +12,10 @@ import { Search, BookOpenIcon, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 export default function LevelPage({ params }: { params: { level: string } }) {
-  const { level } = params;
+  const level = parseInt(params.level, 10);
   const [searchTerm, setSearchTerm] = useState('');
   
-  const levelWords = useMemo(() => words.filter(word => word.difficulty === level), [level]);
+  const levelWords = useMemo(() => words.filter(word => word.level === level), [level]);
 
   // We need to manage learned state for each word on this page
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
@@ -33,8 +33,6 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   const learnedCount = Object.values(learnedWords).filter(Boolean).length;
   const progressPercentage = levelWords.length > 0 ? (learnedCount / levelWords.length) * 100 : 0;
   
-  const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -57,11 +55,11 @@ export default function LevelPage({ params }: { params: { level: string } }) {
           <div className="mb-8">
             <Link href="/" className="flex items-center text-sm text-muted-foreground hover:text-foreground mb-4">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Levels
+              Back to Learning Journey
             </Link>
             <div className="text-center">
                 <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
-                    {capitalize(level)} Level
+                    Chapter {level}
                 </h1>
                 <p className="mt-4 text-lg text-muted-foreground md:text-xl">
                     Master these {levelWords.length} words to advance your learning.
@@ -79,7 +77,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
               <Input
                 type="search"
-                placeholder="Search this level..."
+                placeholder="Search this chapter..."
                 className="w-full pl-10"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}

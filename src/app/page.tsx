@@ -2,30 +2,19 @@
 "use client";
 
 import { ThemeToggle } from '@/components/theme-toggle';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenIcon, Zap, Gem, Shield } from 'lucide-react';
-
-const levelIcons = {
-  easy: <Zap className="h-8 w-8 text-green-500" />,
-  medium: <Gem className="h-8 w-8 text-blue-500" />,
-  hard: <Shield className="h-8 w-8 text-red-500" />,
-};
+import { ArrowRight, BookOpenIcon, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
 
-  const levels = ['easy', 'medium', 'hard'];
-
-  const getLevelStats = (level: string) => {
-    return words.filter(word => word.difficulty === level).length;
-  };
-
-  const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+  const levels = Array.from(new Set(words.map(w => w.level))).sort((a, b) => a - b);
+  const totalWords = words.length;
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-secondary/20">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
           <div className="mr-4 flex">
@@ -48,36 +37,46 @@ export default function Home() {
               Your Learning Journey
             </h1>
             <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-              Select a level to begin mastering the core words of the Quran.
+              Master the core words of the Quran, one chapter at a time.
             </p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
-            {levels.map(level => (
-              <Card key={level} className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1">
-                <CardHeader className="flex-row items-center gap-4">
-                  {levelIcons[level as keyof typeof levelIcons]}
-                  <div>
-                    <CardTitle className="font-headline text-3xl">{capitalize(level)}</CardTitle>
-                    <CardDescription>{getLevelStats(level)} words</CardDescription>
+
+          <div className="relative max-w-2xl mx-auto">
+            <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2"></div>
+            
+            <div className="space-y-12">
+              {levels.map((level, index) => {
+                const levelWords = words.filter(w => w.level === level);
+                const wordCount = levelWords.length;
+                
+                return (
+                  <div key={level} className="relative flex items-center">
+                    <div className="absolute left-1/2 -translate-x-1/2 z-10">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background">
+                        {level}
+                      </div>
+                    </div>
+
+                    <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
+                      <div className="flex items-center">
+                        <div className={`w-2 h-24 bg-primary ${index % 2 === 0 ? 'rounded-l-lg' : 'rounded-r-lg order-2'}`}></div>
+                        <div className="p-6 flex-1">
+                          <h2 className="font-headline text-2xl font-semibold">Chapter {level}</h2>
+                          <p className="text-muted-foreground">{wordCount} words</p>
+                          <Link href={`/levels/${level}`} className="mt-4 inline-block">
+                            <Button>
+                              Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </Card>
                   </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground">
-                    {level === 'easy' && 'Start with the most common and foundational words.'}
-                    {level === 'medium' && 'Build upon your foundation with more nuanced words.'}
-                    {level === 'hard' && 'Challenge yourself with less frequent and complex words.'}
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Link href={`/levels/${level}`} className="w-full">
-                    <Button className="w-full">
-                      Start Learning <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            ))}
+                );
+              })}
+            </div>
           </div>
+
         </div>
       </main>
       <footer className="py-6 md:px-8 md:py-0 border-t bg-background">
