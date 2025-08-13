@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useState, useEffect, useMemo } from 'react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,15 +14,41 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
+import { Progress } from '@/components/ui/progress';
 
+const STORAGE_KEY = 'quranic-lexica-learned-words';
 
 export default function Home() {
+  const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
 
-  const highFrequencyWords = words.filter(w => w.category === 'high-frequency');
-  const uniqueRoots = words.filter(w => w.category === 'unique-root');
-  const uniqueWordForms = words.filter(w => w.category === 'unique-word-form');
+  useEffect(() => {
+    try {
+      const storedLearnedWords = localStorage.getItem(STORAGE_KEY);
+      if (storedLearnedWords) {
+        setLearnedWords(JSON.parse(storedLearnedWords));
+      }
+    } catch (error) {
+      console.error("Failed to load learned words from localStorage", error);
+    }
+    
+    // Listen for storage changes from other tabs/windows
+    const handleStorageChange = (e: StorageEvent) => {
+        if (e.key === STORAGE_KEY && e.newValue) {
+            setLearnedWords(JSON.parse(e.newValue));
+        }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+        window.removeEventListener('storage', handleStorageChange);
+    };
 
+  }, []);
+
+  const highFrequencyWords = useMemo(() => words.filter(w => w.category === 'high-frequency'), []);
+  const uniqueRoots = useMemo(() => words.filter(w => w.category === 'unique-root'), []);
+  const uniqueWordForms = useMemo(() => words.filter(w => w.category === 'unique-word-form'), []);
+  
   const getChaptersForCategory = (wordsInCategory: Word[]) => {
     const chapters = wordsInCategory.reduce((acc, word) => {
       if (!acc[word.chapter]) {
@@ -33,22 +60,36 @@ export default function Home() {
   
     return Object.entries(chapters).map(([chapterName, words]) => ({
       name: chapterName,
-      wordCount: words.length,
+      words: words,
       level: words[0].level // Use the level of the first word for the link
     }));
   };
 
-  const highFrequencyChapters = getChaptersForCategory(highFrequencyWords);
-  const uniqueRootChapters = getChaptersForCategory(uniqueRoots);
-  const uniqueWordFormChapters = getChaptersForCategory(uniqueWordForms);
+  const highFrequencyChapters = useMemo(() => getChaptersForCategory(highFrequencyWords), [highFrequencyWords]);
+  const uniqueRootChapters = useMemo(() => getChaptersForCategory(uniqueRoots), [uniqueRoots]);
+  const uniqueWordFormChapters = useMemo(() => getChaptersForCategory(uniqueWordForms), [uniqueWordForms]);
 
+  const calculateProgress = (words: Word[]) => {
+    if (words.length === 0) return { count: 0, total: 0, percentage: 0 };
+    const learnedCount = words.filter(w => learnedWords[w.id]).length;
+    return {
+        count: learnedCount,
+        total: words.length,
+        percentage: (learnedCount / words.length) * 100
+    };
+  };
 
-  const JourneySection = ({ chapters }: { chapters: { name: string, wordCount: number, level: number }[] }) => (
+  const highFrequencyProgress = useMemo(() => calculateProgress(highFrequencyWords), [highFrequencyWords, learnedWords]);
+  const uniqueRootsProgress = useMemo(() => calculateProgress(uniqueRoots), [uniqueRoots, learnedWords]);
+  const uniqueWordFormsProgress = useMemo(() => calculateProgress(uniqueWordForms), [uniqueWordForms, learnedWords]);
+
+  const JourneySection = ({ chapters }: { chapters: { name: string, words: Word[], level: number }[] }) => (
     <div className="relative max-w-2xl mx-auto">
         <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2"></div>
         
         <div className="space-y-12">
-          {chapters.map(({ name, wordCount, level }, index) => {
+          {chapters.map(({ name, words, level }, index) => {
+            const chapterProgress = calculateProgress(words);
             return (
               <div key={name} className="relative flex items-center">
                 <div className="absolute left-1/2 -translate-x-1/2 z-10">
@@ -59,11 +100,18 @@ export default function Home() {
 
                 <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
                   <div className="flex items-center">
-                    <div className={`w-2 h-24 bg-primary ${index % 2 === 0 ? 'rounded-l-lg' : 'rounded-r-lg order-2'}`}></div>
+                    <div className={`w-2 h-full bg-primary ${index % 2 === 0 ? 'rounded-l-lg' : 'rounded-r-lg order-2'}`}></div>
                     <div className="p-6 flex-1">
                       <h3 className="font-headline text-2xl font-semibold">{name}</h3>
-                      <p className="text-muted-foreground">{wordCount} words</p>
-                      <Link href={`/levels/${level}`} className="mt-4 inline-block">
+                      <p className="text-muted-foreground">{words.length} words</p>
+                      <div className="my-4">
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-xs font-semibold text-primary">Progress</span>
+                          <span className="text-xs font-semibold text-primary">{chapterProgress.count} / {chapterProgress.total}</span>
+                        </div>
+                        <Progress value={chapterProgress.percentage} className="h-2" />
+                      </div>
+                      <Link href={`/levels/${level}`} className="mt-2 inline-block">
                         <Button>
                           Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -77,6 +125,33 @@ export default function Home() {
         </div>
       </div>
   );
+
+  const AccordionTriggerWithProgress = ({ icon, title, description, progress }: { icon: React.ElementType, title: string, description: string, progress: { count: number, total: number, percentage: number } }) => (
+     <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
+        <div className='w-full'>
+            <div className="flex items-center space-x-6">
+                <Icon icon={icon} />
+                <div className='flex-1'>
+                    <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
+                        {title}
+                    </h2>
+                    <p className="mt-2 text-md text-muted-foreground">
+                        {description}
+                    </p>
+                </div>
+            </div>
+            {progress.total > 0 && (
+                <div className="mt-4 px-2">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-sm font-semibold text-primary">Overall Progress</span>
+                      <span className="text-sm font-semibold text-primary">{progress.count} / {progress.total}</span>
+                    </div>
+                    <Progress value={progress.percentage} className="h-2 bg-secondary" />
+                </div>
+            )}
+        </div>
+    </AccordionTrigger>
+  )
 
   return (
     <div className="flex flex-col min-h-screen bg-secondary/20">
@@ -108,19 +183,12 @@ export default function Home() {
 
           <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8" defaultValue={['item-1']}>
             <AccordionItem value="item-1" className="border-b-0">
-                <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
-                    <div className="flex items-center space-x-6">
-                        <Icon icon={Zap} />
-                        <div>
-                            <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
-                                High-Frequency Words
-                            </h2>
-                            <p className="mt-2 text-md text-muted-foreground">
-                                Focus on the most common ~400 words. Recognize and understand ~80% of the words you see on any page. You will get the general gist of most verses.
-                            </p>
-                        </div>
-                    </div>
-                </AccordionTrigger>
+                <AccordionTriggerWithProgress 
+                    icon={Zap}
+                    title="High-Frequency Words"
+                    description="Focus on the most common ~400 words. Recognize and understand ~80% of the words you see on any page. You will get the general gist of most verses."
+                    progress={highFrequencyProgress}
+                />
               <AccordionContent className="pt-8">
                 <JourneySection 
                   chapters={highFrequencyChapters}
@@ -129,19 +197,12 @@ export default function Home() {
             </AccordionItem>
             
             <AccordionItem value="item-2" className="border-b-0">
-                <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
-                    <div className="flex items-center space-x-6">
-                        <Icon icon={Gem} />
-                        <div>
-                            <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
-                                Unique Roots
-                            </h2>
-                            <p className="mt-2 text-md text-muted-foreground">
-                                Master ~1,800 unique roots. Unlock a deep and comprehensive understanding of the entire Quranic vocabulary. This is the long-term goal for mastery.
-                            </p>
-                        </div>
-                    </div>
-                </AccordionTrigger>
+                <AccordionTriggerWithProgress
+                    icon={Gem}
+                    title="Unique Roots"
+                    description="Master ~1,800 unique roots. Unlock a deep and comprehensive understanding of the entire Quranic vocabulary. This is the long-term goal for mastery."
+                    progress={uniqueRootsProgress}
+                />
               <AccordionContent className="pt-8">
                  <JourneySection 
                   chapters={uniqueRootChapters}
@@ -150,19 +211,12 @@ export default function Home() {
             </AccordionItem>
 
             <AccordionItem value="item-3" className="border-b-0">
-                 <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
-                    <div className="flex items-center space-x-6">
-                        <Icon icon={Layers} />
-                        <div>
-                            <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
-                                Unique Word Forms
-                            </h2>
-                            <p className="mt-2 text-md text-muted-foreground">
-                                The technical total, but not a practical number for a learner to focus on. This section is for advanced learners.
-                            </p>
-                        </div>
-                    </div>
-                </AccordionTrigger>
+                 <AccordionTriggerWithProgress
+                    icon={Layers}
+                    title="Unique Word Forms"
+                    description="The technical total, but not a practical number for a learner to focus on. This section is for advanced learners."
+                    progress={uniqueWordFormsProgress}
+                />
               <AccordionContent className="pt-8">
                  <JourneySection 
                   chapters={uniqueWordFormChapters}

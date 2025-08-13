@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { WordCard } from '@/components/word-card';
 import { words } from '@/data/words';
 import type { Word } from '@/types';
@@ -11,26 +11,44 @@ import { Progress } from '@/components/ui/progress';
 import { Search, BookOpenIcon, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
+const STORAGE_KEY = 'quranic-lexica-learned-words';
+
 export default function LevelPage({ params }: { params: { level: string } }) {
   const level = parseInt(params.level, 10);
   const [searchTerm, setSearchTerm] = useState('');
   
   const levelWords = useMemo(() => words.filter(word => word.level === level), [level]);
 
-  // We need to manage learned state for each word on this page
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
 
-  const handleLearnedChange = (wordId: number, learned: boolean) => {
-    setLearnedWords(prev => ({ ...prev, [wordId]: learned }));
-  };
+  useEffect(() => {
+    try {
+      const storedLearnedWords = localStorage.getItem(STORAGE_KEY);
+      if (storedLearnedWords) {
+        setLearnedWords(JSON.parse(storedLearnedWords));
+      }
+    } catch (error) {
+      console.error("Failed to load learned words from localStorage", error);
+    }
+  }, []);
 
+  const handleLearnedChange = (wordId: number, learned: boolean) => {
+    const newLearnedWords = { ...learnedWords, [wordId]: learned };
+    setLearnedWords(newLearnedWords);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newLearnedWords));
+    } catch (error) {
+        console.error("Failed to save learned words to localStorage", error);
+    }
+  };
+  
   const filteredWords = levelWords.filter(word =>
     word.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
     word.meanings.english.toLowerCase().includes(searchTerm.toLowerCase()) ||
     word.arabic.includes(searchTerm)
   );
 
-  const learnedCount = Object.values(learnedWords).filter(Boolean).length;
+  const learnedCount = levelWords.filter(word => learnedWords[word.id]).length;
   const progressPercentage = levelWords.length > 0 ? (learnedCount / levelWords.length) * 100 : 0;
   
   const chapterName = levelWords.length > 0 ? levelWords[0].chapter : '';
