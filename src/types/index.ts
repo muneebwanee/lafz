@@ -7,4 +7,5 @@ export type Word = {
     urdu: string;
     hinglish: string;
   };
+  difficulty: 'easy' | 'medium' | 'hard';
 };

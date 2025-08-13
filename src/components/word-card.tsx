@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -13,8 +14,13 @@ import { Loader2, Sparkles } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Separator } from './ui/separator';
 
-export function WordCard({ word }: { word: Word }) {
-    const [learned, setLearned] = useState(false);
+interface WordCardProps {
+    word: Word;
+    isLearned: boolean;
+    onLearnedChange: (learned: boolean) => void;
+}
+
+export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
     const [examples, setExamples] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -39,7 +45,7 @@ export function WordCard({ word }: { word: Word }) {
     };
 
     return (
-        <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1">
+        <Card className={`flex flex-col h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1 ${isLearned ? 'bg-primary/5' : ''}`}>
             <CardHeader>
                 <div className="flex justify-between items-start">
                     <div className='flex-1'>
@@ -48,7 +54,7 @@ export function WordCard({ word }: { word: Word }) {
                     </div>
                     <div className="flex items-center space-x-2 pl-4">
                         <Label htmlFor={`learned-${word.id}`} className="text-sm text-muted-foreground">Learned</Label>
-                        <Switch id={`learned-${word.id}`} checked={learned} onCheckedChange={setLearned} aria-label="Mark as learned" />
+                        <Switch id={`learned-${word.id}`} checked={isLearned} onCheckedChange={onLearnedChange} aria-label="Mark as learned" />
                     </div>
                 </div>
             </CardHeader>
