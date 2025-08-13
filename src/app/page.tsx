@@ -2,16 +2,70 @@
 "use client";
 
 import { ThemeToggle } from '@/components/theme-toggle';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenIcon, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, BookOpenIcon, Zap, Gem } from 'lucide-react';
+import type { Word } from '@/types';
 
 export default function Home() {
 
-  const levels = Array.from(new Set(words.map(w => w.level))).sort((a, b) => a - b);
-  const totalWords = words.length;
+  const highFrequencyWords = words.filter(w => w.category === 'high-frequency');
+  const uniqueRoots = words.filter(w => w.category === 'unique-root');
+
+  const highFrequencyLevels = Array.from(new Set(highFrequencyWords.map(w => w.level))).sort((a, b) => a - b);
+  const uniqueRootLevels = Array.from(new Set(uniqueRoots.map(w => w.level))).sort((a, b) => a - b);
+
+  const JourneySection = ({ title, description, icon: Icon, words, levels }: { title: string, description: string, icon: React.ElementType, words: Word[], levels: number[] }) => (
+    <section className="mb-16">
+      <div className="text-center mb-12">
+        <Icon className="h-12 w-12 mx-auto mb-4 text-primary" />
+        <h2 className="text-3xl font-extrabold tracking-tight lg:text-4xl font-headline">
+          {title}
+        </h2>
+        <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
+          {description}
+        </p>
+      </div>
+
+      <div className="relative max-w-2xl mx-auto">
+        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2"></div>
+        
+        <div className="space-y-12">
+          {levels.map((level, index) => {
+            const levelWords = words.filter(w => w.level === level);
+            const wordCount = levelWords.length;
+            
+            return (
+              <div key={level} className="relative flex items-center">
+                <div className="absolute left-1/2 -translate-x-1/2 z-10">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background">
+                    {level}
+                  </div>
+                </div>
+
+                <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
+                  <div className="flex items-center">
+                    <div className={`w-2 h-24 bg-primary ${index % 2 === 0 ? 'rounded-l-lg' : 'rounded-r-lg order-2'}`}></div>
+                    <div className="p-6 flex-1">
+                      <h3 className="font-headline text-2xl font-semibold">Chapter {level}</h3>
+                      <p className="text-muted-foreground">{wordCount} words</p>
+                      <Link href={`/levels/${level}`} className="mt-4 inline-block">
+                        <Button>
+                          Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 
   return (
     <div className="flex flex-col min-h-screen bg-secondary/20">
@@ -32,7 +86,7 @@ export default function Home() {
       </header>
       <main className="flex-1">
         <div className="container py-8 md:py-12">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
               Your Learning Journey
             </h1>
@@ -41,41 +95,21 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="relative max-w-2xl mx-auto">
-            <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2"></div>
-            
-            <div className="space-y-12">
-              {levels.map((level, index) => {
-                const levelWords = words.filter(w => w.level === level);
-                const wordCount = levelWords.length;
-                
-                return (
-                  <div key={level} className="relative flex items-center">
-                    <div className="absolute left-1/2 -translate-x-1/2 z-10">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background">
-                        {level}
-                      </div>
-                    </div>
-
-                    <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
-                      <div className="flex items-center">
-                        <div className={`w-2 h-24 bg-primary ${index % 2 === 0 ? 'rounded-l-lg' : 'rounded-r-lg order-2'}`}></div>
-                        <div className="p-6 flex-1">
-                          <h2 className="font-headline text-2xl font-semibold">Chapter {level}</h2>
-                          <p className="text-muted-foreground">{wordCount} words</p>
-                          <Link href={`/levels/${level}`} className="mt-4 inline-block">
-                            <Button>
-                              Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
-                            </Button>
-                          </Link>
-                        </div>
-                      </div>
-                    </Card>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          <JourneySection 
+            title="High-Frequency Words"
+            description="Focus on the most common ~400 words. Recognize and understand ~80% of the words you see on any page. You will get the general gist of most verses."
+            icon={Zap}
+            words={highFrequencyWords}
+            levels={highFrequencyLevels}
+          />
+          
+          <JourneySection 
+            title="Unique Roots"
+            description="Master ~1,800 unique roots. Unlock a deep and comprehensive understanding of the entire Quranic vocabulary. This is the long-term goal for mastery."
+            icon={Gem}
+            words={uniqueRoots}
+            levels={uniqueRootLevels}
+          />
 
         </div>
       </main>
