@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenIcon, Zap, Gem, Layers, ChevronDown } from 'lucide-react';
+import { ArrowRight, BookOpenIcon, Zap, Gem, Layers } from 'lucide-react';
 import type { Word } from '@/types';
 import {
   Accordion,
@@ -22,25 +22,38 @@ export default function Home() {
   const uniqueRoots = words.filter(w => w.category === 'unique-root');
   const uniqueWordForms = words.filter(w => w.category === 'unique-word-form');
 
-  const highFrequencyLevels = Array.from(new Set(highFrequencyWords.map(w => w.level))).sort((a, b) => a - b);
-  const uniqueRootLevels = Array.from(new Set(uniqueRoots.map(w => w.level))).sort((a, b) => a - b);
-  const uniqueWordFormLevels = Array.from(new Set(uniqueWordForms.map(w => w.level))).sort((a, b) => a - b);
+  const getChaptersForCategory = (wordsInCategory: Word[]) => {
+    const chapters = wordsInCategory.reduce((acc, word) => {
+      if (!acc[word.chapter]) {
+        acc[word.chapter] = [];
+      }
+      acc[word.chapter].push(word);
+      return acc;
+    }, {} as Record<string, Word[]>);
+  
+    return Object.entries(chapters).map(([chapterName, words]) => ({
+      name: chapterName,
+      wordCount: words.length,
+      level: words[0].level // Use the level of the first word for the link
+    }));
+  };
+
+  const highFrequencyChapters = getChaptersForCategory(highFrequencyWords);
+  const uniqueRootChapters = getChaptersForCategory(uniqueRoots);
+  const uniqueWordFormChapters = getChaptersForCategory(uniqueWordForms);
 
 
-  const JourneySection = ({ title, description, icon: Icon, words, levels }: { title: string, description:string, icon: React.ElementType, words: Word[], levels: number[] }) => (
+  const JourneySection = ({ chapters }: { chapters: { name: string, wordCount: number, level: number }[] }) => (
     <div className="relative max-w-2xl mx-auto">
         <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2"></div>
         
         <div className="space-y-12">
-          {levels.map((level, index) => {
-            const levelWords = words.filter(w => w.level === level);
-            const wordCount = levelWords.length;
-            
+          {chapters.map(({ name, wordCount, level }, index) => {
             return (
-              <div key={level} className="relative flex items-center">
+              <div key={name} className="relative flex items-center">
                 <div className="absolute left-1/2 -translate-x-1/2 z-10">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background">
-                    {level}
+                    {index + 1}
                   </div>
                 </div>
 
@@ -48,7 +61,7 @@ export default function Home() {
                   <div className="flex items-center">
                     <div className={`w-2 h-24 bg-primary ${index % 2 === 0 ? 'rounded-l-lg' : 'rounded-r-lg order-2'}`}></div>
                     <div className="p-6 flex-1">
-                      <h3 className="font-headline text-2xl font-semibold">Chapter {level}</h3>
+                      <h3 className="font-headline text-2xl font-semibold">{name}</h3>
                       <p className="text-muted-foreground">{wordCount} words</p>
                       <Link href={`/levels/${level}`} className="mt-4 inline-block">
                         <Button>
@@ -93,11 +106,11 @@ export default function Home() {
             </p>
           </div>
 
-          <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8">
+          <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8" defaultValue={['item-1']}>
             <AccordionItem value="item-1" className="border-b-0">
                 <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
                     <div className="flex items-center space-x-6">
-                        <Icon className="h-12 w-12 text-primary flex-shrink-0" />
+                        <Icon icon={Zap} />
                         <div>
                             <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
                                 High-Frequency Words
@@ -110,11 +123,7 @@ export default function Home() {
                 </AccordionTrigger>
               <AccordionContent className="pt-8">
                 <JourneySection 
-                  title="High-Frequency Words"
-                  description="Focus on the most common ~400 words. Recognize and understand ~80% of the words you see on any page. You will get the general gist of most verses."
-                  icon={Zap}
-                  words={highFrequencyWords}
-                  levels={highFrequencyLevels}
+                  chapters={highFrequencyChapters}
                 />
               </AccordionContent>
             </AccordionItem>
@@ -122,7 +131,7 @@ export default function Home() {
             <AccordionItem value="item-2" className="border-b-0">
                 <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
                     <div className="flex items-center space-x-6">
-                        <Icon className="h-12 w-12 text-primary flex-shrink-0" />
+                        <Icon icon={Gem} />
                         <div>
                             <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
                                 Unique Roots
@@ -134,12 +143,8 @@ export default function Home() {
                     </div>
                 </AccordionTrigger>
               <AccordionContent className="pt-8">
-                <JourneySection 
-                  title="Unique Roots"
-                  description="Master ~1,800 unique roots. Unlock a deep and comprehensive understanding of the entire Quranic vocabulary. This is the long-term goal for mastery."
-                  icon={Gem}
-                  words={uniqueRoots}
-                  levels={uniqueRootLevels}
+                 <JourneySection 
+                  chapters={uniqueRootChapters}
                 />
               </AccordionContent>
             </AccordionItem>
@@ -147,7 +152,7 @@ export default function Home() {
             <AccordionItem value="item-3" className="border-b-0">
                  <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
                     <div className="flex items-center space-x-6">
-                        <Icon className="h-12 w-12 text-primary flex-shrink-0" />
+                        <Icon icon={Layers} />
                         <div>
                             <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
                                 Unique Word Forms
@@ -159,12 +164,8 @@ export default function Home() {
                     </div>
                 </AccordionTrigger>
               <AccordionContent className="pt-8">
-                <JourneySection 
-                  title="Unique Word Forms"
-                  description="The technical total, but not a practical number for a learner to focus on. This section is for advanced learners."
-                  icon={Layers}
-                  words={uniqueWordForms}
-                  levels={uniqueWordFormLevels}
+                 <JourneySection 
+                  chapters={uniqueWordFormChapters}
                 />
               </AccordionContent>
             </AccordionItem>
@@ -184,8 +185,8 @@ export default function Home() {
   );
 }
 
-const Icon = ({ className, ...props }: { className: string }) => (
-    <div className={`flex items-center justify-center rounded-lg bg-primary/10 p-3 ${className}`}>
-        <Zap className="h-6 w-6 text-primary" />
+const Icon = ({ icon: IconComponent }: { icon: React.ElementType }) => (
+    <div className="flex items-center justify-center rounded-lg bg-primary/10 p-3 h-12 w-12 flex-shrink-0">
+        <IconComponent className="h-6 w-6 text-primary" />
     </div>
 );

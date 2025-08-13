@@ -33,6 +33,8 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   const learnedCount = Object.values(learnedWords).filter(Boolean).length;
   const progressPercentage = levelWords.length > 0 ? (learnedCount / levelWords.length) * 100 : 0;
   
+  const chapterName = levelWords.length > 0 ? levelWords[0].chapter : '';
+  
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -59,7 +61,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
             </Link>
             <div className="text-center">
                 <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
-                    Chapter {level}
+                    {chapterName || `Chapter ${level}`}
                 </h1>
                 <p className="mt-4 text-lg text-muted-foreground md:text-xl">
                     Master these {levelWords.length} words to advance your learning.

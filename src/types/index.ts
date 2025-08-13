@@ -10,4 +10,5 @@ export type Word = {
   };
   level: number;
   category: 'high-frequency' | 'unique-root' | 'unique-word-form';
+  chapter: string;
 };
