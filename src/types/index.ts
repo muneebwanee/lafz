@@ -9,5 +9,5 @@ export type Word = {
     hinglish: string;
   };
   level: number;
-  category: 'high-frequency' | 'unique-root';
+  category: 'high-frequency' | 'unique-root' | 'unique-word-form';
 };

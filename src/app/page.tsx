@@ -6,16 +6,19 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenIcon, Zap, Gem } from 'lucide-react';
+import { ArrowRight, BookOpenIcon, Zap, Gem, Layers } from 'lucide-react';
 import type { Word } from '@/types';
 
 export default function Home() {
 
   const highFrequencyWords = words.filter(w => w.category === 'high-frequency');
   const uniqueRoots = words.filter(w => w.category === 'unique-root');
+  const uniqueWordForms = words.filter(w => w.category === 'unique-word-form');
 
   const highFrequencyLevels = Array.from(new Set(highFrequencyWords.map(w => w.level))).sort((a, b) => a - b);
   const uniqueRootLevels = Array.from(new Set(uniqueRoots.map(w => w.level))).sort((a, b) => a - b);
+  const uniqueWordFormLevels = Array.from(new Set(uniqueWordForms.map(w => w.level))).sort((a, b) => a - b);
+
 
   const JourneySection = ({ title, description, icon: Icon, words, levels }: { title: string, description: string, icon: React.ElementType, words: Word[], levels: number[] }) => (
     <section className="mb-16">
@@ -109,6 +112,14 @@ export default function Home() {
             icon={Gem}
             words={uniqueRoots}
             levels={uniqueRootLevels}
+          />
+
+          <JourneySection 
+            title="Unique Word Forms"
+            description="The technical total, but not a practical number for a learner to focus on. This section is for advanced learners."
+            icon={Layers}
+            words={uniqueWordForms}
+            levels={uniqueWordFormLevels}
           />
 
         </div>

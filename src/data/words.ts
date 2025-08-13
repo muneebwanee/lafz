@@ -73,4 +73,10 @@ export const words: Word[] = [
   { id: 79, 'word': 'Khusr', 'arabic': 'خُسْر', 'meanings': { 'english': 'Loss', 'urdu': 'خسارہ', 'hinglish': 'Khasara' }, level: 5, category: 'unique-root' },
   { id: 86, 'word': 'Qadr', 'arabic': 'قَدْر', 'meanings': { 'english': 'Power, Fate', 'urdu': 'قدر', 'hinglish': 'Qadr' }, level: 5, category: 'unique-root' },
   { id: 46, 'word': 'Balad', 'arabic': 'بَلَد', 'meanings': { 'english': 'City', 'urdu': 'شہر', 'hinglish': 'Shehar' }, level: 5, category: 'unique-root' },
+
+  // Unique Word Forms
+  { id: 1000, word: 'Yasta\'jilunaka', arabic: 'يَسْتَعْجِلُونَكَ', meanings: { english: 'They ask you to hasten', urdu: 'وہ آپ سے جلدی کرنے کو کہتے ہیں', hinglish: 'Woh aapse jaldi karne ko kehte hain' }, level: 6, category: 'unique-word-form' },
+  { id: 1001, word: 'Anzalnahu', arabic: 'أَنْزَلْنَاهُ', meanings: { english: 'We sent it down', urdu: 'ہم نے اسے نازل کیا', hinglish: 'Humne ise nazil kiya' }, level: 6, category: 'unique-word-form' },
+  { id: 1002, word: 'La\'allaqum', arabic: 'لَعَلَّكُمْ', meanings: { english: 'So that you might', urdu: 'تاکہ تم', hinglish: 'Taaki tum' }, level: 6, category: 'unique-word-form' },
+  { id: 1003, word: 'Tattaqun', arabic: 'تَتَّقُونَ', meanings: { english: 'You become righteous', urdu: 'تم پرہیزگار بنو', hinglish: 'Tum parhezgaar bano' }, level: 6, category: 'unique-word-form' },
 ];
