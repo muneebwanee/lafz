@@ -6,8 +6,15 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenIcon, Zap, Gem, Layers } from 'lucide-react';
+import { ArrowRight, BookOpenIcon, Zap, Gem, Layers, ChevronDown } from 'lucide-react';
 import type { Word } from '@/types';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 export default function Home() {
 
@@ -20,19 +27,8 @@ export default function Home() {
   const uniqueWordFormLevels = Array.from(new Set(uniqueWordForms.map(w => w.level))).sort((a, b) => a - b);
 
 
-  const JourneySection = ({ title, description, icon: Icon, words, levels }: { title: string, description: string, icon: React.ElementType, words: Word[], levels: number[] }) => (
-    <section className="mb-16">
-      <div className="text-center mb-12">
-        <Icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-        <h2 className="text-3xl font-extrabold tracking-tight lg:text-4xl font-headline">
-          {title}
-        </h2>
-        <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground md:text-xl">
-          {description}
-        </p>
-      </div>
-
-      <div className="relative max-w-2xl mx-auto">
+  const JourneySection = ({ title, description, icon: Icon, words, levels }: { title: string, description:string, icon: React.ElementType, words: Word[], levels: number[] }) => (
+    <div className="relative max-w-2xl mx-auto">
         <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2"></div>
         
         <div className="space-y-12">
@@ -67,7 +63,6 @@ export default function Home() {
           })}
         </div>
       </div>
-    </section>
   );
 
   return (
@@ -98,29 +93,83 @@ export default function Home() {
             </p>
           </div>
 
-          <JourneySection 
-            title="High-Frequency Words"
-            description="Focus on the most common ~400 words. Recognize and understand ~80% of the words you see on any page. You will get the general gist of most verses."
-            icon={Zap}
-            words={highFrequencyWords}
-            levels={highFrequencyLevels}
-          />
-          
-          <JourneySection 
-            title="Unique Roots"
-            description="Master ~1,800 unique roots. Unlock a deep and comprehensive understanding of the entire Quranic vocabulary. This is the long-term goal for mastery."
-            icon={Gem}
-            words={uniqueRoots}
-            levels={uniqueRootLevels}
-          />
+          <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8">
+            <AccordionItem value="item-1" className="border-b-0">
+                <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
+                    <div className="flex items-center space-x-6">
+                        <Icon className="h-12 w-12 text-primary flex-shrink-0" />
+                        <div>
+                            <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
+                                High-Frequency Words
+                            </h2>
+                            <p className="mt-2 text-md text-muted-foreground">
+                                Focus on the most common ~400 words. Recognize and understand ~80% of the words you see on any page. You will get the general gist of most verses.
+                            </p>
+                        </div>
+                    </div>
+                </AccordionTrigger>
+              <AccordionContent className="pt-8">
+                <JourneySection 
+                  title="High-Frequency Words"
+                  description="Focus on the most common ~400 words. Recognize and understand ~80% of the words you see on any page. You will get the general gist of most verses."
+                  icon={Zap}
+                  words={highFrequencyWords}
+                  levels={highFrequencyLevels}
+                />
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-2" className="border-b-0">
+                <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
+                    <div className="flex items-center space-x-6">
+                        <Icon className="h-12 w-12 text-primary flex-shrink-0" />
+                        <div>
+                            <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
+                                Unique Roots
+                            </h2>
+                            <p className="mt-2 text-md text-muted-foreground">
+                                Master ~1,800 unique roots. Unlock a deep and comprehensive understanding of the entire Quranic vocabulary. This is the long-term goal for mastery.
+                            </p>
+                        </div>
+                    </div>
+                </AccordionTrigger>
+              <AccordionContent className="pt-8">
+                <JourneySection 
+                  title="Unique Roots"
+                  description="Master ~1,800 unique roots. Unlock a deep and comprehensive understanding of the entire Quranic vocabulary. This is the long-term goal for mastery."
+                  icon={Gem}
+                  words={uniqueRoots}
+                  levels={uniqueRootLevels}
+                />
+              </AccordionContent>
+            </AccordionItem>
 
-          <JourneySection 
-            title="Unique Word Forms"
-            description="The technical total, but not a practical number for a learner to focus on. This section is for advanced learners."
-            icon={Layers}
-            words={uniqueWordForms}
-            levels={uniqueWordFormLevels}
-          />
+            <AccordionItem value="item-3" className="border-b-0">
+                 <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
+                    <div className="flex items-center space-x-6">
+                        <Icon className="h-12 w-12 text-primary flex-shrink-0" />
+                        <div>
+                            <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
+                                Unique Word Forms
+                            </h2>
+                            <p className="mt-2 text-md text-muted-foreground">
+                                The technical total, but not a practical number for a learner to focus on. This section is for advanced learners.
+                            </p>
+                        </div>
+                    </div>
+                </AccordionTrigger>
+              <AccordionContent className="pt-8">
+                <JourneySection 
+                  title="Unique Word Forms"
+                  description="The technical total, but not a practical number for a learner to focus on. This section is for advanced learners."
+                  icon={Layers}
+                  words={uniqueWordForms}
+                  levels={uniqueWordFormLevels}
+                />
+              </AccordionContent>
+            </AccordionItem>
+
+          </Accordion>
 
         </div>
       </main>
@@ -134,3 +183,9 @@ export default function Home() {
     </div>
   );
 }
+
+const Icon = ({ className, ...props }: { className: string }) => (
+    <div className={`flex items-center justify-center rounded-lg bg-primary/10 p-3 ${className}`}>
+        <Zap className="h-6 w-6 text-primary" />
+    </div>
+);
