@@ -1,6 +1,12 @@
-import {WordCard} from '@/components/word-card';
-import {words} from '@/data/words';
-import {ThemeToggle} from '@/components/theme-toggle';
+
+"use client";
+
+import { useState } from 'react';
+import { WordCard } from '@/components/word-card';
+import { words } from '@/data/words';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
 
 function BookOpenIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -23,6 +29,14 @@ function BookOpenIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export default function Home() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredWords = words.filter(word =>
+    word.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    word.meanings.english.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    word.arabic.includes(searchTerm)
+  );
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -42,7 +56,7 @@ export default function Home() {
       </header>
       <main className="flex-1">
         <div className="container py-8 md:py-12">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
               Core Quranic Words
             </h1>
@@ -50,11 +64,29 @@ export default function Home() {
               Master these core words to unlock your understanding of the Quran.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {words.map(word => (
-              <WordCard key={word.id} word={word} />
-            ))}
+          <div className="mb-12 max-w-lg mx-auto">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search by word, meaning or arabic..."
+                className="w-full pl-10"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
           </div>
+          {filteredWords.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {filteredWords.map(word => (
+                <WordCard key={word.id} word={word} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center text-muted-foreground">
+              No words found. Try a different search term.
+            </div>
+          )}
         </div>
       </main>
       <footer className="py-6 md:px-8 md:py-0 border-t bg-background">
