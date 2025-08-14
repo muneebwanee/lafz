@@ -14,21 +14,10 @@ import { AppHeader } from '@/components/app-header';
 const LEARNED_WORDS_STORAGE_KEY = 'lafz-learned-words';
 const USER_POINTS_STORAGE_KEY = 'lafz-user-points';
 
-// ✅ Tell Next.js which dynamic pages to build at export time
-export async function generateStaticParams() {
-  // Get all unique levels from the words data
-  const levels = Array.from(new Set(words.map(w => w.level)));
-
-  // Return them in the format Next.js expects
-  return levels.map(level => ({
-    level: String(level) // must be string
-  }));
-}
-
 export default function LevelPage({ params }: { params: { level: string } }) {
   const level = parseInt(params.level, 10);
   const [searchTerm, setSearchTerm] = useState('');
-
+  
   const levelWords = useMemo(() => words.filter(word => word.level === level), [level]);
   const maxLevel = useMemo(() => Math.max(...words.map(w => w.level)), []);
 
@@ -64,7 +53,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
     const pointsChange = learned ? 10 : -10;
     const newPoints = Math.max(0, userPoints + pointsChange);
     setUserPoints(newPoints);
-
+    
     try {
       localStorage.setItem(LEARNED_WORDS_STORAGE_KEY, JSON.stringify(newLearnedWords));
       localStorage.setItem(USER_POINTS_STORAGE_KEY, newPoints.toString());
@@ -73,7 +62,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
       console.error("Failed to save to localStorage", error);
     }
   };
-
+  
   const filteredWords = levelWords.filter(word =>
     word.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
     word.meanings.english.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -82,11 +71,11 @@ export default function LevelPage({ params }: { params: { level: string } }) {
 
   const learnedCount = levelWords.filter(word => learnedWords[word.id]).length;
   const progressPercentage = levelWords.length > 0 ? (learnedCount / levelWords.length) * 100 : 0;
-
+  
   const chapterName = levelWords.length > 0 ? levelWords[0].chapter : '';
-
+  
   if (!isMounted) {
-    return null; // Or a loading spinner
+    return null;
   }
 
   return (
@@ -104,9 +93,11 @@ export default function LevelPage({ params }: { params: { level: string } }) {
               </p>
             </div>
             <div className="mt-8 max-w-xl mx-auto">
-              <div className='flex items-center gap-4'>
+              <div className="flex items-center gap-4">
                 <Progress value={progressPercentage} className="w-full h-3" variant="accent" />
-                <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{learnedCount} / {levelWords.length}</span>
+                <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
+                  {learnedCount} / {levelWords.length}
+                </span>
               </div>
             </div>
           </div>
@@ -125,8 +116,8 @@ export default function LevelPage({ params }: { params: { level: string } }) {
           {filteredWords.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredWords.map(word => (
-                <WordCard
-                  key={word.id}
+                <WordCard 
+                  key={word.id} 
                   word={word}
                   isLearned={!!learnedWords[word.id]}
                   onLearnedChange={(learned) => handleLearnedChange(word.id, learned)}
