@@ -19,10 +19,12 @@ export default function FeaturesPage() {
     {
       title: 'Gamification & Achievements',
       description: 'Earn points, badges, and unlock new levels to make learning more engaging and fun.',
+      status: 'upcoming',
     },
     {
         title: 'Pronunciation Audio',
         description: 'Listen to the correct pronunciation for each word to improve your listening and speaking skills.',
+        status: 'upcoming',
     },
     {
         title: 'Community Suggestions',
