@@ -12,9 +12,9 @@ export const highFrequencyChapter1: Word[] = [
     chapter: 'Core Particles & Conjunctions',
     pronunciationUrl: '/audio/words/bi.mp3',
     examples: {
-      english: ['بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ - In the name of Allah, the Entirely Merciful, the Especially Merciful.'],
-      urdu: ['بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ - اللہ کے نام سے جو بے انتہا مہربان اور نہایت رحم والا ہے۔'],
-      hinglish: ['Bismillāhi r-raḥmāni r-raḥīm - Allah ke naam se jo bahut meherban aur nihayat reham wala hai.'],
+      english: ['بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ - <b>In</b> the name of Allah, the Entirely Merciful, the Especially Merciful.', 'فَسَبِّحْ <b>بِ</b>حَمْدِ رَبِّكَ - Then exalt [Him] <b>with</b> praise of your Lord'],
+      urdu: ['بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ - اللہ کے نام <b>سے</b> جو بے انتہا مہربان اور نہایت رحم والا ہے۔', 'فَسَبِّحْ <b>بِ</b>حَمْدِ رَبِّكَ - تو اپنے رب کی حمد <b>کے ساتھ</b> تسبیح بیان کرو'],
+      hinglish: ['Bismillāhi r-raḥmāni r-raḥīm - Allah ke naam <b>se</b> jo bahut meherban aur nihayat reham wala hai.', 'fasabbiḥ <b>bi</b>ḥamdi rabbika - Toh apne Rab ki hamd <b>ke saath</b> tasbeeh bayaan karo'],
     }
   },
   { 
@@ -27,9 +27,9 @@ export const highFrequencyChapter1: Word[] = [
     chapter: 'Core Particles & Conjunctions',
     pronunciationUrl: '/audio/words/wa.mp3',
     examples: {
-      english: ['الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ - [All] praise is [due] to Allah, Lord of the worlds -', 'الرَّحْمَٰنِ الرَّحِيمِ - The Entirely Merciful, the Especially Merciful,'],
-      urdu: ['الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ - تمام تعریفیں اللہ ہی کے لئے ہیں جو تمام جہانوں کا رب ہے۔', 'الرَّحْمَٰنِ الرَّحِيمِ - جو بے انتہا مہربان اور نہایت رحم والا ہے۔'],
-      hinglish: ['Alḥamdu lillāhi rabbi l-ʿālamīn - Tamam taarifein Allah hi ke liye hain jo tamam jahanon ka Rab hai.', 'Ar-raḥmāni r-raḥīm - Jo bahut meherban aur nihayat reham wala hai.'],
+      english: ['إِيَّاكَ نَعْبُدُ <b>وَ</b>إِيَّاكَ نَسْتَعِينُ - It is You we worship <b>and</b> You we ask for help.', 'وَأَقِيمُوا الصَّلَاةَ <b>وَ</b>آتُوا الزَّكَاةَ - And establish prayer <b>and</b> give zakah'],
+      urdu: ['إِيَّاكَ نَعْبُدُ <b>وَ</b>إِيَّاكَ نَسْتَعِينُ - ہم تیری ہی عبادت کرتے ہیں <b>اور</b> تجھ ہی سے مدد مانگتے ہیں۔', 'وَأَقِيمُوا الصَّلَاةَ <b>وَ</b>آتُوا الزَّكَاةَ - <b>اور</b> نماز قائم کرو <b>اور</b> زکوٰۃ دو'],
+      hinglish: ['Iyyāka naʿbudu <b>wa</b>-iyyāka nastaʿīn - Hum teri hi ibadat karte hain <b>aur</b> tujh hi se madad mangte hain.', '<b>wa</b>-aqīmū l-ṣalāta <b>wa</b>-ātū l-zakāta - <b>Aur</b> namaz qayam karo <b>aur</b> zakat do'],
     }
   },
   { 
@@ -42,9 +42,9 @@ export const highFrequencyChapter1: Word[] = [
     chapter: 'Core Particles & Conjunctions',
     pronunciationUrl: '/audio/words/fa.mp3',
     examples: {
-      english: ["فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ - So as for the orphan, do not oppress [him]."],
-      urdu: ["فَأَمَّا الْيَتِيمَ فَلَا تَقْهَرْ - تو یتیم پر سختی نہ کیا کر"],
-      hinglish: ["Fa-ammā l-yatīma falā taqhar - Toh yatim par sakhti na kiya kar"],
+      english: ["فَأَمَّا الْيَتِيمَ <b>فَ</b>لَا تَقْهَرْ - <b>So</b> as for the orphan, do not oppress [him].", "فَإِذَا فَرَغْتَ <b>فَ</b>انْصَبْ - <b>So</b> when you have finished [your duties], <b>then</b> stand up [for worship]."],
+      urdu: ["فَأَمَّا الْيَتِيمَ <b>فَ</b>لَا تَقْهَرْ - <b>تو</b> یتیم پر سختی نہ کیا کر", "فَإِذَا فَرَغْتَ <b>فَ</b>انْصَبْ - <b>تو</b> جب آپ فارغ ہوں <b>تو</b> محنت کریں۔"],
+      hinglish: ["Fa-ammā l-yatīma <b>fa</b>lā taqhar - <b>Toh</b> yatim par sakhti na kiya kar", "fa-idhā faraghta <b>fa</b>nṣab - <b>Toh</b> jab aap farigh hon <b>toh</b> mehnat karein."],
     }
   },
   { 
@@ -57,9 +57,9 @@ export const highFrequencyChapter1: Word[] = [
     chapter: 'Core Particles & Conjunctions',
     pronunciationUrl: '/audio/words/thumma.mp3',
     examples: {
-        english: ["ثُمَّ لَتَرَوُنَّهَا عَيْنَ الْيَقِينِ - Then you will surely see it with the eye of certainty."],
-        urdu: ["ثُمَّ لَتَرَوُنَّهَا عَيْنَ الْيَقِينِ - پھر تم اسے بالکل یقینی طور پر دیکھ لو گے۔"],
-        hinglish: ["Thumma lataraāwunnahā ʿayna l-yaqīn - Phir tum use bilkul yaqeeni taur par dekh loge."],
+        english: ["<b>ثُمَّ</b> لَتَرَوُنَّهَا عَيْنَ الْيَقِينِ - <b>Then</b> you will surely see it with the eye of certainty.", "خَلَقَكُمْ مِنْ تُرَابٍ <b>ثُمَّ</b> مِنْ نُطْفَةٍ - He created you from dust, <b>then</b> from a sperm-drop"],
+        urdu: ["<b>ثُمَّ</b> لَتَرَوُنَّهَا عَيْنَ الْيَقِينِ - <b>پھر</b> تم اسے بالکل یقینی طور پر دیکھ لو گے۔", "خَلَقَكُمْ مِنْ تُرَابٍ <b>ثُمَّ</b> مِنْ نُطْفَةٍ - اس نے تمہیں مٹی سے پیدا کیا، <b>پھر</b> ایک نطفہ سے۔"],
+        hinglish: ["<b>Thumma</b> lataraāwunnahā ʿayna l-yaqīn - <b>Phir</b> tum use bilkul yaqeeni taur par dekh loge.", "khalaqakum min turābin <b>thumma</b> min nuṭfatin - Usne tumhein mitti se paida kiya, <b>phir</b> ek nutfa se."],
     }
   },
   { id: 5, word: 'aw', arabic: 'أَوْ', meanings: { english: 'or', urdu: 'یا', hinglish: 'ya' }, level: 1, category: 'high-frequency', chapter: 'Core Particles & Conjunctions', pronunciationUrl: '/audio/words/aw.mp3' },

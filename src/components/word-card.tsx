@@ -111,7 +111,9 @@ export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
                 <ScrollArea className="max-h-[60vh] pr-4">
                   <div className="space-y-4 py-4">
                      <ul className="list-decimal list-inside text-muted-foreground space-y-3">
-                         {examples.map((ex, i) => <li key={i}><span className={activeTab === 'urdu' ? 'font-serif text-lg' : ''}>{ex}</span></li>)}
+                         {examples.map((ex, i) => (
+                            <li key={i} dangerouslySetInnerHTML={{ __html: `<span class="${activeTab === 'urdu' ? 'font-serif text-lg' : ''}">${ex}</span>` }} />
+                        ))}
                      </ul>
                   </div>
                 </ScrollArea>

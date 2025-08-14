@@ -5,41 +5,41 @@ export const highFrequencyChapter3: Word[] = [
   { id: 56, word: 'Allāh', arabic: 'ٱللَّٰه', meanings: { english: 'Allah', urdu: 'اللہ', hinglish: 'Allah' }, level: 3, category: 'high-frequency', chapter: 'Nouns, Pointers & Relatives',
     pronunciationUrl: '/audio/words/Allah.mp3',
     examples: {
-      english: ['قُلْ هُوَ اللَّهُ أَحَدٌ - Say, "He is Allah, [who is] One."'],
-      urdu: ['قُلْ هُوَ اللَّهُ أَحَدٌ - کہہ دو کہ وہ اللہ ایک ہے۔'],
-      hinglish: ['Qul huwa Allāhu aḥad - Keh do ke woh Allah ek hai.']
+      english: ['قُلْ هُوَ <b>اللَّهُ</b> أَحَدٌ - Say, "He is <b>Allah</b>, [who is] One."', '<b>اللَّهُ</b> الصَّمَدُ - <b>Allah</b>, the Eternal Refuge.'],
+      urdu: ['قُلْ هُوَ <b>اللَّهُ</b> أَحَدٌ - کہہ دو کہ وہ <b>اللہ</b> ایک ہے۔', '<b>اللَّهُ</b> الصَّمَدُ - <b>اللہ</b> بے نیاز ہے۔'],
+      hinglish: ['Qul huwa <b>Allāhu</b> aḥad - Keh do ke woh <b>Allah</b> ek hai.', '<b>Allāhu</b> ṣ-ṣamad - <b>Allah</b> be-niyaz hai.']
     }
   },
   { id: 57, word: 'Rabb', arabic: 'رَبّ', meanings: { english: 'Lord', urdu: 'رب', hinglish: 'Rabb' }, level: 3, category: 'high-frequency', chapter: 'Nouns, Pointers & Relatives',
     pronunciationUrl: '/audio/words/Rabb.mp3',
     examples: {
-      english: ['الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ - [All] praise is [due] to Allah, Lord of the worlds'],
-      urdu: ['الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ - تمام تعریفیں اللہ ہی کے لئے ہیں جو تمام جہانوں کا رب ہے۔'],
-      hinglish: ['Alḥamdu lillāhi rabbi l-ʿālamīn - Tamam taarifein Allah hi ke liye hain jo tamam jahanon ka Rab hai.']
+      english: ['الْحَمْدُ لِلَّهِ <b>رَبِّ</b> الْعَالَمِينَ - [All] praise is [due] to Allah, <b>Lord</b> of the worlds', 'قُلْ أَعُوذُ بِ<b>رَبِّ</b> الْفَلَقِ - Say, "I seek refuge in the <b>Lord</b> of daybreak"'],
+      urdu: ['الْحَمْدُ لِلَّهِ <b>رَبِّ</b> الْعَالَمِينَ - تمام تعریفیں اللہ ہی کے لئے ہیں جو تمام جہانوں کا <b>رب</b> ہے۔', 'قُلْ أَعُوذُ بِ<b>رَبِّ</b> الْفَلَقِ - کہہ دو کہ میں صبح کے <b>رب</b> کی پناہ مانگتا ہوں۔'],
+      hinglish: ['Alḥamdu lillāhi <b>rabbi</b> l-ʿālamīn - Tamam taarifein Allah hi ke liye hain jo tamam jahanon ka <b>Rab</b> hai.', 'qul aʿūdhu bi-<b>rabb</b>i l-falaqi - Keh do ke main subah ke <b>Rab</b> ki panah mangta hoon.']
     }
   },
   { id: 58, word: 'Ilāh', arabic: 'إِلَٰه', meanings: { english: 'God', urdu: 'الہ', hinglish: 'Ilah' }, level: 3, category: 'high-frequency', chapter: 'Nouns, Pointers & Relatives',
     pronunciationUrl: '/audio/words/Ilah.mp3',
     examples: {
-      english: ['لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ - There is no deity except You; exalted are You.'],
-      urdu: ['لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ - تیرے سوا کوئی معبود نہیں، تو پاک ہے۔'],
-      hinglish: ['Lā ilāha illā anta subḥānaka - Tere siwa koi ma\'bood nahi, tu paak hai.']
+      english: ['لَا <b>إِلَٰهَ</b> إِلَّا أَنْتَ سُبْحَانَكَ - There is no <b>deity</b> except You; exalted are You.', 'وَقَالَ اللَّهُ لَا تَتَّخِذُوا <b>إِلَٰهَيْنِ</b> اثْنَيْنِ - And Allah has said, "Do not take for yourselves two <b>deities</b>."'],
+      urdu: ['لَا <b>إِلَٰهَ</b> إِلَّا أَنْتَ سُبْحَانَكَ - تیرے سوا کوئی <b>معبود</b> نہیں، تو پاک ہے۔', 'وَقَالَ اللَّهُ لَا تَتَّخِذُوا <b>إِلَٰهَيْنِ</b> اثْنَيْنِ - اور اللہ نے فرمایا ہے کہ دو <b>معبود</b> نہ بناؤ۔'],
+      hinglish: ['Lā <b>ilāha</b> illā anta subḥānaka - Tere siwa koi <b>ma\'bood</b> nahi, tu paak hai.', 'wa-qāla l-lāhu lā tattakhidhū <b>ilāhayni</b> ithnayni - Aur Allah ne farmaya hai ke do <b>ma\'bood</b> na banao.']
     }
   },
   { id: 59, word: 'Rahmān', arabic: 'رَحْمَٰن', meanings: { english: 'The Most Gracious', urdu: 'رحمٰن', hinglish: 'Rahman' }, level: 3, category: 'high-frequency', chapter: 'Nouns, Pointers & Relatives',
     pronunciationUrl: '/audio/words/Rahman.mp3',
     examples: {
-      english: ['الرَّحْمَٰنُ عَلَى الْعَرْشِ اسْتَوَىٰ - The Most Merciful [who is] above the Throne established.'],
-      urdu: ['الرَّحْمَٰنُ عَلَى الْعَرْشِ اسْتَوَىٰ - رحمٰن عرش پر قائم ہے۔'],
-      hinglish: ['Ar-raḥmānu ʿalā l-ʿarshi stawā - Rahman arsh par qayam hai.']
+      english: ['<b>الرَّحْمَٰنُ</b> عَلَى الْعَرْشِ اسْتَوَىٰ - The <b>Most Merciful</b> [who is] above the Throne established.', 'بِسْمِ اللَّهِ <b>الرَّحْمَٰنِ</b> الرَّحِيمِ - In the name of Allah, the <b>Entirely Merciful</b>, the Especially Merciful.'],
+      urdu: ['<b>الرَّحْمَٰنُ</b> عَلَى الْعَرْشِ اسْتَوَىٰ - <b>رحمٰن</b> عرش پر قائم ہے۔', 'بِسْمِ اللَّهِ <b>الرَّحْمَٰنِ</b> الرَّحِيمِ - اللہ کے نام سے جو بے انتہا <b>مہربان</b> اور نہایت رحم والا ہے۔'],
+      hinglish: ['Ar-<b>raḥmānu</b> ʿalā l-ʿarshi stawā - <b>Rahman</b> arsh par qayam hai.', 'bismi l-lāhi r-<b>raḥmāni</b> r-raḥīmi - Allah ke naam se jo bahut <b>meherban</b> aur nihayat reham wala hai.']
     }
   },
   { id: 60, word: 'Rahīm', arabic: 'رَحِيم', meanings: { english: 'The Most Merciful', urdu: 'رحیم', hinglish: 'Rahim' }, level: 3, category: 'high-frequency', chapter: 'Nouns, Pointers & Relatives',
     pronunciationUrl: '/audio/words/Rahim.mp3',
     examples: {
-      english: ['وَكَانَ بِالْمُؤْمِنِينَ رَحِيمًا - And ever is He, to the believers, Merciful.'],
-      urdu: ['وَكَانَ بِالْمُؤْمِنِينَ رَحِيمًا - اور وہ مومنوں پر بہت مہربان ہے۔'],
-      hinglish: ['Wa-kāna bi-l-mu\'minīna raḥīmā - Aur woh mominon par bahut meherban hai.']
+      english: ['وَكَانَ بِالْمُؤْمِنِينَ <b>رَحِيمًا</b> - And ever is He, to the believers, <b>Merciful</b>.', 'إِنَّهُ هُوَ التَّوَّابُ <b>الرَّحِيمُ</b> - Indeed, He is the Accepting of repentance, the <b>Merciful</b>.'],
+      urdu: ['وَكَانَ بِالْمُؤْمِنِينَ <b>رَحِيمًا</b> - اور وہ مومنوں پر بہت <b>مہربان</b> ہے۔', 'إِنَّهُ هُوَ التَّوَّابُ <b>الرَّحِيمُ</b> - بیشک وہ توبہ قبول کرنے والا، <b>رحم</b> کرنے والا ہے۔'],
+      hinglish: ['Wa-kāna bi-l-mu\'minīna <b>raḥīmā</b> - Aur woh mominon par bahut <b>meherban</b> hai.', 'innahu huwa t-tawwābu r-<b>raḥīmu</b> - Beshak woh tauba qubool karne wala, <b>reham</b> karne wala hai.']
     }
   },
   { id: 61, word: 'Insān', arabic: 'إِنْسَان', meanings: { english: 'human', urdu: 'انسان', hinglish: 'insan' }, level: 3, category: 'high-frequency', chapter: 'Nouns, Pointers & Relatives', pronunciationUrl: '/audio/words/Insan.mp3' },

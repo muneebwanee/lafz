@@ -12,9 +12,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/huwa.mp3',
     examples: {
-      english: ['قُلْ هُوَ اللَّهُ أَحَدٌ - Say, "He is Allah, [who is] One."'],
-      urdu: ['قُلْ هُوَ اللَّهُ أَحَدٌ - کہہ دو کہ وہ اللہ ایک ہے۔'],
-      hinglish: ['Qul huwa Allāhu aḥad - Keh do ke woh Allah ek hai.']
+      english: ['قُلْ <b>هُوَ</b> اللَّهُ أَحَدٌ - Say, "<b>He</b> is Allah, [who is] One."', 'وَ<b>هُوَ</b> عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ - And <b>He</b> is over all things competent.'],
+      urdu: ['قُلْ <b>هُوَ</b> اللَّهُ أَحَدٌ - کہہ دو کہ <b>وہ</b> اللہ ایک ہے۔', 'وَ<b>هُوَ</b> عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ - اور <b>وہ</b> ہر چیز پر قادر ہے۔'],
+      hinglish: ['Qul <b>huwa</b> Allāhu aḥad - Keh do ke <b>woh</b> Allah ek hai.', 'wa-<b>huwa</b> ʿalā kulli shayʾin qadīr - Aur <b>woh</b> har cheez par qadir hai.']
     }
   },
   { 
@@ -27,9 +27,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/hiya.mp3',
     examples: {
-      english: ['وَمَا أَدْرَاكَ مَا هِيَهْ - And what can make you know what that is?'],
-      urdu: ['وَمَا أَدْرَاكَ مَا هِيَهْ - اور تم کیا جانو کہ وہ کیا ہے؟'],
-      hinglish: ['Wa mā adrāka mā hiyah - Aur tum kya jaano ke woh kya hai?']
+      english: ['وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> - And what can make you know what <b>that is</b>?', 'فَأُمُّهُ هَاوِيَةٌ ﴿٩﴾ وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> ﴿١٠﴾ نَارٌ حَامِيَةٌ - His refuge will be the Pit. And what can make you know what <b>it</b> is? It is a Fire, intensely hot.'],
+      urdu: ['وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> - اور تم کیا جانو کہ <b>وہ</b> کیا ہے؟', 'فَأُمُّهُ هَاوِيَةٌ ﴿٩﴾ وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> ﴿١٠﴾ نَارٌ حَامِيَةٌ - تو اس کا ٹھکانا ہاویہ ہے۔ اور تم کیا جانو کہ <b>وہ</b> کیا ہے؟ ایک دہکتی ہوئی آگ۔'],
+      hinglish: ['Wa mā adrāka mā <b>hiyah</b> - Aur tum kya jaano ke <b>woh</b> kya hai?', 'fa-ummuhu hāwiyatun, wa mā adrāka mā <b>hiyah</b>, nārun ḥāmiyah - Toh uska thikana Hawiyah hai. Aur tum kya jaano ke <b>woh</b> kya hai? Ek dehekti hui aag.']
     }
   },
   { 
@@ -42,9 +42,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/hum.mp3',
     examples: {
-      english: ['أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ - Those are upon [right] guidance from their Lord, and it is those who are the successful.'],
-      urdu: ['أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ - یہی لوگ اپنے رب کی طرف سے ہدایت پر ہیں اور یہی لوگ فلاح پانے والے ہیں۔'],
-      hinglish: ['Ulā\'ika \'alā hudan min rabbihim wa-ulā\'ika humu l-mufliḥūn - Yahi log apne Rab ki taraf se hidayat par hain aur yahi log falah paane wale hain.']
+      english: ['أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ <b>هُمُ</b> الْمُفْلِحُونَ - Those are upon [right] guidance from their Lord, and it is those who are the successful.', 'وَالَّذِينَ <b>هُمْ</b> لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ - And they who are to their trusts and their promises attentive.'],
+      urdu: ['أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ <b>هُمُ</b> الْمُفْلِحُونَ - یہی لوگ اپنے رب کی طرف سے ہدایت پر ہیں اور یہی <b>لوگ</b> فلاح پانے والے ہیں۔', 'وَالَّذِينَ <b>هُمْ</b> لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ - اور <b>وہ</b> جو اپنی امانتوں اور اپنے عہد کا پاس رکھنے والے ہیں۔'],
+      hinglish: ['Ulā\'ika \'alā hudan min rabbihim wa-ulā\'ika <b>humu</b> l-mufliḥūn - Yahi log apne Rab ki taraf se hidayat par hain aur yahi <b>log</b> falah paane wale hain.', 'walladhīna <b>hum</b> li-amānātihim wa-ʿahdihim rāʿūna - Aur <b>woh</b> jo apni amanaton aur apne ahd ka paas rakhne wale hain.']
     }
   },
   { 
@@ -57,9 +57,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/anta.mp3',
     examples: {
-      english: ['قَالُوا أَأَنْتَ فَعَلْتَ هَٰذَا بِآلِهَتِنَا يَا إِبْرَاهِيمُ - They said, "Have you done this to our gods, O Abraham?"'],
-      urdu: ['قَالُوا أَأَنْتَ فَعَلْتَ هَٰذَا بِآلِهَتِنَا يَا إِبْرَاهِيمُ - انہوں نے کہا، "اے ابراہیم! کیا تم نے ہمارے معبودوں کے ساتھ یہ کیا ہے؟"'],
-      hinglish: ['Qālū a-anta faʿalta hādhā bi-ālihatinā yā Ibrāhīm - Unhon ne kaha, "Aye Ibrahim! Kya tumne hamare ma\'boodon ke saath yeh kiya hai?"']
+      english: ['قَالُوا أَ<b>أَنْتَ</b> فَعَلْتَ هَٰذَا بِآلِهَتِنَا يَا إِبْرَاهِيمُ - They said, "Have <b>you</b> done this to our gods, O Abraham?"', 'إِنَّكَ <b>أَنْتَ</b> الْعَلِيمُ الْحَكِيمُ - Indeed, <b>You</b> are the Knowing, the Wise.'],
+      urdu: ['قَالُوا أَ<b>أَنْتَ</b> فَعَلْتَ هَٰذَا بِآلِهَتِنَا يَا إِبْرَاهِيمُ - انہوں نے کہا، "اے ابراہیم! کیا <b>تم</b> نے ہمارے معبودوں کے ساتھ یہ کیا ہے؟"', 'إِنَّكَ <b>أَنْتَ</b> الْعَلِيمُ الْحَكِيمُ - بیشک <b>تو</b> ہی علم والا، حکمت والا ہے۔'],
+      hinglish: ['Qālū a-<b>anta</b> faʿalta hādhā bi-ālihatinā yā Ibrāhīm - Unhon ne kaha, "Aye Ibrahim! Kya <b>tum</b>ne hamare ma\'boodon ke saath yeh kiya hai?"', 'innaka <b>anta</b> l-ʿalīmu l-ḥakīmu - Beshak <b>Tu</b> hi ilm wala, hikmat wala hai.']
     }
   },
   { 
@@ -72,9 +72,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/antum.mp3',
     examples: {
-      english: ['ثُمَّ أَنْتُمْ هَٰؤُلَاءِ تَقْتُلُونَ أَنْفُسَكُمْ - Then, you are those [same ones who are] killing one another...'],
-      urdu: ['ثُمَّ أَنْتُمْ هَٰؤُلَاءِ تَقْتُلُونَ أَنْفُسَكُمْ - پھر تم وہی ہو جو ایک دوسرے کو قتل کرتے ہو...'],
-      hinglish: ['Thumma antum hā\'ulā\'i taqtulūna anfusakum - Phir tum wahi ho jo ek doosre ko qatl karte ho...']
+      english: ['ثُمَّ <b>أَنْتُمْ</b> هَٰؤُلَاءِ تَقْتُلُونَ أَنْفُسَكُمْ - Then, <b>you</b> are those [same ones who are] killing one another...', 'وَاللَّهُ مَعَكُمْ وَ<b>أَنْتُمُ</b> الْأَعْلَوْنَ - and Allah is with you, and <b>you</b> will be superior.'],
+      urdu: ['ثُمَّ <b>أَنْتُمْ</b> هَٰؤُلَاءِ تَقْتُلُونَ أَنْفُسَكُمْ - پھر <b>تم</b> وہی ہو جو ایک دوسرے کو قتل کرتے ہو...', 'وَاللَّهُ مَعَكُمْ وَ<b>أَنْتُمُ</b> الْأَعْلَوْنَ - اور اللہ تمہارے ساتھ ہے اور <b>تم ہی</b> غالب رہو گے۔'],
+      hinglish: ['Thumma <b>antum</b> hā\'ulā\'i taqtulūna anfusakum - Phir <b>tum</b> wahi ho jo ek doosre ko qatl karte ho...', 'wallāhu maʿakum wa-<b>antumu</b> l-aʿlawna - Aur Allah tumhare saath hai aur <b>tum hi</b> ghalib rahoge.']
     }
   },
   { 
@@ -87,9 +87,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/ana.mp3',
     examples: {
-      english: ['قَالَ إِنِّي عَبْدُ اللَّهِ آتَانِيَ الْكِتَابَ وَجَعَلَنِي نَبِيًّا - [Jesus] said, "Indeed, I am the servant of Allah. He has given me the Scripture and made me a prophet."'],
-      urdu: ['قَالَ إِنِّي عَبْدُ اللَّهِ آتَانِيَ الْكِتَابَ وَجَعَلَنِي نَبِيًّا - [عیسیٰ نے] کہا، "میں اللہ کا بندہ ہوں۔ اس نے مجھے کتاب دی ہے اور مجھے نبی بنایا ہے۔"'],
-      hinglish: ['Qāla innī ʿabdu Allāh, ātāniya al-kitāba wa-jaʿalanī nabiyyā - [Isa ne] kaha, "Main Allah ka banda hoon. Usne mujhe kitab di hai aur mujhe nabi banaya hai."']
+      english: ['قَالَ إِنِّي عَبْدُ اللَّهِ - [Jesus] said, "Indeed, <b>I</b> am the servant of Allah."', 'إِنَّنِي <b>أَنَا</b> اللَّهُ لَا إِلَٰهَ إِلَّا <b>أَنَا</b> - Indeed, <b>I</b> am Allah. There is no deity except <b>Me</b>'],
+      urdu: ['قَالَ إِنِّي عَبْدُ اللَّهِ - [عیسیٰ نے] کہا، "<b>میں</b> اللہ کا بندہ ہوں۔"', 'إِنَّنِي <b>أَنَا</b> اللَّهُ لَا إِلَٰهَ إِلَّا <b>أَنَا</b> - بے شک <b>میں</b> ہی اللہ ہوں، میرے سوا کوئی معبود نہیں ۔'],
+      hinglish: ['Qāla innī ʿabdu Allāh - [Isa ne] kaha, "<b>Main</b> Allah ka banda hoon."', 'innanī <b>ana</b> l-lāhu lā ilāha illā <b>ana</b> - Beshak <b>main</b> hi Allah hoon, mere siwa koi ma\'bood nahi.']
     }
   },
   { 
@@ -102,9 +102,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/nahnu.mp3',
     examples: {
-      english: ['إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ - Indeed, it is We who sent down the Qur\'an and indeed, We will be its guardian.'],
-      urdu: ['إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ - بے شک ہم نے ہی اس ذکر (قرآن) کو نازل کیا ہے اور ہم ہی اس کے محافظ ہیں۔'],
-      hinglish: ['Innā naḥnu nazzalnā adh-dhikra wa-innā lahu laḥāfiẓūn - Beshak humne hi is zikr (Quran) ko nazil kiya hai aur hum hi iske muhafiz hain.']
+      english: ['إِنَّا <b>نَحْنُ</b> نَزَّلْنَا الذِّكْرَ - Indeed, it is <b>We</b> who sent down the Qur\'an.', '<b>نَحْنُ</b> نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ - <b>We</b> relate to you, [O Muhammad], the best of stories'],
+      urdu: ['إِنَّا <b>نَحْنُ</b> نَزَّلْنَا الذِّكْرَ - بے شک <b>ہم</b> نے ہی اس ذکر (قرآن) کو نازل کیا ہے۔', '<b>نَحْنُ</b> نَقُصُّ عَلَيْكَ أَحْسَنَ الْقَصَصِ - <b>ہم</b> آپ کے سامنے بہترین قصہ بیان کرتے ہیں۔'],
+      hinglish: ['Innā <b>naḥnu</b> nazzalnā adh-dhikra - Beshak <b>hum</b>ne hi is zikr (Quran) ko nazil kiya hai.', '<b>naḥnu</b> naquṣṣu ʿalayka aḥsana l-qaṣaṣi - <b>Hum</b> aap ke saamne behtareen qissa bayan karte hain.']
     }
   },
   { 
@@ -117,9 +117,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/hu.mp3',
     examples: {
-      english: ['مَالِكِ يَوْمِ الدِّينِ - Sovereign of the Day of Recompense. His is the dominion...'],
-      urdu: ['مَالِكِ يَوْمِ الدِّينِ - جزا کے دن کا مالک۔ اسی کی بادشاہی ہے...'],
-      hinglish: ['Māliki yawmi d-dīn - Jaza ke din ka malik. Usi ki badshahi hai...']
+      english: ['مِنْ شَرِّ مَا خَلَقَ - From the evil of that which He has created.', 'قُلْ أَعُوذُ بِرَبِّ النَّاسِ - Say, "I seek refuge in the Lord of mankind,"'],
+      urdu: ['مِنْ شَرِّ مَا خَلَقَ - اس کی مخلوق کے شر سے۔', 'قُلْ أَعُوذُ بِرَبِّ النَّاسِ - کہہ دو کہ میں لوگوں کے رب کی پناہ میں آتا ہوں۔'],
+      hinglish: ['min sharri mā khalaqa - Uski makhlooq ke sharr se.', 'qul aʿūdhu birabbi n-nās - Keh do ke main logon ke Rab ki panah mein aata hoon.']
     }
   },
   { 
@@ -132,9 +132,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/ha.mp3',
     examples: {
-      english: ['فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا - And inspired it [with discernment of] its wickedness and its righteousness,'],
-      urdu: ['فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا - پھر اس کی بدی اور اس کی پرہیزگاری اس پر الہام کی۔'],
-      hinglish: ['Fa-alhamahā fujūrahā wa-taqwāhā - Phir uski badi aur uski parhezgari us par ilham ki.']
+      english: ['فَأَلْهَمَهَا فُجُورَ<b>هَا</b> وَتَقْوَاهَا - And inspired it [with discernment of] <b>its</b> wickedness and <b>its</b> righteousness,', 'فَسَوَّاهَا - And proportioned <b>it</b>.'],
+      urdu: ['فَأَلْهَمَهَا فُجُورَ<b>هَا</b> وَتَقْوَاهَا - پھر <b>اس کی</b> بدی اور <b>اس کی</b> پرہیزگاری اس پر الہام کی۔', 'فَسَوَّاهَا - پھر <b>اسے</b> ٹھیک بنایا۔'],
+      hinglish: ['Fa-alhamahā fujūra<b>hā</b> wa-taqwā<b>hā</b> - Phir <b>uski</b> badi aur <b>uski</b> parhezgari us par ilham ki.', 'fasawwā<b>hā</b> - Phir <b>usey</b> theek banaya.']
     }
   },
   { 
@@ -147,9 +147,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/hum-suffix.mp3',
     examples: {
-      english: ['صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ - The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.'],
-      urdu: ['صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ - ان لوگوں کا راستہ جن پر تو نے انعام کیا، نہ ان کا جن پر غضب کیا گیا اور نہ گمراہوں کا۔'],
-      hinglish: ['Ṣirāṭa alladhīna anʿamta ʿalayhim ghayri l-maghḍūbi ʿalayhim wa-lā ḍ-ḍāllīn - Un logon ka raasta jin par tune inaam kiya, na unka jin par ghazab kiya gaya aur na gumrahon ka.']
+      english: ['صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْ<b>هِمْ</b> - The path of those upon whom You have bestowed favor.', 'فِي قُلُوبِ<b>هِمْ</b> مَرَضٌ - In <b>their</b> hearts is a disease.'],
+      urdu: ['صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْ<b>هِمْ</b> - ان لوگوں کا راستہ جن پر تو نے انعام کیا۔', 'فِي قُلُوبِ<b>هِمْ</b> مَرَضٌ - <b>ان کے</b> دلوں میں بیماری ہے۔'],
+      hinglish: ['Ṣirāṭa alladhīna anʿamta ʿalay<b>him</b> - Un logon ka raasta jin par tune inaam kiya.', 'fī qulūbi<b>him</b> maraḍun - <b>Unke</b> dilon mein bimari hai.']
     }
   },
   { 
@@ -162,9 +162,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/ka-suffix.mp3',
     examples: {
-      english: ['إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ - Indeed, We have granted you, [O Muhammad], al-Kawthar.'],
-      urdu: ['إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ - بے شک ہم نے آپ کو کوثر عطا فرمائی ہے۔'],
-      hinglish: ['Innā aʿṭaynāka l-kawthar - Beshak humne aap ko Kausar ata farmayi hai.']
+      english: ['إِنَّا أَعْطَيْنَا<b>كَ</b> الْكَوْثَرَ - Indeed, We have granted <b>you</b>, [O Muhammad], al-Kawthar.', 'مَا وَدَّعَ<b>كَ</b> رَبُّ<b>كَ</b> وَمَا قَلَىٰ - <b>Your</b> Lord has not taken leave of <b>you</b>, [O Muhammad], nor has He detested [you].'],
+      urdu: ['إِنَّا أَعْطَيْنَا<b>كَ</b> الْكَوْثَرَ - بے شک ہم نے <b>آپ کو</b> کوثر عطا فرمائی ہے۔', 'مَا وَدَّعَ<b>كَ</b> رَبُّ<b>كَ</b> وَمَا قَلَىٰ - <b>آپ کے</b> رب نے نہ <b>آپ کو</b> چھوڑا اور نہ وہ ناراض ہوا۔'],
+      hinglish: ['Innā aʿṭaynā<b>ka</b> l-kawthar - Beshak humne <b>aap ko</b> Kausar ata farmayi hai.', 'mā waddaʿa<b>ka</b> rabbu<b>ka</b> wa-mā qalā - <b>Aap ke</b> Rab ne na <b>aap ko</b> chhoda aur na woh naraz hua.']
     }
   },
   { 
@@ -177,9 +177,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/kum.mp3',
     examples: {
-      english: ['لَكُمْ دِينُكُمْ وَلِيَ دِينِ - For you is your religion, and for me is my religion.'],
-      urdu: ['لَكُمْ دِينُكُمْ وَلِيَ دِينِ - تمہارے لئے تمہارا دین ہے اور میرے لئے میرا دین۔'],
-      hinglish: ['Lakum dīnukum waliya dīn - Tumhare liye tumhara deen hai aur mere liye mera deen.']
+      english: ['لَ<b>كُمْ</b> دِينُ<b>كُمْ</b> وَلِيَ دِينِ - For <b>you</b> is <b>your</b> religion, and for me is my religion.', 'وَخَلَقَ<b>كُمْ</b> أَطْوَارًا - And He has created <b>you</b> in stages.'],
+      urdu: ['لَ<b>كُمْ</b> دِينُ<b>كُمْ</b> وَلِيَ دِينِ - <b>تمہارے لئے تمہارا</b> دین ہے اور میرے لئے میرا دین۔', 'وَخَلَقَ<b>كُمْ</b> أَطْوَارًا - اور اس نے <b>تمہیں</b> طرح طرح سے بنایا ہے۔'],
+      hinglish: ['La<b>kum</b> dīnu<b>kum</b> waliya dīn - <b>Tumhare liye tumhara</b> deen hai aur mere liye mera deen.', 'wa-khalaqa<b>kum</b> aṭwāran - Aur usne <b>tumhein</b> tarah tarah se banaya hai.']
     }
   },
   { 
@@ -192,9 +192,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/i.mp3',
     examples: {
-      english: ['قَالَ رَبِّ اشْرَحْ لِي صَدْرِي - He said, "My Lord, expand for me my breast"'],
-      urdu: ['قَالَ رَبِّ اشْرَحْ لِي صَدْرِي - اس نے کہا "اے میرے رب! میرا سینہ میرے لئے کھول دے"'],
-      hinglish: ['Qāla rabbi-shraḥ lī ṣadrī - Usne kaha, "Aye mere Rabb! Mera seena mere liye khol de"']
+      english: ['قَالَ رَبِّ اشْرَحْ لِ<b>ي</b> صَدْرِ<b>ي</b> - He said, "<b>My</b> Lord, expand for <b>me my</b> breast"', 'قَالَ هِيَ عَصَا<b>يَ</b> - He said, "It is <b>my</b> staff"'],
+      urdu: ['قَالَ رَبِّ اشْرَحْ لِ<b>ي</b> صَدْرِ<b>ي</b> - اس نے کہا "اے <b>میرے</b> رب! <b>میرا</b> سینہ <b>میرے</b> لئے کھول دے"', 'قَالَ هِيَ عَصَا<b>يَ</b> - اس نے کہا، "یہ <b>میرا</b> عصا ہے"'],
+      hinglish: ['Qāla rabbi-shraḥ l<b>ī</b> ṣadr<b>ī</b> - Usne kaha, "Aye <b>mere</b> Rabb! <b>Mera</b> seena <b>mere</b> liye khol de"', 'qāla hiya ʿaṣā<b>ya</b> - Usne kaha, "Yeh <b>mera</b> asa hai"']
     }
   },
   { 
@@ -207,9 +207,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/ni.mp3',
     examples: {
-      english: ['قَالَ رَبِّ إِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي - He said, "My Lord, indeed I have wronged myself, so forgive me."'],
-      urdu: ['قَالَ رَبِّ إِنِّي ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي - اس نے کہا، "اے میرے رب، میں نے اپنی جان پر ظلم کیا، تو مجھے معاف فرما۔"'],
-      hinglish: ['Qāla rabbi innī ẓalamtu nafsī fa-ghfir lī - Usne kaha, "Aye mere Rab, maine apni jaan par zulm kiya, toh mujhe maaf farma."']
+      english: ['قَالَ رَبِّ إِنِّ<b>ي</b> ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي - He said, "My Lord, indeed I have wronged myself, so forgive <b>me</b>."', 'فَإِنَّهُ خَلَقَ<b>نِي</b> - for indeed, He created <b>me</b>.'],
+      urdu: ['قَالَ رَبِّ إِنِّ<b>ي</b> ظَلَمْتُ نَفْسِي فَاغْفِرْ لِي - اس نے کہا، "اے میرے رب، میں نے اپنی جان پر ظلم کیا، تو <b>مجھے</b> معاف فرما۔"', 'فَإِنَّهُ خَلَقَ<b>نِي</b> - کیونکہ اسی نے <b>مجھے</b> پیدا کیا۔'],
+      hinglish: ['Qāla rabbi inn<b>ī</b> ẓalamtu nafsī fa-ghfir lī - Usne kaha, "Aye mere Rab, maine apni jaan par zulm kiya, toh <b>mujhe</b> maaf farma."', 'fa-innahu khalaqa<b>nī</b> - Kyunki usi ne <b>mujhe</b> paida kiya.']
     }
   },
   { 
@@ -222,9 +222,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/na.mp3',
     examples: {
-      english: ['رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً - Our Lord, give us in this world [that which is] good...'],
-      urdu: ['رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً - اے ہمارے رب! ہمیں دنیا میں بھلائی عطا فرما...'],
-      hinglish: ['Rabbanā ātinā fī d-dunyā ḥasanah - Aye hamare Rab! Hamein duniya mein bhalai ata farma...']
+      english: ['رَبَّ<b>نَا</b> آتِ<b>نَا</b> فِي الدُّنْيَا حَسَنَةً - <b>Our</b> Lord, give <b>us</b> in this world [that which is] good...', 'اهْدِ<b>نَا</b> الصِّرَاطَ الْمُسْتَقِيمَ - Guide <b>us</b> to the straight path'],
+      urdu: ['رَبَّ<b>نَا</b> آتِ<b>نَا</b> فِي الدُّنْيَا حَسَنَةً - اے <b>ہمارے</b> رب! <b>ہمیں</b> دنیا میں بھلائی عطا فرما...', 'اهْدِ<b>نَا</b> الصِّرَاطَ الْمُسْتَقِيمَ - <b>ہمیں</b> سیدھے راستے کی ہدایت فرما۔'],
+      hinglish: ['Rabba<b>nā</b> āti<b>nā</b> fī d-dunyā ḥasanah - Aye <b>hamare</b> Rab! <b>Hamein</b> duniya mein bhalai ata farma...', 'ihdi<b>nā</b> l-ṣirāṭa l-mustaqīma - <b>Hamein</b> seedhe raaste ki hidayat farma.']
     }
   },
 ];
