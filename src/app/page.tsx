@@ -21,28 +21,37 @@ import { Input } from '@/components/ui/input';
 import { WordCard } from '@/components/word-card';
 import { AppHeader } from '@/components/app-header';
 
-const STORAGE_KEY = 'lafz-learned-words';
+const LEARNED_WORDS_STORAGE_KEY = 'lafz-learned-words';
+const USER_POINTS_STORAGE_KEY = 'lafz-user-points';
 
 export default function Home() {
   const { theme } = useTheme();
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
+  const [userPoints, setUserPoints] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<Word[]>([]);
   const [loadingChapter, setLoadingChapter] = useState<number | null>(null);
 
   useEffect(() => {
     try {
-      const storedLearnedWords = localStorage.getItem(STORAGE_KEY);
+      const storedLearnedWords = localStorage.getItem(LEARNED_WORDS_STORAGE_KEY);
       if (storedLearnedWords) {
         setLearnedWords(JSON.parse(storedLearnedWords));
       }
+      const storedPoints = localStorage.getItem(USER_POINTS_STORAGE_KEY);
+      if (storedPoints) {
+        setUserPoints(parseInt(storedPoints, 10));
+      }
     } catch (error) {
-      console.error("Failed to load learned words from localStorage", error);
+      console.error("Failed to load from localStorage", error);
     }
     
     const handleStorageChange = (e: StorageEvent) => {
-        if (e.key === STORAGE_KEY && e.newValue) {
+        if (e.key === LEARNED_WORDS_STORAGE_KEY && e.newValue) {
             setLearnedWords(JSON.parse(e.newValue));
+        }
+        if (e.key === USER_POINTS_STORAGE_KEY && e.newValue) {
+            setUserPoints(parseInt(e.newValue, 10));
         }
     };
     window.addEventListener('storage', handleStorageChange);
@@ -70,10 +79,18 @@ export default function Home() {
   const handleLearnedChange = (wordId: number, learned: boolean) => {
     const newLearnedWords = { ...learnedWords, [wordId]: learned };
     setLearnedWords(newLearnedWords);
+    
+    const pointsChange = learned ? 10 : -10;
+    const newPoints = Math.max(0, userPoints + pointsChange);
+    setUserPoints(newPoints);
+
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newLearnedWords));
+      localStorage.setItem(LEARNED_WORDS_STORAGE_KEY, JSON.stringify(newLearnedWords));
+      localStorage.setItem(USER_POINTS_STORAGE_KEY, newPoints.toString());
+      // Dispatch a storage event to update the header
+      window.dispatchEvent(new StorageEvent('storage', { key: USER_POINTS_STORAGE_KEY, newValue: newPoints.toString() }));
     } catch (error) {
-        console.error("Failed to save learned words to localStorage", error);
+        console.error("Failed to save to localStorage", error);
     }
   };
 
@@ -320,14 +337,3 @@ const Icon = ({ icon: IconComponent }: { icon: React.ElementType }) => (
         <IconComponent className="h-8 w-8 text-primary" />
     </div>
 );
-
-    
-
-
-
-
-
-    
-
-
-    

@@ -12,7 +12,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { AppHeader } from '@/components/app-header';
 
-const STORAGE_KEY = 'lafz-learned-words';
+const LEARNED_WORDS_STORAGE_KEY = 'lafz-learned-words';
+const USER_POINTS_STORAGE_KEY = 'lafz-user-points';
 
 export default function LevelPage({ params }: { params: { level: string } }) {
   const level = parseInt(params.level, 10);
@@ -22,25 +23,38 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   const maxLevel = useMemo(() => Math.max(...words.map(w => w.level)), []);
 
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
+  const [userPoints, setUserPoints] = useState(0);
 
   useEffect(() => {
     try {
-      const storedLearnedWords = localStorage.getItem(STORAGE_KEY);
+      const storedLearnedWords = localStorage.getItem(LEARNED_WORDS_STORAGE_KEY);
       if (storedLearnedWords) {
         setLearnedWords(JSON.parse(storedLearnedWords));
       }
+      const storedPoints = localStorage.getItem(USER_POINTS_STORAGE_KEY);
+      if (storedPoints) {
+        setUserPoints(parseInt(storedPoints, 10));
+      }
     } catch (error) {
-      console.error("Failed to load learned words from localStorage", error);
+      console.error("Failed to load from localStorage", error);
     }
   }, []);
 
   const handleLearnedChange = (wordId: number, learned: boolean) => {
     const newLearnedWords = { ...learnedWords, [wordId]: learned };
     setLearnedWords(newLearnedWords);
+
+    const pointsChange = learned ? 10 : -10;
+    const newPoints = Math.max(0, userPoints + pointsChange);
+    setUserPoints(newPoints);
+    
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newLearnedWords));
+      localStorage.setItem(LEARNED_WORDS_STORAGE_KEY, JSON.stringify(newLearnedWords));
+      localStorage.setItem(USER_POINTS_STORAGE_KEY, newPoints.toString());
+      // Dispatch a storage event to update the header
+      window.dispatchEvent(new StorageEvent('storage', { key: USER_POINTS_STORAGE_KEY, newValue: newPoints.toString() }));
     } catch (error) {
-        console.error("Failed to save learned words to localStorage", error);
+        console.error("Failed to save to localStorage", error);
     }
   };
   
@@ -130,5 +144,3 @@ export default function LevelPage({ params }: { params: { level: string } }) {
     </div>
   );
 }
-
-    
