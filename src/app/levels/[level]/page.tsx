@@ -24,8 +24,21 @@ export function generateStaticParams() {
 
 export default function LevelPage({ params }: { params: { level: string } }) {
   const level = parseInt(params.level, 10);
-  const [searchTerm, setSearchTerm] = useState('');
+  const availableLevels = useMemo(() => Array.from(new Set(words.map(w => w.level))), []);
   
+  // 🚀 Redirect if invalid level (for static export)
+  if (!availableLevels.includes(level)) {
+    return (
+      <html>
+        <head>
+          <meta httpEquiv="refresh" content="0; url=/" />
+        </head>
+        <body></body>
+      </html>
+    );
+  }
+
+  const [searchTerm, setSearchTerm] = useState('');
   const levelWords = useMemo(() => words.filter(word => word.level === level), [level]);
   const maxLevel = useMemo(() => Math.max(...words.map(w => w.level)), []);
 
