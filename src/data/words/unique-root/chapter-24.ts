@@ -1,0 +1,30 @@
+
+import type { Word } from '@/types';
+
+export const uniqueRootsChapter24: Word[] = [
+  { id: 741, word: 'm-t-ʿ', arabic: 'م ت ع', meanings: { english: 'providing for, enjoying', urdu: 'فائدہ اٹھانا', hinglish: 'Fayda uthana' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 742, word: 'm-th-l', arabic: 'م ث ل', meanings: { english: 'likeness, example', urdu: 'مثال', hinglish: 'Misaal' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 743, word: 'm-ḥ-ṣ', arabic: 'م ح ص', meanings: { english: 'purifying, testing', urdu: 'خالص کرنا، آزمانا', hinglish: 'Khaalis karna, aazmana' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 744, word: 'm-ḥ-w', arabic: 'م ح و', meanings: { english: 'erasing, wiping out', urdu: 'مٹانا', hinglish: 'Mitana' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 745, word: 'm-d-d', arabic: 'م د د', meanings: { english: 'extending, helping', urdu: 'بڑھانا، مدد کرنا', hinglish: 'Badhana, madad karna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 746, word: 'm-r-j', arabic: 'م ر ج', meanings: { english: 'mixing, letting loose', urdu: 'ملانا، چھوڑ دینا', hinglish: 'Milana, chhod dena' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 747, word: 'm-r-r', arabic: 'م ر ر', meanings: { english: 'passing by, being bitter', urdu: 'گزرنا، کڑوا ہونا', hinglish: 'Guzarna, kadwa hona' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 748, word: 'm-r-ḍ', arabic: 'م ر ض', meanings: { english: 'sickness, disease', urdu: 'بیماری', hinglish: 'Bimari' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 749, word: 'm-s-ḥ', arabic: 'م س ح', meanings: { english: 'wiping, anointing', urdu: 'مسح کرنا', hinglish: 'Masah karna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 750, word: 'm-s-s', arabic: 'م س س', meanings: { english: 'touching', urdu: 'چھونا', hinglish: 'Chhuna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 751, word: 'm-s-k', arabic: 'م س ك', meanings: { english: 'holding fast', urdu: 'مضبوطی سے پکڑنا', hinglish: 'Mazbooti se pakadna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 752, word: 'm-sh-y', arabic: 'م ش ي', meanings: { english: 'walking', urdu: 'چلنا', hinglish: 'Chalna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 753, word: 'm-ḍ-y', arabic: 'م ض ي', meanings: { english: 'passing, going on', urdu: 'گزرنا، چلتے رہنا', hinglish: 'Guzarna, chalte rehna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 754, word: 'm-ṭ-r', arabic: 'م ط ر', meanings: { english: 'raining', urdu: 'بارش ہونا', hinglish: 'Barish hona' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 755, word: 'm-k-r', arabic: 'م ك ر', meanings: { english: 'plotting', urdu: 'سازش کرنا', hinglish: 'Saazish karna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 756, word: 'm-k-n', arabic: 'م ك ن', meanings: { english: 'establishing, place', urdu: 'قائم کرنا، جگہ', hinglish: 'Qayam karna, jagah' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 757, word: 'm-l-ʾ', arabic: 'م ل ء', meanings: { english: 'filling, assembly', urdu: 'بھرنا، مجلس', hinglish: 'Bharna, majlis' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 758, word: 'm-l-k', arabic: 'م ل ك', meanings: { english: 'possessing, king, angel', urdu: 'مالک ہونا، بادشاہ، فرشتہ', hinglish: 'Malik hona, badshah, farishta' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 759, word: 'm-n-ʿ', arabic: 'م ن ع', meanings: { english: 'preventing, forbidding', urdu: 'روکنا، منع کرنا', hinglish: 'Rokna, mana karna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 760, word: 'm-n-n', arabic: 'م ن ن', meanings: { english: 'favoring, reminding of favors', urdu: 'احسان کرنا، احسان جتانا', hinglish: 'Ehsaan karna, ehsaan jatana' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 761, word: 'm-h-d', arabic: 'م ه د', meanings: { english: 'spreading out, cradle', urdu: 'بچھانا، گہوارہ', hinglish: 'Bichhana, gehwara' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 762, word: 'm-h-l', arabic: 'م ه ل', meanings: { english: 'giving respite', urdu: 'مہلت دینا', hinglish: 'Mohlat dena' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 763, word: 'm-w-t', arabic: 'م و ت', meanings: { english: 'dying, death', urdu: 'مرنا، موت', hinglish: 'Marna, maut' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 764, word: 'm-w-r', arabic: 'م و ر', meanings: { english: 'reeling, moving to and fro', urdu: 'لڑکھڑانا', hinglish: 'Ladkhadana' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+  { id: 765, word: 'm-y-z', arabic: 'م ي ز', meanings: { english: 'distinguishing, separating', urdu: 'تمیز کرنا، الگ کرنا', hinglish: 'Tameez karna, alag karna' }, level: 24, category: 'unique-root', chapter: 'Roots (م)' },
+];

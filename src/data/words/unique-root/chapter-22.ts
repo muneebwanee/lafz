@@ -1,0 +1,30 @@
+
+import type { Word } from '@/types';
+
+export const uniqueRootsChapter22: Word[] = [
+  { id: 697, word: 'k-b-d', arabic: 'ك ب د', meanings: { english: 'toil, distress', urdu: 'مشقت', hinglish: 'Mashaqqat' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 698, word: 'k-b-r', arabic: 'ك ب ر', meanings: { english: 'being great, pride', urdu: 'بڑا ہونا، تکبر', hinglish: 'Bada hona, takabbur' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 699, word: 'k-b-t', arabic: 'ك ب ت', meanings: { english: 'abasing, humiliating', urdu: 'ذلیل کرنا', hinglish: 'Zaleel karna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 700, word: 'k-t-b', arabic: 'ك ت ب', meanings: { english: 'writing, book', urdu: 'لکھنا، کتاب', hinglish: 'Likhna, kitab' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 701, word: 'k-th-r', arabic: 'ك ث ر', meanings: { english: 'being much, many', urdu: 'زیادہ ہونا', hinglish: 'Zyada hona' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 702, word: 'k-d-ḥ', arabic: 'ك د ح', meanings: { english: 'toiling, striving', urdu: 'محنت کرنا', hinglish: 'Mehnat karna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 703, word: 'k-dh-b', arabic: 'ك ذ ب', meanings: { english: 'lying, denying', urdu: 'جھوٹ بولنا، جھٹلانا', hinglish: 'Jhoot bolna, jhutlana' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 704, word: 'k-r-b', arabic: 'ك ر ب', meanings: { english: 'distress, anguish', urdu: 'تکلیف، بے چینی', hinglish: 'Takleef, bechaini' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 705, word: 'k-r-r', arabic: 'ك ر ر', meanings: { english: 'repeating, returning', urdu: 'دہرانا، لوٹنا', hinglish: 'Dohrana, lautna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 706, word: 'k-r-m', arabic: 'ك ر م', meanings: { english: 'being noble, generous', urdu: 'عزت والا ہونا، سخی ہونا', hinglish: 'Izzat wala hona, sakhi hona' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 707, word: 'k-r-h', arabic: 'ك ر ه', meanings: { english: 'disliking, hating', urdu: 'ناپسند کرنا', hinglish: 'Napasand karna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 708, word: 'k-s-b', arabic: 'ك س ب', meanings: { english: 'earning, acquiring', urdu: 'کمانا', hinglish: 'Kamana' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 709, word: 'k-s-f', arabic: 'ك س ف', meanings: { english: 'eclipsing, covering', urdu: 'گرہن لگنا، ڈھانپنا', hinglish: 'Grahan lagna, dhanpna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 710, word: 'k-ẓ-m', arabic: 'ك ظ م', meanings: { english: 'suppressing (anger)', urdu: 'غصہ پینا', hinglish: 'Gussa peena' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 711, word: 'k-f-r', arabic: 'ك ف ر', meanings: { english: 'disbelieving, covering', urdu: 'کفر کرنا، چھپانا', hinglish: 'Kufr karna, chhupana' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 712, word: 'k-f-f', arabic: 'ك ف ف', meanings: { english: 'restraining', urdu: 'روکنا', hinglish: 'Rokna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 713, word: 'k-f-l', arabic: 'ك ف ل', meanings: { english: 'sponsoring, taking care of', urdu: 'کفالت کرنا', hinglish: 'Kifalat karna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 714, word: 'k-l-f', arabic: 'ك ل ف', meanings: { english: 'burdening, charging with a duty', urdu: 'مکلف کرنا', hinglish: 'Mukallaf karna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 715, word: 'k-l-m', arabic: 'ك ل م', meanings: { english: 'speaking, word', urdu: 'کلام کرنا، بات', hinglish: 'Kalam karna, baat' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 716, word: 'k-m-l', arabic: 'ك م ل', meanings: { english: 'completing, perfecting', urdu: 'مکمل کرنا', hinglish: 'Mukammal karna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 717, word: 'k-n-z', arabic: 'ك ن ز', meanings: { english: 'hoarding, treasure', urdu: 'خزانہ جمع کرنا', hinglish: 'Khazana jama karna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 718, word: 'k-n-n', arabic: 'ك ن ن', meanings: { english: 'concealing, covering', urdu: 'چھپانا', hinglish: 'Chhupana' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 719, word: 'k-w-n', arabic: 'ك و ن', meanings: { english: 'being, existing', urdu: 'ہونا', hinglish: 'Hona' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 720, word: 'k-y-d', arabic: 'ك ي د', meanings: { english: 'plotting, scheming', urdu: 'سازش کرنا', hinglish: 'Saazish karna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+  { id: 721, word: 'k-y-l', arabic: 'ك ي ل', meanings: { english: 'measuring', urdu: 'ناپنا', hinglish: 'Naapna' }, level: 22, category: 'unique-root', chapter: 'Roots (ك)' },
+];
