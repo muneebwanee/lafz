@@ -20,9 +20,7 @@ import { Progress } from '@/components/ui/progress';
 import LightRays from '@/components/light-rays';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Input } from '@/components/ui/input';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { WordCard } from '@/components/word-card';
-import { ScrollArea } from '@/components/ui/scroll-area';
 
 const STORAGE_KEY = 'quranic-lexica-learned-words';
 
@@ -31,7 +29,6 @@ export default function Home() {
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<Word[]>([]);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -65,10 +62,8 @@ export default function Home() {
         word.arabic.includes(term)
       );
       setSearchResults(results);
-      setIsSearchOpen(true);
     } else {
       setSearchResults([]);
-      setIsSearchOpen(false);
     }
   }, []);
   
@@ -188,6 +183,27 @@ export default function Home() {
     </AccordionTrigger>
   )
 
+  const SearchResultsDisplay = () => (
+    <div className="mt-8">
+      <h2 className="text-2xl font-bold tracking-tight text-center font-headline">
+        Search Results
+      </h2>
+      <p className="text-center text-muted-foreground mb-8">
+        Found {searchResults.length} matching words for "{searchTerm}".
+      </p>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {searchResults.map(word => (
+          <WordCard
+            key={word.id}
+            word={word}
+            isLearned={!!learnedWords[word.id]}
+            onLearnedChange={(learned) => handleLearnedChange(word.id, learned)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <div className="relative flex flex-col min-h-screen bg-background isolate">
       <div className="absolute inset-0 h-full w-full -z-10">
@@ -251,87 +267,68 @@ export default function Home() {
             </div>
           </div>
           
-          <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
-            <DialogContent className="max-w-4xl">
-              <DialogHeader>
-                <DialogTitle className="font-headline">Search Results for "{searchTerm}"</DialogTitle>
-                <DialogDescription>
-                  Found {searchResults.length} matching words.
-                </DialogDescription>
-              </DialogHeader>
-              <ScrollArea className="max-h-[70vh] pr-4">
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4">
-                      {searchResults.map(word => (
-                          <WordCard
-                              key={word.id}
-                              word={word}
-                              isLearned={!!learnedWords[word.id]}
-                              onLearnedChange={(learned) => handleLearnedChange(word.id, learned)}
-                          />
-                      ))}
-                  </div>
-              </ScrollArea>
-            </DialogContent>
-          </Dialog>
+          {searchTerm.length > 1 ? (
+            <SearchResultsDisplay />
+          ) : (
+            <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8" defaultValue={['item-1']}>
+              <AccordionItem value="item-1" className="border-b-0">
+                  <AccordionTriggerWithProgress 
+                      icon={Zap}
+                      title="High-Frequency Words"
+                      progress={highFrequencyProgress}
+                  />
+                <AccordionContent className="pt-8">
+                  <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
+                      The essential first step. Master the ~400 words that make up ~80% of the Quran's text. This will give you an instant and dramatic boost in comprehension.
+                  </p>
+                  <JourneySection 
+                    chapters={highFrequencyChapters}
+                  />
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-2" className="border-b-0">
+                  <AccordionTriggerWithProgress
+                      icon={Gem}
+                      title="Unique Roots"
+                      progress={uniqueRootsProgress}
+                  />
+                <AccordionContent className="pt-8">
+                  <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
+                     Go deeper by learning the ~600 unique word roots. This will unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words. Mastering roots is the key to true fluency.
+                  </p>
+                   <JourneySection 
+                    chapters={uniqueRootChapters}
+                  />
+                </AccordionContent>
+              </AccordionItem>
 
-          <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8" defaultValue={['item-1']}>
-            <AccordionItem value="item-1" className="border-b-0">
-                <AccordionTriggerWithProgress 
-                    icon={Zap}
-                    title="High-Frequency Words"
-                    progress={highFrequencyProgress}
-                />
-              <AccordionContent className="pt-8">
-                <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
-                    The essential first step. Master the ~400 words that make up ~80% of the Quran's text. This will give you an instant and dramatic boost in comprehension.
-                </p>
-                <JourneySection 
-                  chapters={highFrequencyChapters}
-                />
-              </AccordionContent>
-            </AccordionItem>
-            
-            <AccordionItem value="item-2" className="border-b-0">
-                <AccordionTriggerWithProgress
-                    icon={Gem}
-                    title="Unique Roots"
-                    progress={uniqueRootsProgress}
-                />
-              <AccordionContent className="pt-8">
-                <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
-                   Go deeper by learning the ~600 unique word roots. This will unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words. Mastering roots is the key to true fluency.
-                </p>
-                 <JourneySection 
-                  chapters={uniqueRootChapters}
-                />
-              </AccordionContent>
-            </AccordionItem>
+              <AccordionItem value="item-3" className="border-b-0">
+                   <AccordionTriggerWithProgress
+                      icon={Layers}
+                      title="Unique Word Forms"
+                      progress={uniqueWordFormsProgress}
+                  />
+                <AccordionContent className="pt-8">
+                   <div className="px-6 pb-8 max-w-3xl mx-auto space-y-6">
+                      <Alert>
+                          <AlertTriangle className="h-4 w-4" />
+                          <AlertTitle>A Note on Learning Methodology</AlertTitle>
+                          <AlertDescription className="space-y-2 mt-2">
+                             <p>This category contains over 15,000 distinct Arabic words. Generating a list of this magnitude is not a practical tool for learning; it is a raw statistical database. No one learns a language by memorizing a 15,000-word dictionary. It would be counterproductive to your goal of understanding the Quran.</p>
+                             <p>The human mind learns through patterns, not brute-force memorization. The true path to understanding all 15,000+ forms is not by memorizing them individually, but by mastering the **629 roots (Category 2)** and their predictable patterns.</p>
+                             <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. The most effective way to engage with this concept is to see how hundreds of unique words are generated from just a handful of roots.</p>
+                          </AlertDescription>
+                      </Alert>
+                   </div>
+                   <JourneySection 
+                    chapters={uniqueWordFormChapters}
+                  />
+                </AccordionContent>
+              </AccordionItem>
 
-            <AccordionItem value="item-3" className="border-b-0">
-                 <AccordionTriggerWithProgress
-                    icon={Layers}
-                    title="Unique Word Forms"
-                    progress={uniqueWordFormsProgress}
-                />
-              <AccordionContent className="pt-8">
-                 <div className="px-6 pb-8 max-w-3xl mx-auto space-y-6">
-                    <Alert>
-                        <AlertTriangle className="h-4 w-4" />
-                        <AlertTitle>A Note on Learning Methodology</AlertTitle>
-                        <AlertDescription className="space-y-2 mt-2">
-                           <p>This category contains over 15,000 distinct Arabic words. Generating a list of this magnitude is not a practical tool for learning; it is a raw statistical database. No one learns a language by memorizing a 15,000-word dictionary. It would be counterproductive to your goal of understanding the Quran.</p>
-                           <p>The human mind learns through patterns, not brute-force memorization. The true path to understanding all 15,000+ forms is not by memorizing them individually, but by mastering the **629 roots (Category 2)** and their predictable patterns.</p>
-                           <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. The most effective way to engage with this concept is to see how hundreds of unique words are generated from just a handful of roots.</p>
-                        </AlertDescription>
-                    </Alert>
-                 </div>
-                 <JourneySection 
-                  chapters={uniqueWordFormChapters}
-                />
-              </AccordionContent>
-            </AccordionItem>
-
-          </Accordion>
+            </Accordion>
+          )}
 
         </div>
       </main>
