@@ -132,26 +132,28 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Card className={`w-full max-w-sm transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 ${isEven ? 'mr-auto' : 'ml-auto'}`}>
-                  <CardHeader>
-                    <CardTitle className="font-headline text-2xl font-semibold text-foreground">{name}</CardTitle>
-                    <p className="text-muted-foreground">{words.length} words</p>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="my-4">
-                      <div className="flex justify-between items-center mb-1">
-                        <span className="text-xs font-semibold text-primary">Progress</span>
-                        <span className="text-xs font-semibold text-primary">{chapterProgress.count} / {chapterProgress.total}</span>
-                      </div>
-                      <Progress value={chapterProgress.percentage} className="h-2" />
-                    </div>
-                    <Link href={`/levels/${level}`} className="mt-2 inline-block">
-                      <Button>
-                        Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
+                <div className={`w-1/2 ${isEven ? 'pr-8' : 'pl-8 ml-auto'}`}>
+                    <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1`}>
+                      <CardHeader>
+                        <CardTitle className="font-headline text-2xl font-semibold text-foreground">{name}</CardTitle>
+                        <p className="text-muted-foreground">{words.length} words</p>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="my-4">
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-xs font-semibold text-primary">Progress</span>
+                            <span className="text-xs font-semibold text-primary">{chapterProgress.count} / {chapterProgress.total}</span>
+                          </div>
+                          <Progress value={chapterProgress.percentage} className="h-2" />
+                        </div>
+                        <Link href={`/levels/${level}`} className="mt-2 inline-block">
+                          <Button>
+                            Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        </Link>
+                      </CardContent>
+                    </Card>
+                </div>
               </div>
             );
           })}
@@ -297,8 +299,8 @@ export default function Home() {
                       progress={uniqueRootsProgress}
                   />
                 <AccordionContent className="pt-8">
-                  <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
-                     Go deeper by learning the ~600 unique word roots. This will unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words. Mastering roots is the key to true fluency.
+                   <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
+                     Go deeper by learning the 629 unique word roots. This will unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words. Mastering roots is the key to true fluency.
                   </p>
                    <JourneySection 
                     chapters={uniqueRootChapters}
@@ -319,7 +321,7 @@ export default function Home() {
                           <AlertTitle>A Note on Learning Methodology</AlertTitle>
                           <AlertDescription className="space-y-2 mt-2">
                              <p>This category demonstrates how a single root can blossom into many different words. While there are thousands of unique word forms in the Quran, memorizing them all individually is not an effective learning strategy.</p>
-                             <p>The human mind learns through patterns. The true path to understanding all word forms is not by memorizing them individually, but by mastering the **629 unique roots (in the previous category)** and their predictable patterns.</p>
+                             <p>The human mind learns through patterns. The true path to understanding all word forms is not by memorizing the {uniqueWordForms.length} individual forms, but by mastering the <strong>{uniqueRoots.length} unique roots (in the previous category)</strong> and their predictable patterns.</p>
                              <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. By studying these examples, you will see how a handful of roots can generate a wide array of vocabulary.</p>
                           </AlertDescription>
                       </Alert>
