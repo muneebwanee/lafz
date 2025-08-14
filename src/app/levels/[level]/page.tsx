@@ -8,8 +8,9 @@ import type { Word } from '@/types';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { Search, BookOpenIcon, ArrowLeft } from 'lucide-react';
+import { Search, BookOpenIcon, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const STORAGE_KEY = 'quranic-lexica-learned-words';
 
@@ -18,6 +19,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   const [searchTerm, setSearchTerm] = useState('');
   
   const levelWords = useMemo(() => words.filter(word => word.level === level), [level]);
+  const maxLevel = useMemo(() => Math.max(...words.map(w => w.level)), []);
 
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
 
@@ -73,10 +75,6 @@ export default function LevelPage({ params }: { params: { level: string } }) {
       <main className="flex-1">
         <div className="container py-8 md:py-12">
           <div className="mb-8">
-            <Link href="/" className="flex items-center text-sm text-muted-foreground hover:text-foreground mb-4">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Learning Journey
-            </Link>
             <div className="text-center">
                 <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
                     {chapterName || `Chapter ${level}`}
@@ -121,8 +119,29 @@ export default function LevelPage({ params }: { params: { level: string } }) {
               <p className="text-sm">Try a different term or clear the search.</p>
             </div>
           )}
+
+          {level < maxLevel && (
+            <div className="mt-16 text-center">
+              <Link href={`/levels/${level + 1}`}>
+                <Button size="lg" variant="default">
+                  Next Chapter <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
       </main>
+
+      <Link href="/" passHref>
+        <Button
+            variant="outline"
+            className="fixed bottom-6 left-6 h-12 w-12 rounded-full shadow-lg z-50 p-0 flex items-center justify-center"
+            aria-label="Back to Learning Journey"
+        >
+            <ArrowLeft className="h-6 w-6" />
+        </Button>
+      </Link>
+      
       <footer className="py-6 md:px-8 md:py-0 border-t bg-background">
         <div className="container flex flex-col items-center justify-center gap-4 h-24 md:flex-row">
           <p className="text-sm text-center text-muted-foreground">
