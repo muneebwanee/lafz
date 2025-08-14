@@ -29,21 +29,13 @@ import { uniqueRootsChapter25 } from './unique-root/chapter-25';
 import { uniqueRootsChapter26 } from './unique-root/chapter-26';
 import { uniqueRootsChapter27 } from './unique-root/chapter-27';
 import { uniqueRootsChapter28 } from './unique-root/chapter-28';
-import { uniqueRootsChapter29 } from './unique-root/chapter-29';
-import { uniqueRootsChapter30 } from './unique-root/chapter-30';
-import { uniqueRootsChapter31 } from './unique-root/chapter-31';
-import { uniqueRootsChapter32 } from './unique-root/chapter-32';
-import { uniqueRootsChapter33 } from './unique-root/chapter-33';
-import { uniqueRootsChapter34 } from './unique-root/chapter-34';
-import { uniqueRootsChapter35 } from './unique-root/chapter-35';
-import { uniqueRootsChapter36 } from './unique-root/chapter-36';
-import { uniqueRootsChapter37 } from './unique-root/chapter-37';
-import { uniqueRootsChapter38 } from './unique-root/chapter-38';
-import { uniqueRootsChapter39 } from './unique-root/chapter-39';
-import { uniqueRootsChapter40 } from './unique-root/chapter-40';
-import { uniqueRootsChapter41 } from './unique-root/chapter-41';
-import { uniqueRootsChapter42 } from './unique-root/chapter-42';
 import { uniqueWordFormsChapter43 } from './unique-word-form/chapter-43';
+import { uniqueWordFormsChapter44 } from './unique-word-form/chapter-44';
+import { uniqueWordFormsChapter45 } from './unique-word-form/chapter-45';
+import { uniqueWordFormsChapter46 } from './unique-word-form/chapter-46';
+import { uniqueWordFormsChapter47 } from './unique-word-form/chapter-47';
+import { uniqueWordFormsChapter48 } from './unique-word-form/chapter-48';
+
 
 export const words: Word[] = [
   ...highFrequencyChapter1,
@@ -74,19 +66,10 @@ export const words: Word[] = [
   ...uniqueRootsChapter26,
   ...uniqueRootsChapter27,
   ...uniqueRootsChapter28,
-  ...uniqueRootsChapter29,
-  ...uniqueRootsChapter30,
-  ...uniqueRootsChapter31,
-  ...uniqueRootsChapter32,
-  ...uniqueRootsChapter33,
-  ...uniqueRootsChapter34,
-  ...uniqueRootsChapter35,
-  ...uniqueRootsChapter36,
-  ...uniqueRootsChapter37,
-  ...uniqueRootsChapter38,
-  ...uniqueRootsChapter39,
-  ...uniqueRootsChapter40,
-  ...uniqueRootsChapter41,
-  ...uniqueRootsChapter42,
   ...uniqueWordFormsChapter43,
+  ...uniqueWordFormsChapter44,
+  ...uniqueWordFormsChapter45,
+  ...uniqueWordFormsChapter46,
+  ...uniqueWordFormsChapter47,
+  ...uniqueWordFormsChapter48,
 ];

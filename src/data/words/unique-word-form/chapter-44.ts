@@ -1,0 +1,31 @@
+
+import type { Word } from '@/types';
+
+export const uniqueWordFormsChapter44: Word[] = [
+  { id: 1151, word: 'kāna', arabic: 'كَانَ', meanings: { english: 'He was', urdu: 'وہ تھا', hinglish: 'woh tha' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1152, word: 'kānā', arabic: 'كَانَا', meanings: { english: 'They (dual) were', urdu: 'وہ دونوں تھے', hinglish: 'woh dono the' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1153, word: 'kānū', arabic: 'كَانُوا', meanings: { english: 'They were', urdu: 'وہ تھے', hinglish: 'woh the' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1154, word: 'kānat', arabic: 'كَانَتْ', meanings: { english: 'She was', urdu: 'وہ تھی', hinglish: 'woh thi' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1155, word: 'kuntu', arabic: 'كُنْتُ', meanings: { english: 'I was', urdu: 'میں تھا', hinglish: 'main tha' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1156, word: 'kunta', arabic: 'كُنْتَ', meanings: { english: 'You (m. sg.) were', urdu: 'تم تھے', hinglish: 'tum the' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1157, word: 'kuntum', arabic: 'كُنْتُمْ', meanings: { english: 'You (pl.) were', urdu: 'تم سب تھے', hinglish: 'tum sab the' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1158, word: 'kuntunna', arabic: 'كُنْتُنَّ', meanings: { english: 'You (f. pl.) were', urdu: 'تم سب تھیں', hinglish: 'tum sab theen' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1159, word: 'kunnā', arabic: 'كُنَّا', meanings: { english: 'We were', urdu: 'ہم تھے', hinglish: 'hum the' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1160, word: 'yakūnu', arabic: 'يَكُونُ', meanings: { english: 'He is/will be', urdu: 'وہ ہے/ہوگا', hinglish: 'woh hai/hoga' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1161, word: 'yakūnā', arabic: 'يَكُونَا', meanings: { english: 'They (dual) are/will be', urdu: 'وہ دونوں ہیں/ہوں گے', hinglish: 'woh dono hain/honge' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1162, word: 'yakūnū', arabic: 'يَكُونُوا', meanings: { english: 'They are/will be', urdu: 'وہ ہیں/ہوں گے', hinglish: 'woh hain/honge' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1163, word: 'yakun', arabic: 'يَكُنْ', meanings: { english: 'He was not', urdu: 'وہ نہیں تھا', hinglish: 'woh nahi tha' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1164, word: 'takūnu', arabic: 'تَكُونُ', meanings: { english: 'She is/will be', urdu: 'وہ ہے/ہوگی', hinglish: 'woh hai/hogi' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1165, word: 'takūnū', arabic: 'تَكُونُوا', meanings: { english: 'You (pl.) are/will be', urdu: 'تم سب ہو/ہوگے', hinglish: 'tum sab ho/hoge' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1166, word: 'takun', arabic: 'تَكُنْ', meanings: { english: 'She was not', urdu: 'وہ نہیں تھی', hinglish: 'woh nahi thi' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1167, word: 'akūnu', arabic: 'أَكُونُ', meanings: { english: 'I am/will be', urdu: 'میں ہوں/ہوں گا', hinglish: 'main hoon/hunga' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1168, word: 'akun', arabic: 'أَكُنْ', meanings: { english: 'I was not', urdu: 'میں نہیں تھا', hinglish: 'main nahi tha' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1169, word: 'nakūnu', arabic: 'نَكُونُ', meanings: { english: 'We are/will be', urdu: 'ہم ہیں/ہوں گے', hinglish: 'hum hain/honge' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1170, word: 'kun', arabic: 'كُنْ', meanings: { english: 'Be! (command)', urdu: 'ہو جا', hinglish: 'ho ja' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1171, word: 'kūnū', arabic: 'كُونُوا', meanings: { english: 'Be! (pl. command)', urdu: 'ہو جاؤ', hinglish: 'ho jao' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1172, word: 'kawnihi', arabic: 'كَوْنِهِ', meanings: { english: 'His being', urdu: 'اس کا ہونا', hinglish: 'uska hona' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1173, word: 'makān', arabic: 'مَكَان', meanings: { english: 'Place', urdu: 'جگہ', hinglish: 'jagah' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1174, word: 'makānan', arabic: 'مَكَانًا', meanings: { english: 'A place (accusative)', urdu: 'ایک جگہ', hinglish: 'ek jagah' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1175, word: 'makānatikum', arabic: 'مَكَانَتِكُمْ', meanings: { english: 'Your place', urdu: 'تمہاری جگہ', hinglish: 'tumhari jagah' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+  { id: 1176, word: 'makānahum', arabic: 'مَكَانَهُمْ', meanings: { english: 'Their place', urdu: 'ان کی جگہ', hinglish: 'unki jagah' }, level: 44, category: 'unique-word-form', chapter: 'Root: ك-و-ن (To Be)' },
+];

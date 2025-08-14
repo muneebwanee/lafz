@@ -1,0 +1,32 @@
+
+import type { Word } from '@/types';
+
+export const uniqueWordFormsChapter48: Word[] = [
+  { id: 1263, word: 'kafara', arabic: 'كَفَرَ', meanings: { english: 'He disbelieved', urdu: 'اس نے کفر کیا', hinglish: 'usne kufr kiya' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1264, word: 'kafarū', arabic: 'كَفَرُوا', meanings: { english: 'They disbelieved', urdu: 'انہوں نے کفر کیا', hinglish: 'unhon ne kufr kiya' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1265, word: 'kafarat', arabic: 'كَفَرَتْ', meanings: { english: 'She disbelieved', urdu: 'اس نے کفر کیا', hinglish: 'usne kufr kiya (female)' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1266, word: 'kafartum', arabic: 'كَفَرْتُمْ', meanings: { english: 'You (pl.) disbelieved', urdu: 'تم سب نے کفر کیا', hinglish: 'tum sab ne kufr kiya' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1267, word: 'akafartum', arabic: 'أَكَفَرْتُمْ', meanings: { english: 'Did you disbelieve?', urdu: 'کیا تم نے کفر کیا؟', hinglish: 'kya tumne kufr kiya?' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1268, word: 'yakfuru', arabic: 'يَكْفُرُ', meanings: { english: 'He disbelieves', urdu: 'وہ کفر کرتا ہے', hinglish: 'woh kufr karta hai' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1269, word: 'yakfurūna', arabic: 'يَكْفُرُونَ', meanings: { english: 'They disbelieve', urdu: 'وہ کفر کرتے ہیں', hinglish: 'woh kufr karte hain' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1270, word: 'takfurū', arabic: 'تَكْفُرُوا', meanings: { english: 'You (pl.) disbelieve', urdu: 'تم سب کفر کرو', hinglish: 'tum sab kufr karo' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1271, word: 'takfurūna', arabic: 'تَكْفُرُونَ', meanings: { english: 'You (pl.) disbelieve', urdu: 'تم سب کفر کرتے ہو', hinglish: 'tum sab kufr karte ho' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1272, word: 'akfur', arabic: 'أَكْفُرْ', meanings: { english: 'I disbelieve', urdu: 'میں کفر کرتا ہوں', hinglish: 'main kufr karta hoon' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1273, word: 'kaffara', arabic: 'كَفَّرَ', meanings: { english: 'He expiated', urdu: 'اس نے کفارہ دیا', hinglish: 'usne kaffara diya' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1274, word: 'yukaffiru', arabic: 'يُكَفِّرُ', meanings: { english: 'He expiates', urdu: 'وہ کفارہ دیتا ہے', hinglish: 'woh kaffara deta hai' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1275, word: 'nukaffira', arabic: 'نُكَفِّرَ', meanings: { english: 'We expiate', urdu: 'ہم کفارہ دیں', hinglish: 'hum kaffara dein' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1276, word: 'kuffira', arabic: 'كُفِّرَ', meanings: { english: 'Was expiated', urdu: 'کفارہ دیا گیا', hinglish: 'kaffara diya gaya' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1277, word: 'kufr', arabic: 'كُفْر', meanings: { english: 'Disbelief', urdu: 'کفر', hinglish: 'kufr' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1278, word: 'al-kufra', arabic: 'الْكُفْرَ', meanings: { english: 'The disbelief (acc.)', urdu: 'کفر کو', hinglish: 'kufr ko' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1279, word: 'kufran', arabic: 'كُفْرًا', meanings: { english: 'Disbelief (adv.)', urdu: 'کفراً', hinglish: 'kufran' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1280, word: 'kufrāna', arabic: 'كُفْرَانَ', meanings: { english: 'Denial/ingratitude', urdu: 'ناشکری', hinglish: 'na-shukri' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1281, word: 'kāfir', arabic: 'كَافِر', meanings: { english: 'A disbeliever', urdu: 'کافر', hinglish: 'kafir' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1282, word: 'kāfirūna', arabic: 'كَافِرُونَ', meanings: { english: 'Disbelievers (nom.)', urdu: 'کافر لوگ', hinglish: 'kafir log' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1283, word: 'kāfirīna', arabic: 'كَافِرِينَ', meanings: { english: 'Disbelievers (acc./gen.)', urdu: 'کافروں کو/کا', hinglish: 'kafiron ko/ka' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1284, word: 'al-kāfirāti', arabic: 'الْكَافِرَاتِ', meanings: { english: 'The disbelieving women', urdu: 'کافرہ عورتیں', hinglish: 'kafira auratein' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-ر (To Disbelieve)' },
+  { id: 1285, word: 'kafūr', arabic: 'كَفُور', meanings: { english: 'Ungrateful', urdu: 'ناشکرا', hinglish: 'na-shukra' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-р (To Disbelieve)' },
+  { id: 1286, word: 'kaffār', arabic: 'كَفَّار', meanings: { english: 'Habitual disbeliever', urdu: 'پکا کافر', hinglish: 'pakka kafir' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-р (To Disbelieve)' },
+  { id: 1287, word: 'kuffār', arabic: 'كُفَّار', meanings: { english: 'Disbelievers (pl.)', urdu: 'کفار', hinglish: 'kuffar' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-р (To Disbelieve)' },
+  { id: 1288, word: 'kawāfir', arabic: 'كَوَافِر', meanings: { english: 'Disbelieving women (pl.)', urdu: 'کافرات', hinglish: 'kawafir' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-р (To Disbelieve)' },
+  { id: 1289, word: 'makfūran', arabic: 'مَكْفُورًا', meanings: { english: 'Denied, rejected', urdu: 'انکار کیا ہوا', hinglish: 'inkaar kiya hua' }, level: 48, category: 'unique-word-form', chapter: 'Root: ك-ف-р (To Disbelieve)' },
+];

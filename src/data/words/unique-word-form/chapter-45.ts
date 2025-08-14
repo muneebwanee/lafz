@@ -1,0 +1,32 @@
+
+import type { Word } from '@/types';
+
+export const uniqueWordFormsChapter45: Word[] = [
+  { id: 1177, word: 'āmana', arabic: 'آمَنَ', meanings: { english: 'He believed', urdu: 'وہ ایمان لایا', hinglish: 'woh imaan laya' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1178, word: 'āmannā', arabic: 'آمَنَّا', meanings: { english: 'We believed', urdu: 'ہم ایمان لائے', hinglish: 'hum imaan laaye' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1179, word: 'āmanū', arabic: 'آمَنُوا', meanings: { english: 'They believed', urdu: 'وہ ایمان لائے', hinglish: 'woh imaan laaye' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1180, word: 'āmantum', arabic: 'آمَنْتُمْ', meanings: { english: 'You (pl.) believed', urdu: 'تم سب ایمان لائے', hinglish: 'tum sab imaan laaye' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1181, word: 'ūminu', arabic: 'أُومِنُ', meanings: { english: 'I believe', urdu: 'میں ایمان لاتا ہوں', hinglish: 'main imaan laata hoon' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1182, word: 'yu\'minu', arabic: 'يُؤْمِنُ', meanings: { english: 'He believes', urdu: 'وہ ایمان لاتا ہے', hinglish: 'woh imaan laata hai' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1183, word: 'tu\'minū', arabic: 'تُؤْمِنُوا', meanings: { english: 'You (pl.) believe', urdu: 'تم سب ایمان لاؤ', hinglish: 'tum sab imaan laao' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1184, word: 'yu\'minūna', arabic: 'يُؤْمِنُونَ', meanings: { english: 'They believe', urdu: 'وہ ایمان لاتے ہیں', hinglish: 'woh imaan laate hain' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1185, word: 'nu\'mina', arabic: 'نُؤْمِنَ', meanings: { english: 'We believe', urdu: 'ہم ایمان لائیں', hinglish: 'hum imaan laayein' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1186, word: 'āmin', arabic: 'آمِنْ', meanings: { english: 'Believe! (command)', urdu: 'ایمان لا', hinglish: 'imaan la' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1187, word: 'āminū', arabic: 'آمِنُوا', meanings: { english: 'Believe! (pl. command)', urdu: 'ایمان لاؤ', hinglish: 'imaan laao' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1188, word: 'yu\'manu', arabic: 'يُؤْمَنُ', meanings: { english: 'Is believed', urdu: 'ایمان لایا جاتا ہے', hinglish: 'imaan laya jaata hai' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1189, word: 'u\'tumina', arabic: 'اؤْتُمِنَ', meanings: { english: 'He was entrusted', urdu: 'اسے امانت دی گئی', hinglish: 'use amanat di gayi' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1190, word: 'īmān', arabic: 'إِيمَان', meanings: { english: 'Faith', urdu: 'ایمان', hinglish: 'imaan' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1191, word: 'īmānukum', arabic: 'إِيمَانُكُمْ', meanings: { english: 'Your faith', urdu: 'تمہارا ایمان', hinglish: 'tumhara imaan' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1192, word: 'īmānihim', arabic: 'إِيمَانِهِمْ', meanings: { english: 'Their faith', urdu: 'ان کا ایمان', hinglish: 'unka imaan' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1193, word: 'mu\'min', arabic: 'مُؤْمِن', meanings: { english: 'A believer', urdu: 'مومن', hinglish: 'momin' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1194, word: 'mu\'minūna', arabic: 'مُؤْمِنُونَ', meanings: { english: 'Believers (nom.)', urdu: 'مومن لوگ', hinglish: 'momin log' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1195, word: 'mu\'minīna', arabic: 'مُؤْمِنِينَ', meanings: { english: 'Believers (acc./gen.)', urdu: 'مومنوں کو/کا', hinglish: 'mominon ko/ka' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1196, word: 'mu\'minah', arabic: 'مُؤْمِنَة', meanings: { english: 'A believing woman', urdu: 'مومنہ عورت', hinglish: 'momina aurat' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1197, word: 'mu\'mināt', arabic: 'مُؤْمِنَات', meanings: { english: 'Believing women', urdu: 'مومنات', hinglish: 'mominaat' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1198, word: 'amn', arabic: 'أَمْن', meanings: { english: 'Security, peace', urdu: 'امن', hinglish: 'amn' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1199, word: 'āmin', arabic: 'آمِن', meanings: { english: 'Secure, safe', urdu: 'محفوظ', hinglish: 'mehfooz' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1200, word: 'āminīna', arabic: 'آمِنِينَ', meanings: { english: 'Secure ones (pl.)', urdu: 'امن والے', hinglish: 'amn wale' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1201, word: 'ma\'manahu', arabic: 'مَأْمَنَهُ', meanings: { english: 'His place of safety', urdu: 'اس کی جائے امان', hinglish: 'uski jaaye aman' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1202, word: 'amānah', arabic: 'أَمَانَة', meanings: { english: 'A trust', urdu: 'امانت', hinglish: 'amanat' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+  { id: 1203, word: 'amānātihim', arabic: 'أَمَانَاتِهِمْ', meanings: { english: 'Their trusts', urdu: 'ان کی امانتیں', hinglish: 'unki amanatein' }, level: 45, category: 'unique-word-form', chapter: 'Root: ء-م-ن (To Believe)' },
+];
