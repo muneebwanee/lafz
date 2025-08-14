@@ -22,8 +22,8 @@ export const uniqueWordFormsChapter43: Word[] = [
   { id: 1144, word: 'qawlan', arabic: 'قَوْلًا', meanings: { english: 'A saying (accusative)', urdu: 'قولاً', hinglish: 'qaulan' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-ل (To Say)' },
   { id: 1145, word: 'aqwāl', arabic: 'أَقْوَال', meanings: { english: 'Sayings (pl.)', urdu: 'اقوال', hinglish: 'aqwaal' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-ل (To Say)' },
   { id: 1146, word: 'qā\'il', arabic: 'قَائِل', meanings: { english: 'A sayer, speaker', urdu: 'کہنے والا', hinglish: 'kehne wala' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-ل (To Say)' },
-  { id: 1147, word: 'al-qā\'ilīna', arabic: 'الْقَائِلِينَ', meanings: { english: 'The sayers (pl.)', urdu: 'کہنے والے', hinglish: 'kehne wale' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-л (To Say)' },
-  { id: 1148, word: 'maqālah', arabic: 'مَقَالَة', meanings: { english: 'A statement', urdu: 'گفتگو', hinglish: 'guftagu' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-л (To Say)' },
-  { id: 1149, word: 'taqawwala', arabic: 'تَقَوَّلَ', meanings: { english: 'He fabricated a saying', urdu: 'اس نے بات بنائی', hinglish: 'usne baat banai' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-л (To Say)' },
-  { id: 1150, word: 'al-aqāwīli', arabic: 'الْأَقَاوِيلِ', meanings: { english: 'The sayings (fabricated)', urdu: 'بنائی ہوئی باتیں', hinglish: 'banai hui baatein' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-л (To Say)' },
+  { id: 1147, word: 'al-qā\'ilīna', arabic: 'الْقَائِلِينَ', meanings: { english: 'The sayers (pl.)', urdu: 'کہنے والے', hinglish: 'kehne wale' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-ل (To Say)' },
+  { id: 1148, word: 'maqālah', arabic: 'مَقَالَة', meanings: { english: 'A statement', urdu: 'گفتگو', hinglish: 'guftagu' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-ل (To Say)' },
+  { id: 1149, word: 'taqawwala', arabic: 'تَقَوَّلَ', meanings: { english: 'He fabricated a saying', urdu: 'اس نے بات بنائی', hinglish: 'usne baat banai' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-ل (To Say)' },
+  { id: 1150, word: 'al-aqāwīli', arabic: 'الْأَقَاوِيلِ', meanings: { english: 'The sayings (fabricated)', urdu: 'بنائی ہوئی باتیں', hinglish: 'banai hui baatein' }, level: 43, category: 'unique-word-form', chapter: 'Root: ق-و-ل (To Say)' },
 ];

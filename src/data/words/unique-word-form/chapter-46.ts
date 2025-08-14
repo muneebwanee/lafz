@@ -20,6 +20,6 @@ export const uniqueWordFormsChapter46: Word[] = [
   { id: 1219, word: 'ijʿalū', arabic: 'اجْعَلُوا', meanings: { english: 'Make! (pl. command)', urdu: 'بناؤ', hinglish: 'banao' }, level: 46, category: 'unique-word-form', chapter: 'Root: ج-ع-ل (To Make)' },
   { id: 1220, word: 'juʿila', arabic: 'جُعِلَ', meanings: { english: 'It was made', urdu: 'بنایا گیا', hinglish: 'banaya gaya' }, level: 46, category: 'unique-word-form', chapter: 'Root: ج-ع-ل (To Make)' },
   { id: 1221, word: 'jāʿil', arabic: 'جَاعِل', meanings: { english: 'A maker', urdu: 'بنانے والا', hinglish: 'banane wala' }, level: 46, category: 'unique-word-form', chapter: 'Root: ج-ع-ل (To Make)' },
-  { id: 1222, word: 'jāʿilūna', arabic: 'جَاعِلُونَ', meanings: { english: 'Makers (pl.)', urdu: 'بنانے والے', hinglish: 'banane wale' }, level: 46, category: 'unique-word-form', chapter: 'Root: ج-ع-л (To Make)' },
-  { id: 1223, word: 'majʿūlah', arabic: 'مَجْعُولَة', meanings: { english: 'Made (f.)', urdu: 'بنائی ہوئی', hinglish: 'banayi hui' }, level: 46, category: 'unique-word-form', chapter: 'Root: ج-ع-л (To Make)' },
+  { id: 1222, word: 'jāʿilūna', arabic: 'جَاعِلُونَ', meanings: { english: 'Makers (pl.)', urdu: 'بنانے والے', hinglish: 'banane wale' }, level: 46, category: 'unique-word-form', chapter: 'Root: ج-ع-ل (To Make)' },
+  { id: 1223, word: 'majʿūlah', arabic: 'مَجْعُولَة', meanings: { english: 'Made (f.)', urdu: 'بنائی ہوئی', hinglish: 'banayi hui' }, level: 46, category: 'unique-word-form', chapter: 'Root: ج-ع-ل (To Make)' },
 ];

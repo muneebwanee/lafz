@@ -40,5 +40,5 @@ export const uniqueWordFormsChapter47: Word[] = [
   { id: 1259, word: 'al-ʿalīmi', arabic: 'الْعَلِيمِ', meanings: { english: 'The All-knowing (gen.)', urdu: 'سب کچھ جاننے والے کا', hinglish: 'sab kuch jaanne wale ka' }, level: 47, category: 'unique-word-form', chapter: 'Root: ع-ل-م (To Know)' },
   { id: 1260, word: 'ʿallām', arabic: 'عَلَّام', meanings: { english: 'The Great Knower', urdu: 'بہت زیادہ جاننے والا', hinglish: 'bohat zyada jaanne wala' }, level: 47, category: 'unique-word-form', chapter: 'Root: ع-ل-م (To Know)' },
   { id: 1261, word: 'maʿlūm', arabic: 'مَعْلُوم', meanings: { english: 'Known', urdu: 'معلوم', hinglish: 'maaloom' }, level: 47, category: 'unique-word-form', chapter: 'Root: ع-ل-م (To Know)' },
-  { id: 1262, word: 'maʿlūmāt', arabic: 'مَعْلُومَات', meanings: { english: 'Known (pl. f.)', urdu: 'معلومات', hinglish: 'maloomat' }, level: 47, category: 'unique-word-form', chapter: 'Root: ع-л-م (To Know)' },
+  { id: 1262, word: 'maʿlūmāt', arabic: 'مَعْلُومَات', meanings: { english: 'Known (pl. f.)', urdu: 'معلومات', hinglish: 'maloomat' }, level: 47, category: 'unique-word-form', chapter: 'Root: ع-ل-م (To Know)' },
 ];
