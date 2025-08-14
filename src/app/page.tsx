@@ -282,7 +282,7 @@ export default function Home() {
                   />
                 <AccordionContent className="pt-8">
                   <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
-                      The essential first step. Master the ~400 words that make up ~80% of the Quran's text. This will give you an instant and dramatic boost in comprehension.
+                      The essential first step. Master the 200+ words that make up a significant portion of the Quran's text. This will give you an instant and dramatic boost in comprehension.
                   </p>
                   <JourneySection 
                     chapters={highFrequencyChapters}
