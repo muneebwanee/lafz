@@ -1,24 +1,27 @@
 
+"use client";
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
+import React, { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Quranic Lexica",
-  description: "Learn the core words of the Quran",
-};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [loadingPage, setLoadingPage] = useState<string | null>(null);
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <title>Quranic Lexica</title>
+        <meta name="description" content="Learn the core words of the Quran" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -45,11 +48,23 @@ export default function RootLayout({
                 © {new Date().getFullYear()} Quranic Lexica. Built with purpose.
               </p>
               <div className="flex items-center gap-4 text-sm">
-                <Link href="/features" className={buttonVariants({ variant: "outline" })}>
+                <Link href="/features" passHref>
+                  <Button
+                    variant="outline"
+                    loading={loadingPage === 'features'}
+                    onClick={() => setLoadingPage('features')}
+                  >
                     Features
+                  </Button>
                 </Link>
-                <Link href="/suggestions" className={buttonVariants({ variant: "outline" })}>
+                <Link href="/suggestions" passHref>
+                  <Button
+                    variant="outline"
+                    loading={loadingPage === 'suggestions'}
+                    onClick={() => setLoadingPage('suggestions')}
+                  >
                     Suggestions
+                  </Button>
                 </Link>
               </div>
             </div>
