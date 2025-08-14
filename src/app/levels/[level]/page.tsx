@@ -24,6 +24,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
 
   const [learnedWords, setLearnedWords] = useState<Record<number, number>>({});
   const [userPoints, setUserPoints] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     try {
@@ -38,6 +39,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
     } catch (error) {
       console.error("Failed to load from localStorage", error);
     }
+    setIsMounted(true);
   }, []);
 
   const handleLearnedChange = (wordId: number, learned: boolean) => {
@@ -73,6 +75,10 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   
   const chapterName = levelWords.length > 0 ? levelWords[0].chapter : '';
   
+  if (!isMounted) {
+    return null; // Or a loading spinner
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       <AppHeader />

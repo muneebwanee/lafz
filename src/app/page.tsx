@@ -32,6 +32,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<Word[]>([]);
   const [loadingChapter, setLoadingChapter] = useState<number | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     try {
@@ -47,6 +48,8 @@ export default function Home() {
       console.error("Failed to load from localStorage", error);
     }
     
+    setIsMounted(true);
+
     const handleStorageChange = (e: StorageEvent) => {
         if (e.key === LEARNED_WORDS_STORAGE_KEY && e.newValue) {
             setLearnedWords(JSON.parse(e.newValue));
@@ -142,6 +145,10 @@ export default function Home() {
   const highFrequencyProgress = useMemo(() => calculateProgress(highFrequencyWords), [highFrequencyWords, learnedWords]);
   const uniqueRootsProgress = useMemo(() => calculateProgress(uniqueRoots), [uniqueRoots, learnedWords]);
   const uniqueWordFormsProgress = useMemo(() => calculateProgress(uniqueWordForms), [uniqueWordForms, learnedWords]);
+
+  if (!isMounted) {
+    return null; // Or a loading spinner
+  }
 
   const JourneySection = ({ chapters }: { chapters: { name: string, words: Word[], level: number }[] }) => (
     <div className="relative max-w-4xl mx-auto py-8">
