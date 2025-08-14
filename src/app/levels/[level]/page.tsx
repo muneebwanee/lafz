@@ -14,6 +14,14 @@ import { AppHeader } from '@/components/app-header';
 const LEARNED_WORDS_STORAGE_KEY = 'lafz-learned-words';
 const USER_POINTS_STORAGE_KEY = 'lafz-user-points';
 
+// @ts-expect-error — allowed here for static export
+export function generateStaticParams() {
+  const levels = Array.from(new Set(words.map(w => w.level)));
+  return levels.map(level => ({
+    level: String(level)
+  }));
+}
+
 export default function LevelPage({ params }: { params: { level: string } }) {
   const level = parseInt(params.level, 10);
   const [searchTerm, setSearchTerm] = useState('');
