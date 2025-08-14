@@ -1,4 +1,4 @@
-# **App Name**: Quranic Lexica
+# **App Name**: LAFZ
 
 ## Core Features:
 
