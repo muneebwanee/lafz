@@ -241,6 +241,11 @@ export default function Home() {
       <main className="flex-1 z-10">
         <div className="container py-8 md:py-12">
           <div className="text-center mb-12">
+            <div className="flex justify-center mb-6">
+                <div className="p-4 bg-primary/10 rounded-full">
+                    <BookOpenIcon className="h-16 w-16 text-primary" />
+                </div>
+            </div>
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl font-headline">
               Unlock the Language of the Quran
             </h1>
