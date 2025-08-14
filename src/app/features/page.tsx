@@ -1,9 +1,10 @@
 
 import { AppHeader } from '@/components/app-header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, ArrowLeft } from 'lucide-react';
+import { CheckCircle, ArrowLeft, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 export default function FeaturesPage() {
   const features = [
@@ -22,7 +23,6 @@ export default function FeaturesPage() {
     {
         title: 'Pronunciation Audio',
         description: 'Listen to the correct pronunciation for each word to improve your listening and speaking skills.',
-        status: 'upcoming',
     },
     {
         title: 'Community Suggestions',
@@ -55,7 +55,7 @@ export default function FeaturesPage() {
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <p className="text-muted-foreground">{feature.description}</p>
-                   {feature.status === 'upcoming' && (
+                   {(feature as any).status === 'upcoming' && (
                     <div className="mt-4">
                         <span className="text-xs font-semibold bg-primary/10 text-primary py-1 px-2 rounded-full">Upcoming</span>
                     </div>
@@ -64,6 +64,17 @@ export default function FeaturesPage() {
               </Card>
             ))}
           </div>
+
+           <div className="mt-16 max-w-3xl mx-auto">
+             <Alert>
+                <AlertTriangle className="h-4 w-4" />
+                <AlertTitle>Disclaimers</AlertTitle>
+                <AlertDescription className="mt-2 space-y-2">
+                    <p>The word data, including meanings and examples, is sourced from community contributions and may contain inaccuracies. We are constantly working to verify and improve the dataset.</p>
+                    <p>LAFZ is intended as a learning aid and is not a substitute for scholarly works or direct consultation with qualified teachers. Please use it as a tool to supplement your studies.</p>
+                </AlertDescription>
+             </Alert>
+           </div>
         </div>
       </main>
       <Link href="/" passHref>
