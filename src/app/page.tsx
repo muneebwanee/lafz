@@ -126,7 +126,7 @@ export default function Home() {
       </div>
   );
 
-  const AccordionTriggerWithProgress = ({ icon, title, description, progress }: { icon: React.ElementType, title: string, description: string, progress: { count: number, total: number, percentage: number } }) => (
+  const AccordionTriggerWithProgress = ({ icon, title, progress }: { icon: React.ElementType, title: string, progress: { count: number, total: number, percentage: number } }) => (
      <AccordionTrigger className="text-left bg-card/80 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/20">
         <div className='w-full'>
             <div className="flex items-center space-x-6">
@@ -135,9 +135,6 @@ export default function Home() {
                     <h2 className="text-2xl font-extrabold tracking-tight lg:text-3xl font-headline">
                         {title}
                     </h2>
-                    <p className="mt-2 text-md text-muted-foreground">
-                        {description}
-                    </p>
                 </div>
             </div>
             {progress.total > 0 && (
@@ -203,10 +200,12 @@ export default function Home() {
                 <AccordionTriggerWithProgress 
                     icon={Zap}
                     title="High-Frequency Words"
-                    description="The essential first step. Master the ~400 words that make up ~80% of the Quran's text. This will give you an instant and dramatic boost in comprehension."
                     progress={highFrequencyProgress}
                 />
               <AccordionContent className="pt-8">
+                <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl">
+                    The essential first step. Master the ~400 words that make up ~80% of the Quran's text. This will give you an instant and dramatic boost in comprehension.
+                </p>
                 <JourneySection 
                   chapters={highFrequencyChapters}
                 />
@@ -217,10 +216,12 @@ export default function Home() {
                 <AccordionTriggerWithProgress
                     icon={Gem}
                     title="Unique Roots"
-                    description="Go deeper. Learn the ~1,800 unique word roots to unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words."
                     progress={uniqueRootsProgress}
                 />
               <AccordionContent className="pt-8">
+                <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl">
+                  Go deeper. Learn the ~1,800 unique word roots to unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words.
+                </p>
                  <JourneySection 
                   chapters={uniqueRootChapters}
                 />
@@ -231,10 +232,12 @@ export default function Home() {
                  <AccordionTriggerWithProgress
                     icon={Layers}
                     title="Unique Word Forms"
-                    description="For the dedicated learner. Explore every unique word form to achieve true mastery. This path is for those committed to the highest level of scholarship."
                     progress={uniqueWordFormsProgress}
                 />
               <AccordionContent className="pt-8">
+                 <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl">
+                    For the dedicated learner. Explore every unique word form to achieve true mastery. This path is for those committed to the highest level of scholarship.
+                  </p>
                  <JourneySection 
                   chapters={uniqueWordFormChapters}
                 />
