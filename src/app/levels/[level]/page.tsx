@@ -22,7 +22,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   const levelWords = useMemo(() => words.filter(word => word.level === level), [level]);
   const maxLevel = useMemo(() => Math.max(...words.map(w => w.level)), []);
 
-  const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
+  const [learnedWords, setLearnedWords] = useState<Record<number, number>>({});
   const [userPoints, setUserPoints] = useState(0);
 
   useEffect(() => {
@@ -41,7 +41,12 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   }, []);
 
   const handleLearnedChange = (wordId: number, learned: boolean) => {
-    const newLearnedWords = { ...learnedWords, [wordId]: learned };
+    const newLearnedWords = { ...learnedWords };
+    if (learned) {
+      newLearnedWords[wordId] = Date.now();
+    } else {
+      delete newLearnedWords[wordId];
+    }
     setLearnedWords(newLearnedWords);
 
     const pointsChange = learned ? 10 : -10;
@@ -51,7 +56,6 @@ export default function LevelPage({ params }: { params: { level: string } }) {
     try {
       localStorage.setItem(LEARNED_WORDS_STORAGE_KEY, JSON.stringify(newLearnedWords));
       localStorage.setItem(USER_POINTS_STORAGE_KEY, newPoints.toString());
-      // Dispatch a storage event to update the header
       window.dispatchEvent(new StorageEvent('storage', { key: USER_POINTS_STORAGE_KEY, newValue: newPoints.toString() }));
     } catch (error) {
         console.error("Failed to save to localStorage", error);

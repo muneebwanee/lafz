@@ -7,7 +7,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenText, Zap, Gem, Layers, AlertTriangle, Search, X } from 'lucide-react';
+import { ArrowRight, BookOpenText, Zap, Gem, Layers, AlertTriangle, Search, X, BrainCircuit } from 'lucide-react';
 import type { Word } from '@/types';
 import {
   Accordion,
@@ -23,10 +23,11 @@ import { AppHeader } from '@/components/app-header';
 
 const LEARNED_WORDS_STORAGE_KEY = 'lafz-learned-words';
 const USER_POINTS_STORAGE_KEY = 'lafz-user-points';
+const REVIEW_INTERVAL_DAYS = 7;
 
 export default function Home() {
   const { theme } = useTheme();
-  const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
+  const [learnedWords, setLearnedWords] = useState<Record<number, number>>({});
   const [userPoints, setUserPoints] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<Word[]>([]);
@@ -77,7 +78,12 @@ export default function Home() {
   }, []);
   
   const handleLearnedChange = (wordId: number, learned: boolean) => {
-    const newLearnedWords = { ...learnedWords, [wordId]: learned };
+    const newLearnedWords = { ...learnedWords };
+    if (learned) {
+      newLearnedWords[wordId] = Date.now();
+    } else {
+      delete newLearnedWords[wordId];
+    }
     setLearnedWords(newLearnedWords);
     
     const pointsChange = learned ? 10 : -10;
@@ -87,13 +93,11 @@ export default function Home() {
     try {
       localStorage.setItem(LEARNED_WORDS_STORAGE_KEY, JSON.stringify(newLearnedWords));
       localStorage.setItem(USER_POINTS_STORAGE_KEY, newPoints.toString());
-      // Dispatch a storage event to update the header
       window.dispatchEvent(new StorageEvent('storage', { key: USER_POINTS_STORAGE_KEY, newValue: newPoints.toString() }));
     } catch (error) {
         console.error("Failed to save to localStorage", error);
     }
   };
-
 
   const highFrequencyWords = useMemo(() => words.filter(w => w.category === 'high-frequency'), []);
   const uniqueRoots = useMemo(() => words.filter(w => w.category === 'unique-root'), []);
@@ -128,6 +132,12 @@ export default function Home() {
         percentage: (learnedCount / words.length) * 100
     };
   };
+
+  const wordsForReview = useMemo(() => {
+    const now = Date.now();
+    const reviewCutoff = now - REVIEW_INTERVAL_DAYS * 24 * 60 * 60 * 1000;
+    return words.filter(word => learnedWords[word.id] && learnedWords[word.id] < reviewCutoff);
+  }, [learnedWords]);
 
   const highFrequencyProgress = useMemo(() => calculateProgress(highFrequencyWords), [highFrequencyWords, learnedWords]);
   const uniqueRootsProgress = useMemo(() => calculateProgress(uniqueRoots), [uniqueRoots, learnedWords]);
@@ -223,6 +233,36 @@ export default function Home() {
     </div>
   );
 
+  const ReviewZone = () => (
+    <div className="mt-16 py-12 bg-secondary/50 rounded-xl">
+        <div className="container">
+            <div className="text-center mb-12">
+                <div className="flex justify-center mb-6">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                        <BrainCircuit className="h-16 w-16 text-primary" />
+                    </div>
+                </div>
+                <h2 className="text-3xl font-extrabold tracking-tight lg:text-4xl font-headline">
+                    Review Zone
+                </h2>
+                <p className="mt-4 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto">
+                    Time to reinforce your memory! Review these words you learned a while ago.
+                </p>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {wordsForReview.map(word => (
+                <WordCard
+                    key={word.id}
+                    word={word}
+                    isLearned={!!learnedWords[word.id]}
+                    onLearnedChange={(learned) => handleLearnedChange(word.id, learned)}
+                />
+                ))}
+            </div>
+        </div>
+    </div>
+  )
+
   return (
     <div className="relative flex flex-col min-h-screen bg-background isolate">
        <div className="absolute inset-x-0 top-0 h-[50vh] bg-gradient-to-b from-primary/10 to-transparent -z-10"></div>
@@ -266,64 +306,67 @@ export default function Home() {
           {searchTerm.length > 1 ? (
             <SearchResultsDisplay />
           ) : (
-            <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8" defaultValue={['item-1']}>
-              <AccordionItem value="item-1" className="border-b-0">
-                  <AccordionTriggerWithProgress 
-                      icon={Zap}
-                      title="Essentials"
-                      progress={highFrequencyProgress}
-                  />
-                <AccordionContent className="pt-8">
-                  <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
-                      The essential first step. Master the 200+ words that make up a significant portion of the Quran's text. This will give you an instant and dramatic boost in comprehension.
-                  </p>
-                  <JourneySection 
-                    chapters={highFrequencyChapters}
-                  />
-                </AccordionContent>
-              </AccordionItem>
-              
-              <AccordionItem value="item-2" className="border-b-0">
-                  <AccordionTriggerWithProgress
-                      icon={Gem}
-                      title="Roots"
-                      progress={uniqueRootsProgress}
-                  />
-                <AccordionContent className="pt-8">
-                   <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
-                     Go deeper by learning the 629 unique word roots. This will unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words. Mastering roots is the key to true fluency.
-                  </p>
-                   <JourneySection 
-                    chapters={uniqueRootChapters}
-                  />
-                </AccordionContent>
-              </AccordionItem>
+            <>
+              {wordsForReview.length > 0 && <ReviewZone />}
+              <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8 mt-16" defaultValue={['item-1']}>
+                <AccordionItem value="item-1" className="border-b-0">
+                    <AccordionTriggerWithProgress 
+                        icon={Zap}
+                        title="Essentials"
+                        progress={highFrequencyProgress}
+                    />
+                  <AccordionContent className="pt-8">
+                    <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
+                        The essential first step. Master the 200+ words that make up a significant portion of the Quran's text. This will give you an instant and dramatic boost in comprehension.
+                    </p>
+                    <JourneySection 
+                      chapters={highFrequencyChapters}
+                    />
+                  </AccordionContent>
+                </AccordionItem>
+                
+                <AccordionItem value="item-2" className="border-b-0">
+                    <AccordionTriggerWithProgress
+                        icon={Gem}
+                        title="Roots"
+                        progress={uniqueRootsProgress}
+                    />
+                  <AccordionContent className="pt-8">
+                     <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
+                       Go deeper by learning the 629 unique word roots. This will unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words. Mastering roots is the key to true fluency.
+                    </p>
+                     <JourneySection 
+                      chapters={uniqueRootChapters}
+                    />
+                  </AccordionContent>
+                </AccordionItem>
 
-              <AccordionItem value="item-3" className="border-b-0">
-                   <AccordionTriggerWithProgress
-                      icon={Layers}
-                      title="Forms"
-                      progress={uniqueWordFormsProgress}
-                  />
-                <AccordionContent className="pt-8">
-                   <div className="px-6 pb-8 max-w-3xl mx-auto space-y-6">
-                      <Alert>
-                          <AlertTriangle className="h-4 w-4" />
-                          <AlertTitle>A Note on Learning Methodology</AlertTitle>
-                          <AlertDescription className="space-y-2 mt-2">
-                             <p>This category demonstrates how a single root can blossom into many different words. While there are thousands of unique word forms in the Quran, memorizing them all individually is not an effective learning strategy.</p>
-                             <p>The human mind learns through patterns. The true path to understanding all word forms is not by memorizing the {uniqueWordForms.length} individual forms, but by mastering the <strong>{uniqueRoots.length} unique roots (in the previous category)</strong> and their predictable patterns.</p>
-                             <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. By studying these examples, you will see how a handful of roots can generate a wide array of vocabulary.</p>
-                          </AlertDescription>
-                      </Alert>
-                   </div>
-                   <JourneySection 
-                    chapters={uniqueWordFormChapters}
-                  />
-                </AccordionContent>
-              </AccordionItem>
+                <AccordionItem value="item-3" className="border-b-0">
+                     <AccordionTriggerWithProgress
+                        icon={Layers}
+                        title="Forms"
+                        progress={uniqueWordFormsProgress}
+                    />
+                  <AccordionContent className="pt-8">
+                     <div className="px-6 pb-8 max-w-3xl mx-auto space-y-6">
+                        <Alert>
+                            <AlertTriangle className="h-4 w-4" />
+                            <AlertTitle>A Note on Learning Methodology</AlertTitle>
+                            <AlertDescription className="space-y-2 mt-2">
+                               <p>This category demonstrates how a single root can blossom into many different words. While there are thousands of unique word forms in the Quran, memorizing them all individually is not an effective learning strategy.</p>
+                               <p>The human mind learns through patterns. The true path to understanding all word forms is not by memorizing the {uniqueWordForms.length} individual forms, but by mastering the <strong>{uniqueRoots.length} unique roots (in the previous category)</strong> and their predictable patterns.</p>
+                               <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. By studying these examples, you will see how a handful of roots can generate a wide array of vocabulary.</p>
+                            </AlertDescription>
+                        </Alert>
+                     </div>
+                     <JourneySection 
+                      chapters={uniqueWordFormChapters}
+                    />
+                  </AccordionContent>
+                </AccordionItem>
 
-            </Accordion>
+              </Accordion>
+            </>
           )}
 
         </div>
