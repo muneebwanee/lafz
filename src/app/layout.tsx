@@ -7,8 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
-import React, { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import React, from "react";
 
 
 export default function RootLayout({
