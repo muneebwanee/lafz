@@ -30,7 +30,7 @@ export default function SuggestionsPage() {
                     <p className="text-muted-foreground mt-2 mb-6">
                         The best way to suggest a feature or report a bug is by creating an issue on our GitHub repository. This helps us track all feedback in one place.
                     </p>
-                    <Link href="https://github.com/muneebwanee/tafheem/issues/new" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://github.com/muneebwanee/lafz/issues/new" target="_blank" rel="noopener noreferrer">
                         <Button size="lg">
                             <Github className="mr-2 h-5 w-5" />
                             Create a GitHub Issue

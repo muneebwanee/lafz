@@ -32,7 +32,7 @@ export default function ContributePage() {
                     <p className="text-muted-foreground mt-2 mb-6">
                         Our entire project is hosted on GitHub. It's the best place to report issues, suggest features, or submit your own contributions.
                     </p>
-                    <Link href="https://github.com/muneebwanee/tafheem" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://github.com/muneebwanee/lafz" target="_blank" rel="noopener noreferrer">
                         <Button size="lg">
                             <Github className="mr-2 h-5 w-5" />
                             View on GitHub

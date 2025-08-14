@@ -16,7 +16,7 @@ export function AppHeader() {
 
   useEffect(() => {
     // Fetch GitHub stars
-    fetch('https://api.github.com/repos/muneebwanee/tafheem')
+    fetch('https://api.github.com/repos/muneebwanee/lafz')
       .then(res => res.json())
       .then(data => {
         if (data.stargazers_count) {
@@ -63,7 +63,7 @@ export function AppHeader() {
                     <span className="tabular-nums">{points}</span>
                 </div>
             )}
-            <a href="https://github.com/muneebwanee/tafheem" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/muneebwanee/lafz" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="flex items-center gap-2">
                     <Star className="h-4 w-4" />
                     Star on GitHub
