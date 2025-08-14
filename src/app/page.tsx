@@ -17,7 +17,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Progress } from '@/components/ui/progress';
-import LightRays from '@/components/light-rays';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Input } from '@/components/ui/input';
 import { WordCard } from '@/components/word-card';
@@ -117,22 +116,22 @@ export default function Home() {
   const uniqueWordFormsProgress = useMemo(() => calculateProgress(uniqueWordForms), [uniqueWordForms, learnedWords]);
 
   const JourneySection = ({ chapters }: { chapters: { name: string, words: Word[], level: number }[] }) => (
-    <div className="relative max-w-2xl mx-auto py-8">
-        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
+    <div className="relative max-w-4xl mx-auto py-8">
+        <div className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
         
         <div className="space-y-12">
           {chapters.map(({ name, words, level }, index) => {
             const chapterProgress = calculateProgress(words);
             const isEven = index % 2 === 0;
             return (
-              <div key={name} className="relative flex items-center group">
-                <div className="absolute left-1/2 -translate-x-1/2 z-10">
+              <div key={name} className="relative flex items-center group md:w-1/2" style={{ marginLeft: isEven ? '0' : '50%' }}>
+                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background transition-all duration-300 group-hover:scale-110">
                     {index + 1}
                   </div>
                 </div>
 
-                <div className={`w-1/2 ${isEven ? 'pr-12' : 'pl-12 ml-auto'}`}>
+                <div className={`w-full ml-12 md:ml-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
                     <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1`}>
                       <CardHeader>
                         <CardTitle className="font-headline text-2xl font-semibold text-foreground">{name}</CardTitle>
@@ -208,23 +207,8 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col min-h-screen bg-background isolate">
-      <div className="absolute inset-0 h-full w-full -z-10">
-          <LightRays
-              key={theme}
-              raysColor={theme === 'dark' ? '#A090D0' : '#4A4A6A'}
-              raysOrigin="top-center"
-              lightSpread={0.8}
-              rayLength={1.5}
-              raysSpeed={0.2}
-              pulsating={true}
-              fadeDistance={0.8}
-              mouseInfluence={0.05}
-              saturation={0.8}
-              noiseAmount={0.02}
-              distortion={0.05}
-          />
-      </div>
-
+       <div className="absolute inset-x-0 top-0 h-[50vh] bg-gradient-to-b from-primary/10 to-transparent -z-10"></div>
+      
       <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
           <a className="mr-6 flex items-center space-x-2" href="/">
@@ -355,3 +339,4 @@ const Icon = ({ icon: IconComponent }: { icon: React.ElementType }) => (
 );
 
     
+
