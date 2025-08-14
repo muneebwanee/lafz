@@ -72,6 +72,15 @@ export default function RootLayout({
                     Suggestions
                   </Button>
                 </Link>
+                <Link href="/contribute" passHref>
+                  <Button
+                    variant="outline"
+                    loading={loadingPage === 'contribute'}
+                    onClick={() => setLoadingPage('contribute')}
+                  >
+                    Contribute
+                  </Button>
+                </Link>
               </div>
             </div>
           </footer>
