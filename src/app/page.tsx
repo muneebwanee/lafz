@@ -1,14 +1,14 @@
 
 "use client";
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTheme } from 'next-themes';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenIcon, Zap, Gem, Layers, AlertTriangle } from 'lucide-react';
+import { ArrowRight, BookOpenIcon, Zap, Gem, Layers, AlertTriangle, Search, X } from 'lucide-react';
 import type { Word } from '@/types';
 import {
   Accordion,
@@ -19,12 +19,19 @@ import {
 import { Progress } from '@/components/ui/progress';
 import LightRays from '@/components/light-rays';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Input } from '@/components/ui/input';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { WordCard } from '@/components/word-card';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const STORAGE_KEY = 'quranic-lexica-learned-words';
 
 export default function Home() {
   const { theme } = useTheme();
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<Word[]>([]);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -47,6 +54,34 @@ export default function Home() {
     };
 
   }, []);
+
+  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    if (term.length > 1) {
+      const results = words.filter(word =>
+        word.word.toLowerCase().includes(term.toLowerCase()) ||
+        word.meanings.english.toLowerCase().includes(term.toLowerCase()) ||
+        word.arabic.includes(term)
+      );
+      setSearchResults(results);
+      setIsSearchOpen(true);
+    } else {
+      setSearchResults([]);
+      setIsSearchOpen(false);
+    }
+  }, []);
+  
+  const handleLearnedChange = (wordId: number, learned: boolean) => {
+    const newLearnedWords = { ...learnedWords, [wordId]: learned };
+    setLearnedWords(newLearnedWords);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newLearnedWords));
+    } catch (error) {
+        console.error("Failed to save learned words to localStorage", error);
+    }
+  };
+
 
   const highFrequencyWords = useMemo(() => words.filter(w => w.category === 'high-frequency'), []);
   const uniqueRoots = useMemo(() => words.filter(w => w.category === 'unique-root'), []);
@@ -103,9 +138,11 @@ export default function Home() {
                 </div>
 
                 <Card className={`w-full max-w-sm transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 ${isEven ? 'mr-auto' : 'ml-auto'}`}>
-                  <div className="p-6">
-                    <h3 className="font-headline text-2xl font-semibold text-foreground">{name}</h3>
+                  <CardHeader>
+                    <CardTitle className="font-headline text-2xl font-semibold text-foreground">{name}</CardTitle>
                     <p className="text-muted-foreground">{words.length} words</p>
+                  </CardHeader>
+                  <CardContent>
                     <div className="my-4">
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-xs font-semibold text-primary">Progress</span>
@@ -118,7 +155,7 @@ export default function Home() {
                         Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                  </div>
+                  </CardContent>
                 </Card>
               </div>
             );
@@ -156,7 +193,7 @@ export default function Home() {
       <div className="absolute inset-0 h-full w-full -z-10">
           <LightRays
               key={theme}
-              raysColor={theme === 'dark' ? '#a27de2' : '#212429'}
+              raysColor={theme === 'dark' ? '#A090D0' : '#4A4A6A'}
               raysOrigin="top-center"
               lightSpread={0.8}
               rayLength={1.5}
@@ -187,7 +224,7 @@ export default function Home() {
       </header>
       <main className="flex-1 z-10">
         <div className="container py-8 md:py-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl font-headline">
               Unlock the Language of the Quran
             </h1>
@@ -195,6 +232,47 @@ export default function Home() {
               Embark on a guided journey to master the core vocabulary of the Quran. Learn smarter, not harder, and unlock a deeper connection with every verse.
             </p>
           </div>
+
+          <div className="mb-16 max-w-xl mx-auto">
+            <div className="relative">
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search for any word..."
+                className="w-full pl-11 text-lg h-12"
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+              {searchTerm && (
+                 <Button variant="ghost" size="icon" className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full" onClick={() => handleSearchChange({ target: { value: '' } } as any)}>
+                    <X className="h-5 w-5" />
+                </Button>
+              )}
+            </div>
+          </div>
+          
+          <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+            <DialogContent className="max-w-4xl">
+              <DialogHeader>
+                <DialogTitle className="font-headline">Search Results for "{searchTerm}"</DialogTitle>
+                <DialogDescription>
+                  Found {searchResults.length} matching words.
+                </DialogDescription>
+              </DialogHeader>
+              <ScrollArea className="max-h-[70vh] pr-4">
+                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 py-4">
+                      {searchResults.map(word => (
+                          <WordCard
+                              key={word.id}
+                              word={word}
+                              isLearned={!!learnedWords[word.id]}
+                              onLearnedChange={(learned) => handleLearnedChange(word.id, learned)}
+                          />
+                      ))}
+                  </div>
+              </ScrollArea>
+            </DialogContent>
+          </Dialog>
 
           <Accordion type="multiple" className="w-full max-w-4xl mx-auto space-y-8" defaultValue={['item-1']}>
             <AccordionItem value="item-1" className="border-b-0">
@@ -204,7 +282,7 @@ export default function Home() {
                     progress={highFrequencyProgress}
                 />
               <AccordionContent className="pt-8">
-                <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl">
+                <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
                     The essential first step. Master the ~400 words that make up ~80% of the Quran's text. This will give you an instant and dramatic boost in comprehension.
                 </p>
                 <JourneySection 
@@ -220,7 +298,7 @@ export default function Home() {
                     progress={uniqueRootsProgress}
                 />
               <AccordionContent className="pt-8">
-                <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl">
+                <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl mx-auto text-center">
                    Go deeper by learning the ~600 unique word roots. This will unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words. Mastering roots is the key to true fluency.
                 </p>
                  <JourneySection 
@@ -237,9 +315,6 @@ export default function Home() {
                 />
               <AccordionContent className="pt-8">
                  <div className="px-6 pb-8 max-w-3xl mx-auto space-y-6">
-                    <p className="text-md text-muted-foreground">
-                        For the dedicated learner. Explore every unique word form to achieve true mastery. This path is for those committed to the highest level of scholarship and wish to see how the root system blossoms into the full vocabulary of the Quran.
-                    </p>
                     <Alert>
                         <AlertTriangle className="h-4 w-4" />
                         <AlertTitle>A Note on Learning Methodology</AlertTitle>
