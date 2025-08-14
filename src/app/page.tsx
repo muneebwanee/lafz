@@ -28,6 +28,7 @@ export default function Home() {
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<Word[]>([]);
+  const [loadingChapter, setLoadingChapter] = useState<number | null>(null);
 
   useEffect(() => {
     try {
@@ -144,8 +145,8 @@ export default function Home() {
                         </div>
                         <Progress value={chapterProgress.percentage} className="h-2" />
                       </div>
-                      <Link href={`/levels/${level}`} className="mt-2 inline-block">
-                        <Button>
+                      <Link href={`/levels/${level}`} className="mt-2 inline-block" onClick={() => setLoadingChapter(level)}>
+                        <Button loading={loadingChapter === level}>
                           Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
@@ -324,6 +325,9 @@ const Icon = ({ icon: IconComponent }: { icon: React.ElementType }) => (
 
 
 
+
+
+    
 
 
     
