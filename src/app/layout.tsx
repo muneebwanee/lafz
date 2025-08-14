@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Quranic Lexica",
@@ -43,12 +44,12 @@ export default function RootLayout({
               <p className="text-sm text-center text-muted-foreground">
                 © {new Date().getFullYear()} Quranic Lexica. Built with purpose.
               </p>
-              <div className="flex items-center gap-6 text-sm">
-                <Link href="/features" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Features
+              <div className="flex items-center gap-4 text-sm">
+                <Link href="/features" className={buttonVariants({ variant: "outline" })}>
+                    Features
                 </Link>
-                <Link href="/suggestions" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Suggestions
+                <Link href="/suggestions" className={buttonVariants({ variant: "outline" })}>
+                    Suggestions
                 </Link>
               </div>
             </div>
