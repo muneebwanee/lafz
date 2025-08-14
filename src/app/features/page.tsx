@@ -18,11 +18,6 @@ export default function FeaturesPage() {
     {
       title: 'Gamification & Achievements',
       description: 'Earn points, badges, and unlock new levels to make learning more engaging and fun.',
-      status: 'upcoming',
-    },
-    {
-        title: 'Contextual Examples',
-        description: 'See how each word is used in different verses of the Quran, with translations in multiple languages.',
     },
     {
         title: 'Pronunciation Audio',

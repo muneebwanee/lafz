@@ -8,17 +8,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { Sparkles, Volume2 } from 'lucide-react';
+import { Volume2 } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog"
-import { ScrollArea } from './ui/scroll-area';
-import { provideContextualExamples, type ContextualExamplesOutput } from '@/ai/flows/provide-contextual-examples';
+
 
 interface WordCardProps {
     word: Word;
@@ -27,37 +19,8 @@ interface WordCardProps {
 }
 
 export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
-    const [examples, setExamples] = useState<string[]>([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-    const [activeTab, setActiveTab] = useState<"english" | "urdu" | "hinglish">("english");
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    const handleGetExamples = async () => {
-        setError(null);
-        setIsLoading(true);
-
-        try {
-            const result: ContextualExamplesOutput = await provideContextualExamples({
-                word: word.word,
-                translationLanguage: activeTab,
-            });
-
-            if (result && result.examples && result.examples.length > 0) {
-                setExamples(result.examples);
-                setIsDialogOpen(true);
-            } else {
-                setError("No examples available for this word in the selected language.");
-            }
-        } catch (e) {
-            console.error(e);
-            setError("Sorry, I couldn't fetch examples right now. Please try again later.");
-        } finally {
-            setIsLoading(false);
-        }
-    };
-    
     const handlePlayPronunciation = () => {
         if (word.pronunciationUrl) {
             setIsPlaying(true);
@@ -91,7 +54,7 @@ export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col justify-between">
                     <div>
-                        <Tabs defaultValue="english" className="w-full" onValueChange={(value) => setActiveTab(value as "english" | "urdu" | "hinglish")}>
+                        <Tabs defaultValue="english" className="w-full">
                             <TabsList className="grid w-full grid-cols-3">
                                 <TabsTrigger value="english">English</TabsTrigger>
                                 <TabsTrigger value="urdu">Urdu</TabsTrigger>
@@ -101,38 +64,9 @@ export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
                             <TabsContent value="urdu" className="mt-4 min-h-[60px] text-muted-foreground"><p className="text-right font-serif" dir="rtl">{word.meanings.urdu}</p></TabsContent>
                             <TabsContent value="hinglish" className="mt-4 min-h-[60px] text-muted-foreground"><p>{word.meanings.hinglish}</p></TabsContent>
                         </Tabs>
-                        
-                        {error && <Alert variant="destructive" className="mt-4"><AlertDescription>{error}</AlertDescription></Alert>}
-                    </div>
-
-                    <div className="mt-6">
-                        <Button onClick={handleGetExamples} variant="secondary" className="w-full" loading={isLoading}>
-                            <Sparkles className="mr-2 h-4 w-4" />
-                            Show Examples
-                        </Button>
                     </div>
                 </CardContent>
             </Card>
-
-            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle className="font-headline">Contextual Examples for "{word.word}"</DialogTitle>
-                  <DialogDescription>
-                    These verses from the Quran show how the word is used in context.
-                  </DialogDescription>
-                </DialogHeader>
-                <ScrollArea className="max-h-[60vh] pr-4">
-                  <div className="space-y-4 py-4">
-                     <ul className="list-decimal list-inside text-muted-foreground space-y-3">
-                         {examples.map((ex, i) => (
-                            <li key={i} dangerouslySetInnerHTML={{ __html: `<span class="${activeTab === 'urdu' ? 'font-serif text-lg' : ''}">${ex}</span>` }} />
-                        ))}
-                     </ul>
-                  </div>
-                </ScrollArea>
-              </DialogContent>
-            </Dialog>
         </>
     );
 }
