@@ -250,7 +250,7 @@ export default function Home() {
                 </p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {wordsForReview.map(word => (
+                {wordsForReview.slice(0, 3).map(word => (
                 <WordCard
                     key={word.id}
                     word={word}
