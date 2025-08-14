@@ -318,9 +318,9 @@ export default function Home() {
                           <AlertTriangle className="h-4 w-4" />
                           <AlertTitle>A Note on Learning Methodology</AlertTitle>
                           <AlertDescription className="space-y-2 mt-2">
-                             <p>This category contains over 15,000 distinct Arabic words. Generating a list of this magnitude is not a practical tool for learning; it is a raw statistical database. No one learns a language by memorizing a 15,000-word dictionary. It would be counterproductive to your goal of understanding the Quran.</p>
-                             <p>The human mind learns through patterns, not brute-force memorization. The true path to understanding all 15,000+ forms is not by memorizing them individually, but by mastering the **629 unique roots (Category 2)** and their predictable patterns.</p>
-                             <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. The most effective way to engage with this concept is to see how hundreds of unique words are generated from just a handful of roots.</p>
+                             <p>This category demonstrates how a single root can blossom into many different words. While there are thousands of unique word forms in the Quran, memorizing them all individually is not an effective learning strategy.</p>
+                             <p>The human mind learns through patterns. The true path to understanding all word forms is not by memorizing them individually, but by mastering the **629 unique roots (in the previous category)** and their predictable patterns.</p>
+                             <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. By studying these examples, you will see how a handful of roots can generate a wide array of vocabulary.</p>
                           </AlertDescription>
                       </Alert>
                    </div>
