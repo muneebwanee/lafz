@@ -14,7 +14,6 @@ export default function FeaturesPage() {
     {
       title: 'Spaced Repetition System (SRS)',
       description: 'An intelligent system to help you review words at the perfect time to maximize retention.',
-      status: 'upcoming',
     },
     {
       title: 'Gamification & Achievements',
