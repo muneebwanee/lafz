@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useMemo, useEffect } from 'react';
@@ -15,10 +14,21 @@ import { AppHeader } from '@/components/app-header';
 const LEARNED_WORDS_STORAGE_KEY = 'lafz-learned-words';
 const USER_POINTS_STORAGE_KEY = 'lafz-user-points';
 
+// ✅ Tell Next.js which dynamic pages to build at export time
+export async function generateStaticParams() {
+  // Get all unique levels from the words data
+  const levels = Array.from(new Set(words.map(w => w.level)));
+
+  // Return them in the format Next.js expects
+  return levels.map(level => ({
+    level: String(level) // must be string
+  }));
+}
+
 export default function LevelPage({ params }: { params: { level: string } }) {
   const level = parseInt(params.level, 10);
   const [searchTerm, setSearchTerm] = useState('');
-  
+
   const levelWords = useMemo(() => words.filter(word => word.level === level), [level]);
   const maxLevel = useMemo(() => Math.max(...words.map(w => w.level)), []);
 
@@ -54,16 +64,16 @@ export default function LevelPage({ params }: { params: { level: string } }) {
     const pointsChange = learned ? 10 : -10;
     const newPoints = Math.max(0, userPoints + pointsChange);
     setUserPoints(newPoints);
-    
+
     try {
       localStorage.setItem(LEARNED_WORDS_STORAGE_KEY, JSON.stringify(newLearnedWords));
       localStorage.setItem(USER_POINTS_STORAGE_KEY, newPoints.toString());
       window.dispatchEvent(new StorageEvent('storage', { key: USER_POINTS_STORAGE_KEY, newValue: newPoints.toString() }));
     } catch (error) {
-        console.error("Failed to save to localStorage", error);
+      console.error("Failed to save to localStorage", error);
     }
   };
-  
+
   const filteredWords = levelWords.filter(word =>
     word.word.toLowerCase().includes(searchTerm.toLowerCase()) ||
     word.meanings.english.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -72,9 +82,9 @@ export default function LevelPage({ params }: { params: { level: string } }) {
 
   const learnedCount = levelWords.filter(word => learnedWords[word.id]).length;
   const progressPercentage = levelWords.length > 0 ? (learnedCount / levelWords.length) * 100 : 0;
-  
+
   const chapterName = levelWords.length > 0 ? levelWords[0].chapter : '';
-  
+
   if (!isMounted) {
     return null; // Or a loading spinner
   }
@@ -86,18 +96,18 @@ export default function LevelPage({ params }: { params: { level: string } }) {
         <div className="container py-8 md:py-12">
           <div className="mb-8">
             <div className="text-center">
-                <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
-                    {chapterName || `Chapter ${level}`}
-                </h1>
-                <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-                    Master these {levelWords.length} words to advance your learning.
-                </p>
+              <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
+                {chapterName || `Chapter ${level}`}
+              </h1>
+              <p className="mt-4 text-lg text-muted-foreground md:text-xl">
+                Master these {levelWords.length} words to advance your learning.
+              </p>
             </div>
             <div className="mt-8 max-w-xl mx-auto">
-                <div className='flex items-center gap-4'>
-                    <Progress value={progressPercentage} className="w-full h-3" variant="accent" />
-                    <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{learnedCount} / {levelWords.length}</span>
-                </div>
+              <div className='flex items-center gap-4'>
+                <Progress value={progressPercentage} className="w-full h-3" variant="accent" />
+                <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{learnedCount} / {levelWords.length}</span>
+              </div>
             </div>
           </div>
           <div className="mb-12 max-w-lg mx-auto">
@@ -115,8 +125,8 @@ export default function LevelPage({ params }: { params: { level: string } }) {
           {filteredWords.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredWords.map(word => (
-                <WordCard 
-                  key={word.id} 
+                <WordCard
+                  key={word.id}
                   word={word}
                   isLearned={!!learnedWords[word.id]}
                   onLearnedChange={(learned) => handleLearnedChange(word.id, learned)}
@@ -144,11 +154,11 @@ export default function LevelPage({ params }: { params: { level: string } }) {
 
       <Link href="/" passHref>
         <Button
-            variant="outline"
-            className="fixed bottom-6 left-6 h-12 w-12 rounded-full shadow-lg z-50 p-0 flex items-center justify-center"
-            aria-label="Back to Learning Journey"
+          variant="outline"
+          className="fixed bottom-6 left-6 h-12 w-12 rounded-full shadow-lg z-50 p-0 flex items-center justify-center"
+          aria-label="Back to Learning Journey"
         >
-            <ArrowLeft className="h-6 w-6" />
+          <ArrowLeft className="h-6 w-6" />
         </Button>
       </Link>
     </div>
