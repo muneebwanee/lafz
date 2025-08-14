@@ -132,7 +132,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className={`w-1/2 ${isEven ? 'pr-8' : 'pl-8 ml-auto'}`}>
+                <div className={`w-1/2 ${isEven ? 'pr-12' : 'pl-12 ml-auto'}`}>
                     <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1`}>
                       <CardHeader>
                         <CardTitle className="font-headline text-2xl font-semibold text-foreground">{name}</CardTitle>
@@ -279,7 +279,7 @@ export default function Home() {
               <AccordionItem value="item-1" className="border-b-0">
                   <AccordionTriggerWithProgress 
                       icon={Zap}
-                      title="High-Frequency Words"
+                      title="Essentials"
                       progress={highFrequencyProgress}
                   />
                 <AccordionContent className="pt-8">
@@ -295,7 +295,7 @@ export default function Home() {
               <AccordionItem value="item-2" className="border-b-0">
                   <AccordionTriggerWithProgress
                       icon={Gem}
-                      title="Unique Roots"
+                      title="Roots"
                       progress={uniqueRootsProgress}
                   />
                 <AccordionContent className="pt-8">
@@ -311,7 +311,7 @@ export default function Home() {
               <AccordionItem value="item-3" className="border-b-0">
                    <AccordionTriggerWithProgress
                       icon={Layers}
-                      title="Unique Word Forms"
+                      title="Forms"
                       progress={uniqueWordFormsProgress}
                   />
                 <AccordionContent className="pt-8">
