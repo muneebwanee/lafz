@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from 'react';
+import { useTheme } from 'next-themes';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -16,10 +17,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Progress } from '@/components/ui/progress';
+import LightRays from '@/components/light-rays';
 
 const STORAGE_KEY = 'quranic-lexica-learned-words';
 
 export default function Home() {
+  const { theme } = useTheme();
   const [learnedWords, setLearnedWords] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
@@ -98,7 +101,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Card className={`w-full max-w-sm transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 ${isEven ? 'mr-auto' : 'ml-auto'}`}>
+                <Card className={`w-full max-w-sm transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 ${isEven ? 'mr-auto' : 'ml-auto'}`}>
                   <div className="p-6">
                     <h3 className="font-headline text-2xl font-semibold text-foreground">{name}</h3>
                     <p className="text-muted-foreground">{words.length} words</p>
@@ -110,7 +113,7 @@ export default function Home() {
                       <Progress value={chapterProgress.percentage} className="h-2" />
                     </div>
                     <Link href={`/levels/${level}`} className="mt-2 inline-block">
-                      <Button variant="secondary">
+                      <Button>
                         Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
@@ -124,7 +127,7 @@ export default function Home() {
   );
 
   const AccordionTriggerWithProgress = ({ icon, title, description, progress }: { icon: React.ElementType, title: string, description: string, progress: { count: number, total: number, percentage: number } }) => (
-     <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-md hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/20">
+     <AccordionTrigger className="text-left bg-card/80 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/20">
         <div className='w-full'>
             <div className="flex items-center space-x-6">
                 <Icon icon={icon} />
@@ -151,7 +154,24 @@ export default function Home() {
   )
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="relative flex flex-col min-h-screen bg-background isolate">
+      <div className="absolute inset-0 h-full w-full -z-10">
+          <LightRays
+              key={theme}
+              raysColor={theme === 'dark' ? '#a27de2' : '#212429'}
+              raysOrigin="top-center"
+              lightSpread={0.8}
+              rayLength={1.5}
+              raysSpeed={0.2}
+              pulsating={true}
+              fadeDistance={0.8}
+              mouseInfluence={0.05}
+              saturation={0.8}
+              noiseAmount={0.02}
+              distortion={0.05}
+          />
+      </div>
+
       <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
           <div className="mr-4 flex">
@@ -167,14 +187,14 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <main className="flex-1">
+      <main className="flex-1 z-10">
         <div className="container py-8 md:py-12">
           <div className="text-center mb-16">
-            <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
-              Your Learning Journey
+            <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl font-headline">
+              Unlock the Language of the Quran
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground md:text-xl">
-              Master the core words of the Quran, one chapter at a time.
+            <p className="mt-4 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto">
+              Embark on a guided journey to master the core vocabulary of the Quran. Learn smarter, not harder, and unlock a deeper connection with every verse.
             </p>
           </div>
 
@@ -183,7 +203,7 @@ export default function Home() {
                 <AccordionTriggerWithProgress 
                     icon={Zap}
                     title="High-Frequency Words"
-                    description="Focus on the most common ~400 words. Recognize and understand ~80% of the words you see on any page. You will get the general gist of most verses."
+                    description="The essential first step. Master the ~400 words that make up ~80% of the Quran's text. This will give you an instant and dramatic boost in comprehension."
                     progress={highFrequencyProgress}
                 />
               <AccordionContent className="pt-8">
@@ -197,7 +217,7 @@ export default function Home() {
                 <AccordionTriggerWithProgress
                     icon={Gem}
                     title="Unique Roots"
-                    description="Master ~1,800 unique roots. Unlock a deep and comprehensive understanding of the entire Quranic vocabulary. This is the long-term goal for mastery."
+                    description="Go deeper. Learn the ~1,800 unique word roots to unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words."
                     progress={uniqueRootsProgress}
                 />
               <AccordionContent className="pt-8">
@@ -211,7 +231,7 @@ export default function Home() {
                  <AccordionTriggerWithProgress
                     icon={Layers}
                     title="Unique Word Forms"
-                    description="The technical total, but not a practical number for a learner to focus on. This section is for advanced learners."
+                    description="For the dedicated learner. Explore every unique word form to achieve true mastery. This path is for those committed to the highest level of scholarship."
                     progress={uniqueWordFormsProgress}
                 />
               <AccordionContent className="pt-8">
@@ -225,7 +245,7 @@ export default function Home() {
 
         </div>
       </main>
-      <footer className="py-6 md:px-8 md:py-0 border-t bg-background">
+      <footer className="py-6 md:px-8 md:py-0 border-t bg-background/80 backdrop-blur-sm z-10">
         <div className="container flex flex-col items-center justify-center gap-4 h-24 md:flex-row">
           <p className="text-sm text-center text-muted-foreground">
             © {new Date().getFullYear()} Quranic Lexica. Built with purpose.
