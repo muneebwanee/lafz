@@ -27,6 +27,7 @@ export default function FeaturesPage() {
     {
         title: 'Pronunciation Audio',
         description: 'Listen to the correct pronunciation for each word to improve your listening and speaking skills.',
+        status: 'upcoming',
     },
     {
         title: 'Community Suggestions',
