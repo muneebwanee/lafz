@@ -27,9 +27,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/hiya.mp3',
     examples: {
-      english: ['وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> - And what can make you know what <b>that is</b>?', 'فَأُمُّهُ هَاوِيَةٌ ﴿٩﴾ وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> ﴿١٠﴾ نَارٌ حَامِيَةٌ - His refuge will be the Pit. And what can make you know what <b>it</b> is? It is a Fire, intensely hot.'],
-      urdu: ['وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> - اور تم کیا جانو کہ <b>وہ</b> کیا ہے؟', 'فَأُمُّهُ هَاوِيَةٌ ﴿٩﴾ وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> ﴿١٠﴾ نَارٌ حَامِيَةٌ - تو اس کا ٹھکانا ہاویہ ہے۔ اور تم کیا جانو کہ <b>وہ</b> کیا ہے؟ ایک دہکتی ہوئی آگ۔'],
-      hinglish: ['Wa mā adrāka mā <b>hiyah</b> - Aur tum kya jaano ke <b>woh</b> kya hai?', 'fa-ummuhu hāwiyatun, wa mā adrāka mā <b>hiyah</b>, nārun ḥāmiyah - Toh uska thikana Hawiyah hai. Aur tum kya jaano ke <b>woh</b> kya hai? Ek dehekti hui aag.']
+      english: ['وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> - And what can make you know what <b>that is</b>?', 'سَلَامٌ <b>هِيَ</b> حَتَّىٰ مَطْلَعِ الْفَجْرِ - Peace <b>it</b> is until the emergence of dawn.'],
+      urdu: ['وَمَا أَدْرَاكَ مَا <b>هِيَهْ</b> - اور تم کیا جانو کہ <b>وہ</b> کیا ہے؟', 'سَلَامٌ <b>هِيَ</b> حَتَّىٰ مَطْلَعِ الْفَجْرِ - <b>وہ</b> سلامتی ہے، یہاں تک کہ فجر طلوع ہو جائے۔'],
+      hinglish: ['Wa mā adrāka mā <b>hiyah</b> - Aur tum kya jaano ke <b>woh</b> kya hai?', 'Salāmun <b>hiya</b> ḥattā maṭlaʿi l-fajr - <b>Woh</b> salamti hai, yahan tak ke fajr tulu ho jaye.']
     }
   },
   { 
@@ -42,7 +42,7 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/hum.mp3',
     examples: {
-      english: ['أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ <b>هُمُ</b> الْمُفْلِحُونَ - Those are upon [right] guidance from their Lord, and it is those who are the successful.', 'وَالَّذِينَ <b>هُمْ</b> لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ - And they who are to their trusts and their promises attentive.'],
+      english: ['أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ <b>هُمُ</b> الْمُفْلِحُونَ - Those are upon [right] guidance from their Lord, and it is <b>they</b> who are the successful.', 'وَالَّذِينَ <b>هُمْ</b> لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ - And <b>they</b> who are to their trusts and their promises attentive.'],
       urdu: ['أُولَٰئِكَ عَلَىٰ هُدًى مِنْ رَبِّهِمْ ۖ وَأُولَٰئِكَ <b>هُمُ</b> الْمُفْلِحُونَ - یہی لوگ اپنے رب کی طرف سے ہدایت پر ہیں اور یہی <b>لوگ</b> فلاح پانے والے ہیں۔', 'وَالَّذِينَ <b>هُمْ</b> لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ - اور <b>وہ</b> جو اپنی امانتوں اور اپنے عہد کا پاس رکھنے والے ہیں۔'],
       hinglish: ['Ulā\'ika \'alā hudan min rabbihim wa-ulā\'ika <b>humu</b> l-mufliḥūn - Yahi log apne Rab ki taraf se hidayat par hain aur yahi <b>log</b> falah paane wale hain.', 'walladhīna <b>hum</b> li-amānātihim wa-ʿahdihim rāʿūna - Aur <b>woh</b> jo apni amanaton aur apne ahd ka paas rakhne wale hain.']
     }
@@ -117,9 +117,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/hu.mp3',
     examples: {
-      english: ['مِنْ شَرِّ مَا خَلَقَ - From the evil of that which He has created.', 'قُلْ أَعُوذُ بِرَبِّ النَّاسِ - Say, "I seek refuge in the Lord of mankind,"'],
-      urdu: ['مِنْ شَرِّ مَا خَلَقَ - اس کی مخلوق کے شر سے۔', 'قُلْ أَعُوذُ بِرَبِّ النَّاسِ - کہہ دو کہ میں لوگوں کے رب کی پناہ میں آتا ہوں۔'],
-      hinglish: ['min sharri mā khalaqa - Uski makhlooq ke sharr se.', 'qul aʿūdhu birabbi n-nās - Keh do ke main logon ke Rab ki panah mein aata hoon.']
+      english: ['مِنْ شَرِّ مَا <b>خَلَقَهُ</b> - From the evil of that which <b>He has created</b>.', 'قُلْ أَعُوذُ بِ<b>رَبِّهِ</b> - Say, "I seek refuge in <b>his Lord</b>"'],
+      urdu: ['مِنْ شَرِّ مَا <b>خَلَقَهُ</b> - اس کی مخلوق کے شر سے۔', 'قُلْ أَعُوذُ بِ<b>رَبِّهِ</b> - کہہ دو کہ میں اس کے رب کی پناہ میں آتا ہوں۔'],
+      hinglish: ['min sharri mā <b>khalaqahu</b> - Uski makhlooq ke sharr se.', 'qul aʿūdhu bi-<b>rabbihi</b> - Keh do ke main uske Rab ki panah mein aata hoon.']
     }
   },
   { 
@@ -132,9 +132,9 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/ha.mp3',
     examples: {
-      english: ['فَأَلْهَمَهَا فُجُورَ<b>هَا</b> وَتَقْوَاهَا - And inspired it [with discernment of] <b>its</b> wickedness and <b>its</b> righteousness,', 'فَسَوَّاهَا - And proportioned <b>it</b>.'],
-      urdu: ['فَأَلْهَمَهَا فُجُورَ<b>هَا</b> وَتَقْوَاهَا - پھر <b>اس کی</b> بدی اور <b>اس کی</b> پرہیزگاری اس پر الہام کی۔', 'فَسَوَّاهَا - پھر <b>اسے</b> ٹھیک بنایا۔'],
-      hinglish: ['Fa-alhamahā fujūra<b>hā</b> wa-taqwā<b>hā</b> - Phir <b>uski</b> badi aur <b>uski</b> parhezgari us par ilham ki.', 'fasawwā<b>hā</b> - Phir <b>usey</b> theek banaya.']
+      english: ['فَأَلْهَمَ<b>هَا</b> فُجُورَ<b>هَا</b> وَتَقْوَاهَا - And inspired <b>it</b> [with discernment of] <b>its</b> wickedness and <b>its</b> righteousness,', 'فَسَوَّا<b>هَا</b> - And proportioned <b>it</b>.'],
+      urdu: ['فَأَلْهَمَ<b>هَا</b> فُجُورَ<b>هَا</b> وَتَقْوَاهَا - پھر <b>اس کی</b> بدی اور <b>اس کی</b> پرہیزگاری اس پر الہام کی۔', 'فَسَوَّا<b>هَا</b> - پھر <b>اسے</b> ٹھیک بنایا۔'],
+      hinglish: ['Fa-alhama<b>hā</b> fujūra<b>hā</b> wa-taqwā<b>hā</b> - Phir <b>uski</b> badi aur <b>uski</b> parhezgari us par ilham ki.', 'fasawwā<b>hā</b> - Phir <b>usey</b> theek banaya.']
     }
   },
   { 
@@ -147,7 +147,7 @@ export const highFrequencyChapter2: Word[] = [
     chapter: 'Pronouns',
     pronunciationUrl: '/audio/words/hum-suffix.mp3',
     examples: {
-      english: ['صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْ<b>هِمْ</b> - The path of those upon whom You have bestowed favor.', 'فِي قُلُوبِ<b>هِمْ</b> مَرَضٌ - In <b>their</b> hearts is a disease.'],
+      english: ['صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْ<b>هِمْ</b> - The path of those upon <b>whom</b> You have bestowed favor.', 'فِي قُلُوبِ<b>هِمْ</b> مَرَضٌ - In <b>their</b> hearts is a disease.'],
       urdu: ['صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْ<b>هِمْ</b> - ان لوگوں کا راستہ جن پر تو نے انعام کیا۔', 'فِي قُلُوبِ<b>هِمْ</b> مَرَضٌ - <b>ان کے</b> دلوں میں بیماری ہے۔'],
       hinglish: ['Ṣirāṭa alladhīna anʿamta ʿalay<b>him</b> - Un logon ka raasta jin par tune inaam kiya.', 'fī qulūbi<b>him</b> maraḍun - <b>Unke</b> dilon mein bimari hai.']
     }
