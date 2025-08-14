@@ -117,48 +117,48 @@ export default function Home() {
 
   const JourneySection = ({ chapters }: { chapters: { name: string, words: Word[], level: number }[] }) => (
     <div className="relative max-w-4xl mx-auto py-8">
-        <div className="absolute left-6 md:left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
-        
-        <div className="space-y-12">
-          {chapters.map(({ name, words, level }, index) => {
-            const chapterProgress = calculateProgress(words);
-            const isEven = index % 2 === 0;
-            return (
-              <div key={name} className="relative flex items-center md:w-1/2" style={{ marginLeft: isEven ? '0' : '0' }}>
-                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-10">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background transition-all duration-300 group-hover:scale-110">
-                    {index + 1}
-                  </div>
-                </div>
-
-                <div className={`w-full ml-20 md:ml-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-                    <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1`}>
-                      <CardHeader>
-                        <CardTitle className="font-headline text-2xl font-semibold text-foreground">{name}</CardTitle>
-                        <p className="text-muted-foreground">{words.length} words</p>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="my-4">
-                          <div className="flex justify-between items-center mb-1 flex-wrap gap-x-2">
-                            <span className="text-xs font-semibold text-primary">Progress</span>
-                            <span className="text-xs font-semibold text-primary">{chapterProgress.count} / {chapterProgress.total}</span>
-                          </div>
-                          <Progress value={chapterProgress.percentage} className="h-2" />
-                        </div>
-                        <Link href={`/levels/${level}`} className="mt-2 inline-block">
-                          <Button>
-                            Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </Link>
-                      </CardContent>
-                    </Card>
+      <div className="absolute left-6 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
+  
+      <div className="space-y-12">
+        {chapters.map(({ name, words, level }, index) => {
+          const chapterProgress = calculateProgress(words);
+          return (
+            <div key={name} className="relative flex items-start">
+              <div className="absolute left-6 -translate-x-1/2 z-10">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background transition-all duration-300 group-hover:scale-110">
+                  {index + 1}
                 </div>
               </div>
-            );
-          })}
-        </div>
+  
+              <div className="w-full ml-20">
+                  <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1`}>
+                    <CardHeader>
+                      <CardTitle className="font-headline text-2xl font-semibold text-foreground">{name}</CardTitle>
+                      <p className="text-muted-foreground">{words.length} words</p>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="my-4">
+                        <div className="flex justify-between items-center mb-1 flex-wrap gap-x-2">
+                          <span className="text-xs font-semibold text-primary">Progress</span>
+                          <span className="text-xs font-semibold text-primary">{chapterProgress.count} / {chapterProgress.total}</span>
+                        </div>
+                        <Progress value={chapterProgress.percentage} className="h-2" />
+                      </div>
+                      <Link href={`/levels/${level}`} className="mt-2 inline-block">
+                        <Button>
+                          Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+              </div>
+            </div>
+          );
+        })}
       </div>
+    </div>
   );
+  
 
   const AccordionTriggerWithProgress = ({ icon, title, progress }: { icon: React.ElementType, title: string, progress: { count: number, total: number, percentage: number } }) => (
      <AccordionTrigger className="text-left bg-card/80 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/20">
@@ -339,5 +339,6 @@ const Icon = ({ icon: IconComponent }: { icon: React.ElementType }) => (
 );
 
     
+
 
 
