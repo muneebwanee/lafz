@@ -8,18 +8,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { provideContextualExamples } from '@/ai/flows/provide-contextual-examples';
-import type { ContextualExamplesInput, ContextualExamplesOutput } from '@/ai/flows/provide-contextual-examples';
-import { Loader2, Sparkles } from 'lucide-react';
+import { Sparkles, Volume2 } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Separator } from './ui/separator';
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
-  DialogClose,
 } from "@/components/ui/dialog"
 import { ScrollArea } from './ui/scroll-area';
 
@@ -31,32 +27,28 @@ interface WordCardProps {
 
 export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
     const [examples, setExamples] = useState<string[]>([]);
-    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [activeTab, setActiveTab] = useState<"english" | "urdu" | "hinglish">("english");
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
 
-    const handleGetExamples = async () => {
-        setIsLoading(true);
+    const handleGetExamples = () => {
         setError(null);
-        setExamples([]);
-        try {
-            const input: ContextualExamplesInput = {
-                word: word.word,
-                translationLanguage: activeTab,
-            };
-            const result: ContextualExamplesOutput = await provideContextualExamples(input);
-            setExamples(result.examples);
-            if (result.examples.length > 0) {
-              setIsDialogOpen(true);
-            } else {
-              setError("No examples found for this word.");
-            }
-        } catch (e) {
-            setError("Failed to fetch examples. Please try again.");
-            console.error(e);
+        if (word.examples && word.examples[activeTab] && word.examples[activeTab].length > 0) {
+            setExamples(word.examples[activeTab]);
+            setIsDialogOpen(true);
+        } else {
+            setError("No examples available for this word in the selected language.");
         }
-        setIsLoading(false);
+    };
+    
+    const handlePlayPronunciation = () => {
+        if (word.pronunciationUrl) {
+            setIsPlaying(true);
+            const audio = new Audio(word.pronunciationUrl);
+            audio.play();
+            audio.onended = () => setIsPlaying(false);
+        }
     };
 
     return (
@@ -66,7 +58,14 @@ export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
                     <div className="flex justify-between items-start">
                         <div className='flex-1'>
                             <CardTitle className="font-headline text-3xl mb-1">{word.word}</CardTitle>
-                            <CardDescription className="text-4xl text-right font-serif text-foreground/80">{word.arabic}</CardDescription>
+                            <div className="flex justify-between items-center">
+                                <CardDescription className="text-4xl text-right font-serif text-foreground/80">{word.arabic}</CardDescription>
+                                {word.pronunciationUrl && (
+                                    <Button onClick={handlePlayPronunciation} variant="ghost" size="icon" className="text-muted-foreground hover:text-primary" disabled={isPlaying}>
+                                        <Volume2 className={`h-6 w-6 ${isPlaying ? 'animate-pulse' : ''}`} />
+                                    </Button>
+                                )}
+                            </div>
                         </div>
                         <div className="flex items-center space-x-2 pl-4">
                             <Label htmlFor={`learned-${word.id}`} className="text-sm text-muted-foreground">Learned</Label>
@@ -91,10 +90,12 @@ export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
                     </div>
 
                     <div className="mt-6">
-                        <Button onClick={handleGetExamples} disabled={isLoading} variant="secondary" className="w-full">
-                            {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
-                            Show Examples
-                        </Button>
+                         {word.examples && (
+                            <Button onClick={handleGetExamples} variant="secondary" className="w-full">
+                                <Sparkles className="mr-2 h-4 w-4" />
+                                Show Examples
+                            </Button>
+                        )}
                     </div>
                 </CardContent>
             </Card>
