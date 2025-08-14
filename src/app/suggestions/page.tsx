@@ -4,14 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Github } from 'lucide-react';
+import { Github, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 export default function SuggestionsPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <AppHeader />
-      <main className="flex-1">
+      <main className="flex-1 mb-24">
         <div className="container py-12 md:py-16">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl font-headline">
@@ -41,6 +41,15 @@ export default function SuggestionsPage() {
           </div>
         </div>
       </main>
+      <Link href="/" passHref>
+        <Button
+            variant="outline"
+            className="fixed bottom-6 left-6 h-12 w-12 rounded-full shadow-lg z-50 p-0 flex items-center justify-center"
+            aria-label="Back to Home"
+        >
+            <ArrowLeft className="h-6 w-6" />
+        </Button>
+      </Link>
     </div>
   );
 }
