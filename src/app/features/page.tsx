@@ -1,7 +1,7 @@
 
 import { AppHeader } from '@/components/app-header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, ArrowLeft, AlertTriangle } from 'lucide-react';
+import { CheckCircle, ArrowLeft, AlertTriangle, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -27,6 +27,11 @@ export default function FeaturesPage() {
     {
         title: 'Community Suggestions',
         description: 'A dedicated page for users to suggest new features and improvements.',
+    },
+    {
+        title: 'Open Source & Contribution',
+        description: 'LAFZ is built by the community. Find out how you can contribute on our dedicated contribute page.',
+        icon: Heart,
     }
   ];
 
@@ -45,11 +50,13 @@ export default function FeaturesPage() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
+            {features.map((feature, index) => {
+              const Icon = feature.icon || CheckCircle;
+              return (
               <Card key={index} className="flex flex-col">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
-                    <CheckCircle className="h-6 w-6 text-primary" />
+                    <Icon className="h-6 w-6 text-primary" />
                     <span>{feature.title}</span>
                   </CardTitle>
                 </CardHeader>
@@ -62,7 +69,7 @@ export default function FeaturesPage() {
                    )}
                 </CardContent>
               </Card>
-            ))}
+            )})}
           </div>
 
            <div className="mt-16 max-w-3xl mx-auto">
