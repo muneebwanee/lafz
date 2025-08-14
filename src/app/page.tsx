@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenIcon, Zap, Gem, Layers } from 'lucide-react';
+import { ArrowRight, BookOpenIcon, Zap, Gem, Layers, AlertTriangle } from 'lucide-react';
 import type { Word } from '@/types';
 import {
   Accordion,
@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/accordion";
 import { Progress } from '@/components/ui/progress';
 import LightRays from '@/components/light-rays';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const STORAGE_KEY = 'quranic-lexica-learned-words';
 
@@ -220,7 +221,7 @@ export default function Home() {
                 />
               <AccordionContent className="pt-8">
                 <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl">
-                  Go deeper. Learn the ~1,800 unique word roots to unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words.
+                   Go deeper by learning the ~600 unique word roots. This will unlock a comprehensive understanding of the entire Quranic vocabulary and the rich connections between words. Mastering roots is the key to true fluency.
                 </p>
                  <JourneySection 
                   chapters={uniqueRootChapters}
@@ -235,9 +236,20 @@ export default function Home() {
                     progress={uniqueWordFormsProgress}
                 />
               <AccordionContent className="pt-8">
-                 <p className="text-md text-muted-foreground px-6 pb-8 max-w-2xl">
-                    For the dedicated learner. Explore every unique word form to achieve true mastery. This path is for those committed to the highest level of scholarship.
-                  </p>
+                 <div className="px-6 pb-8 max-w-3xl mx-auto space-y-6">
+                    <p className="text-md text-muted-foreground">
+                        For the dedicated learner. Explore every unique word form to achieve true mastery. This path is for those committed to the highest level of scholarship and wish to see how the root system blossoms into the full vocabulary of the Quran.
+                    </p>
+                    <Alert>
+                        <AlertTriangle className="h-4 w-4" />
+                        <AlertTitle>A Note on Learning Methodology</AlertTitle>
+                        <AlertDescription className="space-y-2 mt-2">
+                           <p>This category contains over 15,000 distinct Arabic words. Generating a list of this magnitude is not a practical tool for learning; it is a raw statistical database. No one learns a language by memorizing a 15,000-word dictionary. It would be counterproductive to your goal of understanding the Quran.</p>
+                           <p>The human mind learns through patterns, not brute-force memorization. The true path to understanding all 15,000+ forms is not by memorizing them individually, but by mastering the **629 roots (Category 2)** and their predictable patterns.</p>
+                           <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. The most effective way to engage with this concept is to see how hundreds of unique words are generated from just a handful of roots.</p>
+                        </AlertDescription>
+                    </Alert>
+                 </div>
                  <JourneySection 
                   chapters={uniqueWordFormChapters}
                 />
