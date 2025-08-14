@@ -7,7 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 
 export default function RootLayout({
@@ -16,6 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [loadingPage, setLoadingPage] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setLoadingPage(null);
+  }, [pathname]);
 
   return (
     <html lang="en" suppressHydrationWarning>
