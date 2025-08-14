@@ -32,7 +32,6 @@ export default function Home() {
       console.error("Failed to load learned words from localStorage", error);
     }
     
-    // Listen for storage changes from other tabs/windows
     const handleStorageChange = (e: StorageEvent) => {
         if (e.key === STORAGE_KEY && e.newValue) {
             setLearnedWords(JSON.parse(e.newValue));
@@ -61,7 +60,7 @@ export default function Home() {
     return Object.entries(chapters).map(([chapterName, words]) => ({
       name: chapterName,
       words: words,
-      level: words[0].level // Use the level of the first word for the link
+      level: words[0].level
     }));
   };
 
@@ -84,39 +83,37 @@ export default function Home() {
   const uniqueWordFormsProgress = useMemo(() => calculateProgress(uniqueWordForms), [uniqueWordForms, learnedWords]);
 
   const JourneySection = ({ chapters }: { chapters: { name: string, words: Word[], level: number }[] }) => (
-    <div className="relative max-w-2xl mx-auto">
-        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-primary/20 -translate-x-1/2"></div>
+    <div className="relative max-w-2xl mx-auto py-8">
+        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2"></div>
         
         <div className="space-y-12">
           {chapters.map(({ name, words, level }, index) => {
             const chapterProgress = calculateProgress(words);
+            const isEven = index % 2 === 0;
             return (
-              <div key={name} className="relative flex items-center">
+              <div key={name} className="relative flex items-center group">
                 <div className="absolute left-1/2 -translate-x-1/2 z-10">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground font-bold text-lg shadow-lg ring-4 ring-background transition-all duration-300 group-hover:scale-110">
                     {index + 1}
                   </div>
                 </div>
 
-                <Card className={`w-full transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
-                  <div className="flex items-center">
-                    <div className={`w-2 h-full bg-primary ${index % 2 === 0 ? 'rounded-l-lg' : 'rounded-r-lg order-2'}`}></div>
-                    <div className="p-6 flex-1">
-                      <h3 className="font-headline text-2xl font-semibold">{name}</h3>
-                      <p className="text-muted-foreground">{words.length} words</p>
-                      <div className="my-4">
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="text-xs font-semibold text-primary">Progress</span>
-                          <span className="text-xs font-semibold text-primary">{chapterProgress.count} / {chapterProgress.total}</span>
-                        </div>
-                        <Progress value={chapterProgress.percentage} className="h-2" />
+                <Card className={`w-full max-w-sm transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 ${isEven ? 'mr-auto' : 'ml-auto'}`}>
+                  <div className="p-6">
+                    <h3 className="font-headline text-2xl font-semibold text-foreground">{name}</h3>
+                    <p className="text-muted-foreground">{words.length} words</p>
+                    <div className="my-4">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-xs font-semibold text-primary">Progress</span>
+                        <span className="text-xs font-semibold text-primary">{chapterProgress.count} / {chapterProgress.total}</span>
                       </div>
-                      <Link href={`/levels/${level}`} className="mt-2 inline-block">
-                        <Button>
-                          Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
+                      <Progress value={chapterProgress.percentage} className="h-2" />
                     </div>
+                    <Link href={`/levels/${level}`} className="mt-2 inline-block">
+                      <Button variant="secondary">
+                        Begin Chapter <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               </div>
@@ -127,7 +124,7 @@ export default function Home() {
   );
 
   const AccordionTriggerWithProgress = ({ icon, title, description, progress }: { icon: React.ElementType, title: string, description: string, progress: { count: number, total: number, percentage: number } }) => (
-     <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1">
+     <AccordionTrigger className="text-left bg-card p-6 rounded-lg shadow-md hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 ease-in-out hover:no-underline hover:-translate-y-1 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/20">
         <div className='w-full'>
             <div className="flex items-center space-x-6">
                 <Icon icon={icon} />
@@ -154,8 +151,8 @@ export default function Home() {
   )
 
   return (
-    <div className="flex flex-col min-h-screen bg-secondary/20">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="flex flex-col min-h-screen bg-background">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
           <div className="mr-4 flex">
             <a className="mr-6 flex items-center space-x-2" href="/">
@@ -240,7 +237,7 @@ export default function Home() {
 }
 
 const Icon = ({ icon: IconComponent }: { icon: React.ElementType }) => (
-    <div className="flex items-center justify-center rounded-lg bg-primary/10 p-3 h-12 w-12 flex-shrink-0">
-        <IconComponent className="h-6 w-6 text-primary" />
+    <div className="flex items-center justify-center rounded-lg bg-primary/10 p-3 h-16 w-16 flex-shrink-0">
+        <IconComponent className="h-8 w-8 text-primary" />
     </div>
 );

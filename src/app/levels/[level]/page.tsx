@@ -55,15 +55,15 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
           <div className="mr-4 flex">
-            <a className="mr-6 flex items-center space-x-2" href="/">
+            <Link className="mr-6 flex items-center space-x-2" href="/">
               <BookOpenIcon className="h-6 w-6 text-primary" />
               <span className="font-bold font-headline text-lg">
                 Quranic Lexica
               </span>
-            </a>
+            </Link>
           </div>
           <div className="flex flex-1 items-center justify-end space-x-2">
             <ThemeToggle />
@@ -87,7 +87,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
             </div>
             <div className="mt-8 max-w-xl mx-auto">
                 <div className='flex items-center gap-4'>
-                    <Progress value={progressPercentage} className="w-full h-3" />
+                    <Progress value={progressPercentage} className="w-full h-3" variant="accent" />
                     <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">{learnedCount} / {levelWords.length}</span>
                 </div>
             </div>
@@ -116,8 +116,9 @@ export default function LevelPage({ params }: { params: { level: string } }) {
               ))}
             </div>
           ) : (
-            <div className="text-center text-muted-foreground">
-              No words found. Try a different search term.
+            <div className="text-center text-muted-foreground py-16">
+              <p>No words found for your search.</p>
+              <p className="text-sm">Try a different term or clear the search.</p>
             </div>
           )}
         </div>

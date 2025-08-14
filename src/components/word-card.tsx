@@ -45,7 +45,7 @@ export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
     };
 
     return (
-        <Card className={`flex flex-col h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1 ${isLearned ? 'bg-primary/5' : ''}`}>
+        <Card className={`flex flex-col h-full overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 ${isLearned ? 'bg-accent/10 border-accent/50' : 'bg-card'}`}>
             <CardHeader>
                 <div className="flex justify-between items-start">
                     <div className='flex-1'>
@@ -77,7 +77,7 @@ export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
                     
                     {examples.length > 0 && (
                         <div className="mt-4 space-y-2 text-sm">
-                           <h4 className="font-semibold font-headline">Contextual Examples:</h4>
+                           <h4 className="font-semibold font-headline text-foreground">Contextual Examples:</h4>
                            <ul className="list-decimal list-inside text-muted-foreground space-y-2">
                                {examples.map((ex, i) => <li key={i}><span className={activeTab === 'urdu' ? 'font-serif' : ''}>{ex}</span></li>)}
                            </ul>
@@ -86,7 +86,7 @@ export function WordCard({ word, isLearned, onLearnedChange }: WordCardProps) {
                 </div>
 
                 <div className="mt-6">
-                    <Button onClick={handleGetExamples} disabled={isLoading} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                    <Button onClick={handleGetExamples} disabled={isLoading} variant="secondary" className="w-full">
                         {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 h-4 w-4" />}
                         Show Examples
                     </Button>
