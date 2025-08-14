@@ -140,7 +140,7 @@ export default function Home() {
                       </CardHeader>
                       <CardContent>
                         <div className="my-4">
-                          <div className="flex justify-between items-center mb-1">
+                          <div className="flex justify-between items-center mb-1 flex-wrap gap-x-2">
                             <span className="text-xs font-semibold text-primary">Progress</span>
                             <span className="text-xs font-semibold text-primary">{chapterProgress.count} / {chapterProgress.total}</span>
                           </div>
