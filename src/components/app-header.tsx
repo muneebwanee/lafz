@@ -28,7 +28,7 @@ export function AppHeader() {
         <Link className="mr-6 flex items-center space-x-2" href="/">
           <BookOpenText className="h-6 w-6 text-primary" />
           <span className="font-bold font-headline text-lg">
-            Quranic Lexica
+            LAFZ
           </span>
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-2">

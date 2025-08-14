@@ -18,7 +18,7 @@ export default function SuggestionsPage() {
               Share Your Ideas
             </h1>
             <p className="mt-4 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto">
-              Have a suggestion or a feature request? We'd love to hear from you! Your feedback helps us make Quranic Lexica better for everyone.
+              Have a suggestion or a feature request? We'd love to hear from you! Your feedback helps us make LAFZ better for everyone.
             </p>
           </div>
 

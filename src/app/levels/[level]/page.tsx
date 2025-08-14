@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { AppHeader } from '@/components/app-header';
 
-const STORAGE_KEY = 'quranic-lexica-learned-words';
+const STORAGE_KEY = 'lafz-learned-words';
 
 export default function LevelPage({ params }: { params: { level: string } }) {
   const level = parseInt(params.level, 10);

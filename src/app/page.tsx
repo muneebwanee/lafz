@@ -21,7 +21,7 @@ import { Input } from '@/components/ui/input';
 import { WordCard } from '@/components/word-card';
 import { AppHeader } from '@/components/app-header';
 
-const STORAGE_KEY = 'quranic-lexica-learned-words';
+const STORAGE_KEY = 'lafz-learned-words';
 
 export default function Home() {
   const { theme } = useTheme();

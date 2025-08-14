@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <title>Quranic Lexica</title>
+        <title>LAFZ</title>
         <meta name="description" content="Learn the core words of the Quran" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -51,7 +51,7 @@ export default function RootLayout({
            <footer className="py-6 md:px-8 md:py-0 border-t bg-background/80 backdrop-blur-sm z-10">
             <div className="container flex flex-col items-center justify-between gap-4 h-24 md:flex-row">
               <p className="text-sm text-center text-muted-foreground">
-                © {new Date().getFullYear()} Quranic Lexica. Built with purpose.
+                © {new Date().getFullYear()} LAFZ. Built with purpose.
               </p>
               <div className="flex items-center gap-4 text-sm">
                 <Link href="/features" passHref>
