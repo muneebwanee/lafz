@@ -8,7 +8,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { words } from '@/data/words';
-import { ArrowRight, BookOpenIcon, Zap, Gem, Layers, AlertTriangle, Search, X } from 'lucide-react';
+import { ArrowRight, BookOpenText, Zap, Gem, Layers, AlertTriangle, Search, X } from 'lucide-react';
 import type { Word } from '@/types';
 import {
   Accordion,
@@ -225,14 +225,12 @@ export default function Home() {
 
       <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center">
-          <div className="mr-4 flex">
-            <a className="mr-6 flex items-center space-x-2" href="/">
-              <BookOpenIcon className="h-6 w-6 text-primary" />
-              <span className="font-bold font-headline text-lg">
-                Quranic Lexica
-              </span>
-            </a>
-          </div>
+          <a className="mr-6 flex items-center space-x-2" href="/">
+            <BookOpenText className="h-6 w-6 text-primary" />
+            <span className="font-bold font-headline text-lg">
+              Quranic Lexica
+            </span>
+          </a>
           <div className="flex flex-1 items-center justify-end space-x-2">
             <ThemeToggle />
           </div>
@@ -243,7 +241,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
                 <div className="p-4 bg-primary/10 rounded-full">
-                    <BookOpenIcon className="h-16 w-16 text-primary" />
+                    <BookOpenText className="h-16 w-16 text-primary" />
                 </div>
             </div>
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl font-headline">
@@ -321,7 +319,7 @@ export default function Home() {
                           <AlertTitle>A Note on Learning Methodology</AlertTitle>
                           <AlertDescription className="space-y-2 mt-2">
                              <p>This category contains over 15,000 distinct Arabic words. Generating a list of this magnitude is not a practical tool for learning; it is a raw statistical database. No one learns a language by memorizing a 15,000-word dictionary. It would be counterproductive to your goal of understanding the Quran.</p>
-                             <p>The human mind learns through patterns, not brute-force memorization. The true path to understanding all 15,000+ forms is not by memorizing them individually, but by mastering the **629 roots (Category 2)** and their predictable patterns.</p>
+                             <p>The human mind learns through patterns, not brute-force memorization. The true path to understanding all 15,000+ forms is not by memorizing them individually, but by mastering the **629 unique roots (Category 2)** and their predictable patterns.</p>
                              <p className="font-semibold text-foreground">This section is provided to demonstrate the richness of the language and to allow you to see the root system in action. The most effective way to engage with this concept is to see how hundreds of unique words are generated from just a handful of roots.</p>
                           </AlertDescription>
                       </Alert>

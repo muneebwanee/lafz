@@ -8,7 +8,7 @@ import type { Word } from '@/types';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { Search, BookOpenIcon, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Search, BookOpenText, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
@@ -61,7 +61,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
         <div className="container flex h-16 items-center">
           <div className="mr-4 flex">
             <Link className="mr-6 flex items-center space-x-2" href="/">
-              <BookOpenIcon className="h-6 w-6 text-primary" />
+              <BookOpenText className="h-6 w-6 text-primary" />
               <span className="font-bold font-headline text-lg">
                 Quranic Lexica
               </span>
