@@ -3,7 +3,6 @@
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTheme } from 'next-themes';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -20,6 +19,7 @@ import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Input } from '@/components/ui/input';
 import { WordCard } from '@/components/word-card';
+import { AppHeader } from '@/components/app-header';
 
 const STORAGE_KEY = 'quranic-lexica-learned-words';
 
@@ -209,19 +209,8 @@ export default function Home() {
     <div className="relative flex flex-col min-h-screen bg-background isolate">
        <div className="absolute inset-x-0 top-0 h-[50vh] bg-gradient-to-b from-primary/10 to-transparent -z-10"></div>
       
-      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center">
-          <a className="mr-6 flex items-center space-x-2" href="/">
-            <BookOpenText className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline text-lg">
-              Quranic Lexica
-            </span>
-          </a>
-          <div className="flex flex-1 items-center justify-end space-x-2">
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
+      <AppHeader />
+
       <main className="flex-1 z-10">
         <div className="container py-8 md:py-12">
           <div className="text-center mb-12">
@@ -342,3 +331,6 @@ const Icon = ({ icon: IconComponent }: { icon: React.ElementType }) => (
 
 
 
+
+
+    

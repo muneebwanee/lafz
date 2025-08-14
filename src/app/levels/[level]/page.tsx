@@ -5,12 +5,12 @@ import { useState, useMemo, useEffect } from 'react';
 import { WordCard } from '@/components/word-card';
 import { words } from '@/data/words';
 import type { Word } from '@/types';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { Search, BookOpenText, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Search, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { AppHeader } from '@/components/app-header';
 
 const STORAGE_KEY = 'quranic-lexica-learned-words';
 
@@ -57,21 +57,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center">
-          <div className="mr-4 flex">
-            <Link className="mr-6 flex items-center space-x-2" href="/">
-              <BookOpenText className="h-6 w-6 text-primary" />
-              <span className="font-bold font-headline text-lg">
-                Quranic Lexica
-              </span>
-            </Link>
-          </div>
-          <div className="flex flex-1 items-center justify-end space-x-2">
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
+      <AppHeader />
       <main className="flex-1">
         <div className="container py-8 md:py-12">
           <div className="mb-8">
@@ -152,3 +138,5 @@ export default function LevelPage({ params }: { params: { level: string } }) {
     </div>
   );
 }
+
+    
