@@ -16,13 +16,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [loadingPage, setLoadingPage] = useState<string | null>(null);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setLoadingPage(null);
-  }, [pathname]);
-
+  
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -54,32 +48,23 @@ export default function RootLayout({
                 © {new Date().getFullYear()} LAFZ. Built with purpose.
               </p>
               <div className="flex items-center gap-4 text-sm">
-                <Link href="/features" passHref>
-                  <Button
-                    variant="outline"
-                    loading={loadingPage === 'features'}
-                    onClick={() => setLoadingPage('features')}
-                  >
-                    Features
-                  </Button>
+                <Link
+                  href="/features"
+                  className={buttonVariants({ variant: 'outline' })}
+                >
+                  Features
                 </Link>
-                <Link href="/suggestions" passHref>
-                  <Button
-                    variant="outline"
-                    loading={loadingPage === 'suggestions'}
-                    onClick={() => setLoadingPage('suggestions')}
-                  >
-                    Suggestions
-                  </Button>
+                <Link
+                  href="/suggestions"
+                  className={buttonVariants({ variant: 'outline' })}
+                >
+                  Suggestions
                 </Link>
-                <Link href="/contribute" passHref>
-                  <Button
-                    variant="outline"
-                    loading={loadingPage === 'contribute'}
-                    onClick={() => setLoadingPage('contribute')}
-                  >
-                    Contribute
-                  </Button>
+                <Link
+                  href="/contribute"
+                  className={buttonVariants({ variant: 'outline' })}
+                >
+                  Contribute
                 </Link>
               </div>
             </div>
