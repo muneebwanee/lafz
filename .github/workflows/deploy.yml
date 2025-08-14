@@ -3,31 +3,33 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches:
-      - master
-
-permissions:
-  contents: write
+      - master  # Change this if your branch is named differently
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      # 1. Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      # 2. Set up Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 18
+          cache: 'npm'
 
+      # 3. Install dependencies
       - name: Install dependencies
         run: npm install
 
-      - name: Build & export static site
+      # 4. Build the static site
+      - name: Build Next.js site
         run: npm run export
 
-      - name: Disable Jekyll (needed for Next output)
-        run: touch out/.nojekyll
-
+      # 5. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
