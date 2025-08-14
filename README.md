@@ -104,9 +104,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 📬 Connect with me
 
 <div align="center">
-    <a href="https://muneeb.co" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/website-muneeb.co-blue?style=for-the-badge&logo=google-chrome" alt="Website Badge"/></a>
-    <a href="https://twitter.com/muneebwanee" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/twitter-@muneebwanee-blue?style=for-the-badge&logo=twitter" alt="Twitter Badge"/></a>
-    <a href="https://www.linkedin.com/in/muneebwanee" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/linkedin-muneebwanee-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn Badge"/></a>
+    <a href="https://muneb.eu.org" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/website-muneb.eu.org-blue?style=for-the-badge&logo=google-chrome" alt="Website Badge"/></a>
+    <a href="https://twitter.com/munebwani" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/twitter-@munebwani-blue?style=for-the-badge&logo=twitter" alt="Twitter Badge"/></a>
+    <a href="https://www.linkedin.com/in/muneb" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/linkedin-muneb-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn Badge"/></a>
     <a href="https://www.instagram.com/muneebwanee" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/instagram-@muneebwanee-purple?style=for-the-badge&logo=instagram" alt="Instagram Badge"/></a>
 </div>
 
