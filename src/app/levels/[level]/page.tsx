@@ -58,7 +58,7 @@ export default function LevelPage({ params }: { params: { level: string } }) {
   return (
     <div className="flex flex-col min-h-screen">
       <AppHeader />
-      <main className="flex-1">
+      <main className="flex-1 mb-24">
         <div className="container py-8 md:py-12">
           <div className="mb-8">
             <div className="text-center">
@@ -127,14 +127,6 @@ export default function LevelPage({ params }: { params: { level: string } }) {
             <ArrowLeft className="h-6 w-6" />
         </Button>
       </Link>
-      
-      <footer className="py-6 md:px-8 md:py-0 border-t bg-background">
-        <div className="container flex flex-col items-center justify-center gap-4 h-24 md:flex-row">
-          <p className="text-sm text-center text-muted-foreground">
-            © {new Date().getFullYear()} Quranic Lexica. Built with purpose.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

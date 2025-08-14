@@ -211,7 +211,7 @@ export default function Home() {
       
       <AppHeader />
 
-      <main className="flex-1 z-10">
+      <main className="flex-1 z-10 mb-24">
         <div className="container py-8 md:py-12">
           <div className="text-center mb-12">
             <div className="flex justify-center mb-6">
@@ -310,13 +310,6 @@ export default function Home() {
 
         </div>
       </main>
-      <footer className="py-6 md:px-8 md:py-0 border-t bg-background/80 backdrop-blur-sm z-10">
-        <div className="container flex flex-col items-center justify-center gap-4 h-24 md:flex-row">
-          <p className="text-sm text-center text-muted-foreground">
-            © {new Date().getFullYear()} Quranic Lexica. Built with purpose.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

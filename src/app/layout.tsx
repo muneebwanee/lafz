@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Quranic Lexica",
@@ -36,6 +38,21 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
+           <footer className="py-6 md:px-8 md:py-0 border-t bg-background/80 backdrop-blur-sm z-10">
+            <div className="container flex flex-col items-center justify-between gap-4 h-24 md:flex-row">
+              <p className="text-sm text-center text-muted-foreground">
+                © {new Date().getFullYear()} Quranic Lexica. Built with purpose.
+              </p>
+              <div className="flex items-center gap-6 text-sm">
+                <Link href="/features" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Features
+                </Link>
+                <Link href="/suggestions" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Suggestions
+                </Link>
+              </div>
+            </div>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
