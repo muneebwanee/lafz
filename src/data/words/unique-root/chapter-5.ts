@@ -4,7 +4,7 @@ import type { Word } from '@/types';
 export const uniqueRootsChapter5: Word[] = [
   { 
     id: 222, 
-    word: 'a-b-y (ء ب ي)', 
+    word: 'a-b-y', 
     arabic: 'ء ب ي', 
     meanings: { english: 'refusing, rejecting', urdu: 'انکار کرنا', hinglish: 'Inkaar karna' }, 
     level: 5, 
@@ -18,7 +18,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 223, 
-    word: 'a-t-y (ء ت ي)', 
+    word: 'a-t-y', 
     arabic: 'ء ت ي', 
     meanings: { english: 'coming, bringing', urdu: 'آنا، لانا', hinglish: 'Aana, laana' }, 
     level: 5, 
@@ -32,7 +32,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 224, 
-    word: 'a-th-r (ء ث ر)', 
+    word: 'a-th-r', 
     arabic: 'ء ث ر', 
     meanings: { english: 'trace, preferring', urdu: 'نشان، ترجیح دینا', hinglish: 'Nishaan, tarjeeh dena' }, 
     level: 5, 
@@ -46,7 +46,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 225, 
-    word: 'a-j-r (ء ج ر)', 
+    word: 'a-j-r', 
     arabic: 'ء ج ر', 
     meanings: { english: 'reward', urdu: 'اجر', hinglish: 'Ajr' }, 
     level: 5, 
@@ -60,7 +60,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 226, 
-    word: 'a-j-l (ء ج ل)', 
+    word: 'a-j-l', 
     arabic: 'ء ج ل', 
     meanings: { english: 'term, appointed time', urdu: 'مدت، مقررہ وقت', hinglish: 'Muddat, muqarrar waqt' }, 
     level: 5, 
@@ -74,7 +74,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 227, 
-    word: 'a-kh-dh (ء خ ذ)', 
+    word: 'a-kh-dh', 
     arabic: 'ء خ ذ', 
     meanings: { english: 'taking', urdu: 'لینا', hinglish: 'Lena' }, 
     level: 5, 
@@ -88,7 +88,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 228, 
-    word: 'a-kh-r (ء خ ر)', 
+    word: 'a-kh-r', 
     arabic: 'ء خ ر', 
     meanings: { english: 'delaying, last', urdu: 'تاخیر کرنا، آخری', hinglish: 'Takheer karna, aakhri' }, 
     level: 5, 
@@ -102,7 +102,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 229, 
-    word: 'a-d-y (ء د ي)', 
+    word: 'a-d-y', 
     arabic: 'ء د ي', 
     meanings: { english: 'performing, paying', urdu: 'ادا کرنا', hinglish: 'Ada karna' }, 
     level: 5, 
@@ -116,7 +116,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 230, 
-    word: 'a-dh-n (ء ذ ن)', 
+    word: 'a-dh-n', 
     arabic: 'ء ذ ن', 
     meanings: { english: 'permission, ear', urdu: 'اجازت، کان', hinglish: 'Ijazat, kaan' }, 
     level: 5, 
@@ -130,7 +130,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 231, 
-    word: 'a-r-ḍ (ء ر ض)', 
+    word: 'a-r-ḍ', 
     arabic: 'ء ر ض', 
     meanings: { english: 'earth', urdu: 'زمین', hinglish: 'Zameen' }, 
     level: 5, 
@@ -144,7 +144,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 232, 
-    word: 'a-f-k (ء ف ك)', 
+    word: 'a-f-k', 
     arabic: 'ء ف ك', 
     meanings: { english: 'lie, falsehood', urdu: 'جھوٹ', hinglish: 'Jhoot' }, 
     level: 5, 
@@ -158,7 +158,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 233, 
-    word: 'a-k-l (ء ك ل)', 
+    word: 'a-k-l', 
     arabic: 'ء ك ل', 
     meanings: { english: 'eating', urdu: 'کھانا', hinglish: 'Khana' }, 
     level: 5, 
@@ -172,7 +172,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 234, 
-    word: 'a-l-f (ء ل ف)', 
+    word: 'a-l-f', 
     arabic: 'ء ل ف', 
     meanings: { english: 'joining, ألف', urdu: 'جوڑنا، ألف', hinglish: 'Jodna, alf' }, 
     level: 5, 
@@ -186,7 +186,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 235, 
-    word: 'a-l-m (ء ل م)', 
+    word: 'a-l-m', 
     arabic: 'ء ل م', 
     meanings: { english: 'pain', urdu: 'درد', hinglish: 'Dard' }, 
     level: 5, 
@@ -200,7 +200,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 236, 
-    word: 'a-l-h (ء ل ه)', 
+    word: 'a-l-h', 
     arabic: 'ء ل ه', 
     meanings: { english: 'god, deity', urdu: 'الہ، معبود', hinglish: 'Ilah, mabood' }, 
     level: 5, 
@@ -214,7 +214,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 237, 
-    word: 'a-m-r (ء م ر)', 
+    word: 'a-m-r', 
     arabic: 'ء م ر', 
     meanings: { english: 'commanding, matter', urdu: 'حکم دینا، معاملہ', hinglish: 'Hukm dena, maamla' }, 
     level: 5, 
@@ -228,7 +228,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 238, 
-    word: 'a-m-n (ء م ن)', 
+    word: 'a-m-n', 
     arabic: 'ء م ن', 
     meanings: { english: 'believing, security', urdu: 'ایمان لانا، امن', hinglish: 'Imaan lana, aman' }, 
     level: 5, 
@@ -242,7 +242,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 239, 
-    word: 'a-n-s (ء ن س)', 
+    word: 'a-n-s', 
     arabic: 'ء ن س', 
     meanings: { english: 'mankind, seeing', urdu: 'انسان، دیکھنا', hinglish: 'Insaan, dekhna' }, 
     level: 5, 
@@ -256,7 +256,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 240, 
-    word: 'a-h-l (ء ه ل)', 
+    word: 'a-h-l', 
     arabic: 'ء ه ل', 
     meanings: { english: 'people, family', urdu: 'لوگ، خاندان', hinglish: 'Log, khandaan' }, 
     level: 5, 
@@ -270,7 +270,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 241, 
-    word: 'a-w-b (ء و ب)', 
+    word: 'a-w-b', 
     arabic: 'ء و ب', 
     meanings: { english: 'returning', urdu: 'لوٹنا', hinglish: 'Lautna' }, 
     level: 5, 
@@ -284,7 +284,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 242, 
-    word: 'a-w-l (ء و ل)', 
+    word: 'a-w-l', 
     arabic: 'ء و ل', 
     meanings: { english: 'first, to interpret', urdu: 'پہلا، تعبیر کرنا', hinglish: 'Pehla, taabeer karna' }, 
     level: 5, 
@@ -298,7 +298,7 @@ export const uniqueRootsChapter5: Word[] = [
   },
   { 
     id: 243, 
-    word: 'a-y-d (ء ي د)', 
+    word: 'a-y-d', 
     arabic: 'ء ي د', 
     meanings: { english: 'strengthening', urdu: 'مضبوط کرنا', hinglish: 'Mazboot karna' }, 
     level: 5, 
