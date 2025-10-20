@@ -13,7 +13,7 @@
 </div>
 
 <p align="center">
-  <a href="https://muneebwanee.github.io/lafz/"><strong>Explore the App »</strong></a>
+  <a href="https://muneebwanee.github.io/lafz/](https://lafz-493.pages.dev/"><strong>Explore the App »</strong></a>
   <br />
   <br />
   <a href="https://github.com/muneebwanee/lafz/issues">Report Bug</a>
